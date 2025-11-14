@@ -1,58 +1,80 @@
+// CONFIG
+const ROWS_PER_PAGE = 50;
+let allLines = [];
+let header = [];
+let currentPage = 1;
+
 async function loadFullTable() {
-    const response = await fetch("../data/cyber_incidents.csv");
-    const text = await response.text();
+    const container = document.getElementById("all-data-table");
+    container.innerHTML = "Lade Daten…";
 
-    const lines = text.split("\n").filter(l => l.trim().length > 0);
-    const header = parseCSVLine(lines[0]);
+    try {
+        // CSV laden (GitHub Pages safe)
+        const response = await fetch("../data/cyber_incidents.csv");
+        const text = await response.text();
 
-    const rows = [];
-    for (let i = 1; i < lines.length; i++) {
-        rows.push(parseCSVLine(lines[i]));
+        // ⚠️ NICHT PARSEN! Nur splitten.
+        allLines = text.split("\n").filter(l => l.trim().length > 0);
+
+        // Header parsen
+        header = parseCSVLine(allLines[0]);
+
+        renderPage(1);
+
+    } catch (err) {
+        container.innerHTML = `<p style="color:red">Fehler beim Laden: ${err}</p>`;
     }
+}
 
-    const pageSize = 50; 
-    let currentPage = 1;
+
+// -------------------- PAGINATION --------------------
+
+function renderPage(page) {
+    currentPage = page;
 
     const container = document.getElementById("all-data-table");
 
-    function renderPage(page) {
-        currentPage = page;
+    // Range der Zeilen berechnen
+    const start = 1 + (page - 1) * ROWS_PER_PAGE;
+    const end = Math.min(start + ROWS_PER_PAGE, allLines.length);
 
-        const startIndex = (page - 1) * pageSize;
-        const endIndex = startIndex + pageSize;
+    // Tabelle beginnen
+    let html = `
+        <div class="table-wrapper">
+        <table class="datatable">
+            <thead><tr>
+    `;
 
-        const pageRows = rows.slice(startIndex, endIndex);
+    // Header
+    for (let h of header) html += `<th>${h}</th>`;
+    html += `</tr></thead><tbody>`;
 
-        let html = "<div class='table-wrapper'><table class='datatable'><thead><tr>";
-
-        for (let col of header) html += `<th>${col}</th>`;
-        html += "</tr></thead><tbody>";
-
-        for (let row of pageRows) {
-            html += "<tr>";
-            for (let col of row) html += `<td>${col}</td>`;
-            html += "</tr>";
-        }
-
-        html += "</tbody></table></div>";
-
-        // Pagination controls
-        html += `<div class="pagination">`;
-
-        const totalPages = Math.ceil(rows.length / pageSize);
-
-        for (let p = 1; p <= totalPages; p++) {
-            html += `<button class="page-btn ${p === currentPage ? "active" : ""}" onclick="loadPage(${p})">${p}</button>`;
-        }
-
-        html += `</div>`;
-
-        container.innerHTML = html;
+    // Nur 50 Zeilen parsen
+    for (let i = start; i < end; i++) {
+        const cols = parseCSVLine(allLines[i]);
+        html += "<tr>";
+        for (let c of cols) html += `<td>${c}</td>`;
+        html += "</tr>";
     }
 
-    window.loadPage = renderPage;
-    renderPage(1);
+    html += "</tbody></table></div>";
+
+    // Pagination buttons
+    const totalPages = Math.ceil((allLines.length - 1) / ROWS_PER_PAGE);
+
+    html += `
+        <div class="pagination" style="margin-top: 20px; text-align: center;">
+            ${page > 1 ? `<button onclick="renderPage(${page - 1})">← Zurück</button>` : ""}
+            <span style="margin:0 15px; color:#ccc;">Seite ${page} / ${totalPages}</span>
+            ${page < totalPages ? `<button onclick="renderPage(${page + 1})">Weiter →</button>` : ""}
+        </div>
+    `;
+
+    container.innerHTML = html;
 }
+
+
+// -------------------- CSV Parser --------------------
 
 function parseCSVLine(line) {
     const result = [];
@@ -69,8 +91,10 @@ function parseCSVLine(line) {
             current += c;
         }
     }
+
     result.push(current);
     return result;
 }
 
+// Start
 loadFullTable();
