@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alle Cyber-Incidents – Gesamttabelle</title>
+<link rel="stylesheet" href="../styles.css">
+
+<style>
+    /* Falls styles.css noch nicht perfekt passt */
+    #full-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        margin-top: 30px;
+        background: #181818;
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid #333;
+    }
+
+    table {
+        border-collapse: collapse;
+        font-size: 1rem;
+        color: #eee;
+        width: max-content;  /* dynamische Spaltenbreiten */
+    }
+
+    th, td {
+        padding: 8px 10px;
+        border: 1px solid rgba(255,255,255,0.2);
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    th {
+        background: #222;
+    }
+
+    tr:nth-child(even) {
+        background: #202020;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="header-wrapper">
+    <h1 class="pagetitle">📊 Gesamte Cyber Incident Tabelle</h1>
+    <div class="topnav">
+        <a href="../index.html">Home</a>
+        <a class="active" href="fulltable.html">Gesamttabelle</a>
+    </div>
+</div>
+
+<div id="full-table-wrapper">
+    <div id="all-data-table">Lade Daten…</div>
+</div>
+
+<script>
+async function loadFullTable() {
+    const response = await fetch("../data/cyber_incidents.csv");
+    const text = await response.text();
+
+    const lines = text.split("\n").filter(l => l.trim().length > 0);
+    const headers = parseCSVLine(lines[0]);
+
+    let html = "<table><thead><tr>";
+
+    // Header
+    for (let h of headers) {
+        html += `<th>${h}</th>`;
+    }
+    html += "</tr></thead><tbody>";
+
+    // Rows
+    for (let i = 1; i < lines.length; i++) {
+        const cols = parseCSVLine(lines[i]);
+        html += "<tr>";
+        for (let c of cols) {
+            html += `<td>${c}</td>`;
+        }
+        html += "</tr>";
+    }
+
+    html += "</tbody></table>";
+
+    document.getElementById("all-data-table").innerHTML = html;
+}
+
+// CSV parser — derselbe wie bisher
+function parseCSVLine(line) {
+    const result = [];
+    let current = "";
+    let inside = false;
+
+    for (let c of line) {
+        if (c === '"') inside = !inside;
+        else if (c === "," && !inside) {
+            result.push(current);
+            current = "";
+        } else current += c;
+    }
+
+    result.push(current);
+    return result;
+}
+
+loadFullTable();
+</script>
+
+</body>
+</html>
