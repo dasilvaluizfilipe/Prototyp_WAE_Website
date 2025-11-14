@@ -10,7 +10,7 @@ async function loadFullTable() {
 
     try {
         // CSV laden (GitHub Pages safe)
-        const response = await fetch("./data/cyber_incidents.csv");
+        const response = await fetch("../data/cyber_incidents.csv");
         const text = await response.text();
 
         // ⚠️ NICHT PARSEN! Nur splitten.
