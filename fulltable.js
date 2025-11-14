@@ -1,83 +1,74 @@
 async function loadFullTable() {
-    const tableContainer = document.getElementById("all-data-table");
+    const response = await fetch("../data/cyber_incidents.csv");
+    const text = await response.text();
 
-    try {
-        console.log("🔍 Lade CSV aus:", "./data/cyber_incidents.csv");
+    const lines = text.split("\n").filter(l => l.trim().length > 0);
+    const header = parseCSVLine(lines[0]);
 
-        const response = await fetch("./data/cyber_incidents.csv");
+    const rows = [];
+    for (let i = 1; i < lines.length; i++) {
+        rows.push(parseCSVLine(lines[i]));
+    }
 
-        console.log("HTTP Status:", response.status, response.statusText);
+    const pageSize = 50; 
+    let currentPage = 1;
 
-        if (!response.ok) {
-            tableContainer.innerHTML = `<p style="color:#f88;">CSV konnte nicht geladen werden (HTTP ${response.status}).</p>`;
-            return;
-        }
+    const container = document.getElementById("all-data-table");
 
-        const text = await response.text();
-        console.log("📄 CSV Länge:", text.length);
+    function renderPage(page) {
+        currentPage = page;
 
-        const lines = text
-            .split("\n")
-            .map(l => l.trim())
-            .filter(l => l.length > 0);
+        const startIndex = (page - 1) * pageSize;
+        const endIndex = startIndex + pageSize;
 
-        console.log("📌 Anzahl Zeilen:", lines.length);
+        const pageRows = rows.slice(startIndex, endIndex);
 
-        if (lines.length === 0) {
-            tableContainer.innerHTML = `<p style="color:#ccc;">CSV ist leer.</p>`;
-            return;
-        }
+        let html = "<div class='table-wrapper'><table class='datatable'><thead><tr>";
 
-        const header = parseCSVLine(lines[0]);
-        console.log("🟥 Header:", header);
-
-        let html = "<table class='datatable'><thead><tr>";
-        for (let h of header) html += `<th>${h}</th>`;
+        for (let col of header) html += `<th>${col}</th>`;
         html += "</tr></thead><tbody>";
 
-        for (let i = 1; i < lines.length; i++) {
-            const cols = parseCSVLine(lines[i]);
-
-            if (!cols || cols.length === 0) {
-                console.warn("⚠ Leere Zeile bei i=", i, ":", lines[i]);
-                continue;
-            }
-
+        for (let row of pageRows) {
             html += "<tr>";
-            for (let c of cols) html += `<td>${c}</td>`;
+            for (let col of row) html += `<td>${col}</td>`;
             html += "</tr>";
         }
 
-        html += "</tbody></table>";
-        tableContainer.innerHTML = html;
+        html += "</tbody></table></div>";
 
-    } catch (err) {
-        console.error("🔥 Fehler in loadFullTable():", err);
-        tableContainer.innerHTML = `<p style="color:#f88;">Interner Fehler beim Laden der Tabelle.</p>`;
+        // Pagination controls
+        html += `<div class="pagination">`;
+
+        const totalPages = Math.ceil(rows.length / pageSize);
+
+        for (let p = 1; p <= totalPages; p++) {
+            html += `<button class="page-btn ${p === currentPage ? "active" : ""}" onclick="loadPage(${p})">${p}</button>`;
+        }
+
+        html += `</div>`;
+
+        container.innerHTML = html;
     }
+
+    window.loadPage = renderPage;
+    renderPage(1);
 }
 
-
 function parseCSVLine(line) {
-    if (!line) {
-        console.error("❌ parseCSVLine bekam eine leere Zeile!");
-        return [];
-    }
-
     const result = [];
     let current = "";
     let insideQuotes = false;
 
     for (let c of line) {
-        if (c === '"') insideQuotes = !insideQuotes;
-        else if (c === "," && !insideQuotes) {
+        if (c === '"') {
+            insideQuotes = !insideQuotes;
+        } else if (c === "," && !insideQuotes) {
             result.push(current);
             current = "";
         } else {
             current += c;
         }
     }
-
     result.push(current);
     return result;
 }
