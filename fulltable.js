@@ -9,7 +9,7 @@ async function loadFullTable() {
 
     try {
         // WICHTIG: absoluter Pfad für GitHub Pages!!
-        const response = await fetch("../data/cyber_incidents.csv");
+        const response = await fetch("/Prototyp_WAE_Website/data/cyber_incidents.csv");
         const text = await response.text();
 
         allLines = text.split("\n").filter(l => l.trim().length > 0);
