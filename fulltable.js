@@ -2,9 +2,9 @@ async function loadFullTable() {
     const tableContainer = document.getElementById("all-data-table");
 
     try {
-        console.log("🔍 Lade CSV aus:", "../data/cyber_incidents.csv");
+        console.log("🔍 Lade CSV aus:", "./data/cyber_incidents.csv");
 
-        const response = await fetch("../data/cyber_incidents.csv");
+        const response = await fetch("./data/cyber_incidents.csv");
 
         console.log("HTTP Status:", response.status, response.statusText);
 
