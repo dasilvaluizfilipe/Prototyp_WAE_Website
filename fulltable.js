@@ -1,4 +1,3 @@
-// CONFIG
 const ROWS_PER_PAGE = 50;
 let allLines = [];
 let header = [];
@@ -9,47 +8,36 @@ async function loadFullTable() {
     container.innerHTML = "Lade Daten…";
 
     try {
-        // CSV laden (GitHub Pages safe)
-        const response = await fetch("../data/cyber_incidents.csv");
+        // WICHTIG: absoluter Pfad für GitHub Pages!!
+        const response = await fetch("/Prototyp_WAE_Website/data/cyber_incidents.csv");
         const text = await response.text();
 
-        // ⚠️ NICHT PARSEN! Nur splitten.
         allLines = text.split("\n").filter(l => l.trim().length > 0);
-
-        // Header parsen
         header = parseCSVLine(allLines[0]);
 
         renderPage(1);
 
     } catch (err) {
-        container.innerHTML = `<p style="color:red">Fehler beim Laden: ${err}</p>`;
+        container.innerHTML = `<p style="color:red">Fehler beim Laden der CSV: ${err}</p>`;
     }
 }
-
-
-// -------------------- PAGINATION --------------------
 
 function renderPage(page) {
     currentPage = page;
 
     const container = document.getElementById("all-data-table");
-
-    // Range der Zeilen berechnen
     const start = 1 + (page - 1) * ROWS_PER_PAGE;
     const end = Math.min(start + ROWS_PER_PAGE, allLines.length);
 
-    // Tabelle beginnen
     let html = `
         <div class="table-wrapper">
         <table class="datatable">
             <thead><tr>
     `;
 
-    // Header
     for (let h of header) html += `<th>${h}</th>`;
     html += `</tr></thead><tbody>`;
 
-    // Nur 50 Zeilen parsen
     for (let i = start; i < end; i++) {
         const cols = parseCSVLine(allLines[i]);
         html += "<tr>";
@@ -59,7 +47,6 @@ function renderPage(page) {
 
     html += "</tbody></table></div>";
 
-    // Pagination buttons
     const totalPages = Math.ceil((allLines.length - 1) / ROWS_PER_PAGE);
 
     html += `
@@ -73,28 +60,21 @@ function renderPage(page) {
     container.innerHTML = html;
 }
 
-
-// -------------------- CSV Parser --------------------
-
 function parseCSVLine(line) {
     const result = [];
     let current = "";
     let insideQuotes = false;
 
     for (let c of line) {
-        if (c === '"') {
-            insideQuotes = !insideQuotes;
-        } else if (c === "," && !insideQuotes) {
+        if (c === '"') insideQuotes = !insideQuotes;
+        else if (c === "," && !insideQuotes) {
             result.push(current);
             current = "";
-        } else {
-            current += c;
-        }
+        } else current += c;
     }
 
     result.push(current);
     return result;
 }
 
-// Start
 loadFullTable();
