@@ -1,0 +1,165 @@
+/* ========== GLOBAL FONT SCALING ========== */
+html {
+    font-size: 20px;  /* vorher ~16px → jetzt alles deutlich größer */
+}
+
+body {
+    margin: 0;
+    background: #111;
+    font-family: Arial, sans-serif;
+    color: #eee;
+    line-height: 1.6;
+}
+
+/* ========== PAGE WRAPPER ========== */
+.page-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+#map-container svg path {
+    transition: fill 0.15s ease;
+}
+
+#map-container svg path:hover {
+    fill: #ff6666 !important;
+    stroke: #fff !important;
+    stroke-width: 1.2px;
+    cursor: pointer;
+}
+
+
+/* ========== HEADER & NAVIGATION ========== */
+.header-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pagetitle {
+    font-size: 2.2rem;   /* vorher 2rem → größer */
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Navigation */
+.topnav {
+    
+  
+    font-size: 1.2rem;
+}
+
+/* Links */
+.topnav a {
+    color: #ccc;
+    padding: 8px 6px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* moderner Hover-Underline */
+.topnav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 0;
+    background: #d40000;
+    transition: width 0.25s ease;
+}
+
+/* Hover */
+.topnav a:hover {
+    color: #fff;
+}
+
+.topnav a:hover::after {
+    width: 100%;
+}
+
+/* Active */
+.topnav a.active {
+    color: #ff4444;
+}
+
+.topnav a.active::after {
+    width: 100%;
+    background: #ff4444;
+}
+
+
+/* ========== CONTENT BLOCKS ========== */
+.content-block {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 1.8rem;   /* größer */
+    margin-bottom: 15px;
+}
+
+p, li {
+    font-size: 1.1rem;   /* größerer Fließtext */
+}
+
+/* ========== TABLE WRAPPER ========== */
+.table-wrapper {
+    width: 100%;
+    overflow-x: visible;
+    background: #181818;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    padding: 0;
+    margin-top: 0;
+}
+
+/* ========== TABELLE ========== */
+.datatable {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    font-size: 1.0rem;  /* vorher kleiner → jetzt größer */
+    color: #eee;
+}
+
+/* Tabellen-Header */
+.datatable th {
+    width: fit-content;
+    background: #222;
+    border-bottom: 2px solid #444;
+    padding: 12px;
+    white-space: normal;
+    text-align: middle;
+    font-size: 1.05rem;
+}
+
+/* Tabellen-Zellen */
+.datatable td {
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    word-break: break-word;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.0rem;
+}
+
+/* Zebra-Linien */
+.datatable tr:nth-child(even) {
+    background: #202020;
+}
+
+.map-wrapper {
+    width: auto;
+    overflow-x: visible;
+    background: #181818;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    padding: 0;
+    margin-top: 0;
+    text-align: center;
+}
