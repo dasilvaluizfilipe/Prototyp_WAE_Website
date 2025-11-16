@@ -66,6 +66,85 @@ async function loadCountryData(countryName) {
         return;
     }
 
+        // -------------------------------------------
+    // CSV-Bereinigung + Datumssortierung (Variante C)
+    // -------------------------------------------
+
+    // Entfernt Nullbytes, doppelte Spaces usw.
+    function cleanRow(row) {
+        return row.map(col =>
+            col.trim()
+               .replace(/\u0000/g, '')
+               .replace(/\s+/g, ' ')
+        );
+    }
+
+    // Versucht, mehrere Datumsformate zu erkennen
+    function normalizeDate(dateStr) {
+        if (!dateStr || dateStr.trim() === "") return null;
+
+        const cleaned = dateStr.trim().replace(/\u0000/g, "");
+
+        // 1) Standard ISO (YYYY-MM-DD)
+        let d = new Date(cleaned);
+        if (!isNaN(d)) return d;
+
+        // 2) Fallback-Patterns
+        const patterns = [
+            /(\d{2})\/(\d{2})\/(\d{4})/,      // DD/MM/YYYY
+            /(\d{2})-(\d{2})-(\d{4})/,        // DD-MM-YYYY
+            /(\d{4})\.(\d{2})\.(\d{2})/,      // YYYY.MM.DD
+            /(\d{4})\/(\d{2})\/(\d{2})/       // YYYY/MM/DD
+        ];
+
+        for (const p of patterns) {
+            const m = cleaned.match(p);
+            if (m) {
+                return new Date(`${m[3]}-${m[2]}-${m[1]}`);
+            }
+        }
+
+        return null;
+    }
+
+    // Priorität: start_date → end_date fallback
+    function extractRelevantDate(row, startIndex, endIndex) {
+        const startD = normalizeDate(row[startIndex]);
+        if (startD) return startD;
+
+        const endD = normalizeDate(row[endIndex]);
+        if (endD) return endD;
+
+        return null;
+    }
+
+    // Sortierung nach Datum (neueste zuerst)
+    function sortByIncidentDate(rows, startIndex, endIndex) {
+        rows.sort((a, b) => {
+            const da = extractRelevantDate(a, startIndex, endIndex);
+            const db = extractRelevantDate(b, startIndex, endIndex);
+
+            if (!da && !db) return 0;
+            if (!da) return 1;
+            if (!db) return -1;
+
+            return db - da; // Neueste oben
+        });
+    }
+
+    // -------------------
+    // CSV-Bereinigung vor Sortierung
+    // -------------------
+    rows = rows.map(cleanRow);
+
+    // Spaltenindices für Datumsfelder
+    const startIndex = header.indexOf("start_date");
+    const endIndex   = header.indexOf("end_date");
+
+    // Sortieren nach wichtigstem Incident-Datum
+    sortByIncidentDate(rows, startIndex, endIndex);
+
+
     // -----------------------------
     // Tabelle generieren
     // -----------------------------

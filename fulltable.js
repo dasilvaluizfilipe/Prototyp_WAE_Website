@@ -15,6 +15,84 @@ async function loadFullTable() {
         allLines = text.split("\n").filter(l => l.trim().length > 0);
         header = parseCSVLine(allLines[0]);
 
+                // -----------------------------------------
+        // CSV-Bereinigung + Datumssortierung (Variante C)
+        // -----------------------------------------
+
+        function cleanRow(row) {
+            return row.map(col =>
+                col.trim()
+                   .replace(/\u0000/g, '')
+                   .replace(/\s+/g, ' ')
+            );
+        }
+
+        function normalizeDate(dateStr) {
+            if (!dateStr || dateStr.trim() === "") return null;
+
+            const cleaned = dateStr.trim().replace(/\u0000/g, "");
+
+            // ISO first
+            let d = new Date(cleaned);
+            if (!isNaN(d)) return d;
+
+            // fallback patterns
+            const patterns = [
+                /(\d{2})\/(\d{2})\/(\d{4})/,      // DD/MM/YYYY
+                /(\d{2})-(\d{2})-(\d{4})/,        // DD-MM-YYYY
+                /(\d{4})\.(\d{2})\.(\d{2})/,      // YYYY.MM.DD
+                /(\d{4})\/(\d{2})\/(\d{2})/       // YYYY/MM/DD
+            ];
+
+            for (const p of patterns) {
+                const m = cleaned.match(p);
+                if (m) {
+                    return new Date(`${m[3]}-${m[2]}-${m[1]}`);
+                }
+            }
+
+            return null;
+        }
+
+        function extractRelevantDate(cols, startIndex, endIndex) {
+            const startD = normalizeDate(cols[startIndex]);
+            if (startD) return startD;
+
+            const endD = normalizeDate(cols[endIndex]);
+            if (endD) return endD;
+
+            return null;
+        }
+
+        function sortByIncidentDate(lines, header) {
+            const startIndex = header.indexOf("start_date");
+            const endIndex   = header.indexOf("end_date");
+
+            // Headline bleibt oben → nur Zeilen 1…N sortieren
+            const bodyLines = lines.slice(1);
+
+            bodyLines.sort((lineA, lineB) => {
+                const colsA = cleanRow(parseCSVLine(lineA));
+                const colsB = cleanRow(parseCSVLine(lineB));
+
+                const da = extractRelevantDate(colsA, startIndex, endIndex);
+                const db = extractRelevantDate(colsB, startIndex, endIndex);
+
+                if (!da && !db) return 0;
+                if (!da) return 1;
+                if (!db) return -1;
+
+                return db - da; // neueste zuerst
+            });
+
+            // neue Reihenfolge zurückschreiben
+            return [lines[0], ...bodyLines];
+        }
+
+        // Jetzt: globale CSV sortieren
+        allLines = sortByIncidentDate(allLines, header);
+
+
         renderPage(1);
 
     } catch (err) {
