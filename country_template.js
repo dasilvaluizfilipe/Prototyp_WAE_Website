@@ -7,17 +7,9 @@ function getCountryCode() {
 }
 
 // ============================================================================
-// Minimal: Seite aufbauen und loadCountryData() aufrufen
+// Initialisiert die Seite (Titel, Beschreibung, Navigation)
 // ============================================================================
-function initCountryPage() {
-
-    const country = getCountryCode();
-
-    if (!country) {
-        document.getElementById("country-data").innerHTML =
-            "<p style='color:red'>Kein ?code= Parameter gefunden.</p>";
-        return;
-    }
+function setupCountryPage(country) {
 
     // Titel setzen
     document.getElementById("country-title").innerText =
@@ -29,14 +21,49 @@ function initCountryPage() {
 
     // Navigation
     document.getElementById("country-link").innerText = country;
-
-    // 🔥 Tabelle laden (GANZE LOGIK IN loadCountryData.js)
-    if (typeof loadCountryData === "function") {
-        loadCountryData(country);
-    } else {
-        console.error("loadCountryData() nicht gefunden");
-    }
 }
 
+
+// ============================================================================
+// WARTET, bis loadCountryData() verfügbar ist (Race-Condition-Fix)
+// ============================================================================
+function waitForCountryLoader(country) {
+
+    if (typeof window.loadCountryData === "function") {
+        console.log("loadCountryData gefunden – Lade Tabelle...");
+        window.loadCountryData(country);
+        return;
+    }
+
+    console.log("Warte auf loadCountryData...");
+    setTimeout(() => waitForCountryLoader(country), 50);
+}
+
+
+// ============================================================================
+// Hauptstart-Funktion
+// ============================================================================
+function initCountryPage() {
+
+    console.log("country_template.js: START");
+
+    const country = getCountryCode();
+
+    if (!country) {
+        document.getElementById("country-data").innerHTML =
+            "<p style='color:red'>Kein ?code= Parameter gefunden.</p>";
+        return;
+    }
+
+    // Seite vorbereiten
+    setupCountryPage(country);
+
+    // Warten, bis loadCountryData vorhanden ist → dann starten
+    waitForCountryLoader(country);
+}
+
+
+// ============================================================================
 // START
+// ============================================================================
 initCountryPage();
