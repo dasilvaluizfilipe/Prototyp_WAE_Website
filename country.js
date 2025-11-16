@@ -33,7 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("📌 Klick in country.js:", base, "→", safeName);
 
-        window.location.href = `../templates/country_template.html?code=${safeName}`;
+    window.location.href = `${window.location.origin}/Prototyp_WAE_Website/templates/country_template.html?code=${safeName}`;
+
     });
 });
     });
