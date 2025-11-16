@@ -107,7 +107,7 @@ body {
 }
 
 /* moderner Hover-Underline */
-.sidebar-container a::after {
+.sidebar a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -135,6 +135,10 @@ body {
 .sidebar-container a.active::after {
     width: 100%;
     background: #ff4444;
+}
+
+.sidebar-map-container{
+    display: flex;
 }
 
 
