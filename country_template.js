@@ -28,7 +28,7 @@ async function loadCountry() {
     // ----------------------------
     // CSV laden
     // ----------------------------
-    const resp = await fetch("../data/cyber_incidents.csv");
+    const resp = await fetch("/Prototyp_WAE_Website/data/cyber_incidents.csv");
     const text = await resp.text();
 
     const lines = text.split("\n").filter(l => l.trim() !== "");
