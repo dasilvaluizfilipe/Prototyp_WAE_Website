@@ -214,6 +214,7 @@ body {
 h2 {
     font-size: 1.8rem;   /* größer */
     margin-bottom: 15px;
+    color: white;
 }
 
 p, li {
