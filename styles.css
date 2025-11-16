@@ -91,14 +91,14 @@ body {
 }
 
 /* Sidebar */
-.sidebar {
+.sidebar-container {
     
   
     font-size: 1.2rem;
 }
 
 /* Links */
-.sidebar a {
+.sidebar-container a {
     color: #ccc;
     padding: 8px 6px;
     text-decoration: none;
@@ -107,7 +107,7 @@ body {
 }
 
 /* moderner Hover-Underline */
-.sidebar a::after {
+.sidebar-container a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -119,20 +119,20 @@ body {
 }
 
 /* Hover */
-.sidebar a:hover {
+.sidebar-container a:hover {
     color: #fff;
 }
 
-.sidebar a:hover::after {
+.sidebar-container a:hover::after {
     width: 100%;
 }
 
 /* Active */
-.sidebar a.active {
+.sidebar-container a.active {
     color: #ff4444;
 }
 
-.sidebar a.active::after {
+.sidebar-container a.active::after {
     width: 100%;
     background: #ff4444;
 }
