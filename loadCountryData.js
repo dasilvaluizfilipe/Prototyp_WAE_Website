@@ -5,7 +5,11 @@ async function loadCountryData(countryName) {
     const text = await response.text();
 
     const lines = text.split("\n").filter(l => l.trim().length > 0);
-    const header = parseCSVLine(lines[0]);
+    let header = parseCSVLine(lines[0]).map(h =>
+    h.replace(/^"+|"+$/g, "")   // entfernt führende + trailing "
+      .trim()
+);
+
 
     // Spalten, die angezeigt werden
     const selectedColumns = [
