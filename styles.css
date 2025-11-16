@@ -102,7 +102,7 @@ body {
     color: #ccc;
     padding: 8px 6px;
     text-decoration: none;
-    position: relative;
+    position: static;
     transition: color 0.2s ease;
 }
 
