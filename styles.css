@@ -90,6 +90,53 @@ body {
     background: #ff4444;
 }
 
+/* Sidebar */
+.sidebar {
+    
+  
+    font-size: 1.2rem;
+}
+
+/* Links */
+.sidebar a {
+    color: #ccc;
+    padding: 8px 6px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* moderner Hover-Underline */
+.sidebar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 0;
+    background: #d40000;
+    transition: width 0.25s ease;
+}
+
+/* Hover */
+.sidebar a:hover {
+    color: #fff;
+}
+
+.sidebar a:hover::after {
+    width: 100%;
+}
+
+/* Active */
+.sidebar a.active {
+    color: #ff4444;
+}
+
+.sidebar a.active::after {
+    width: 100%;
+    background: #ff4444;
+}
+
 
 /* ========== CONTENT BLOCKS ========== */
 .content-block {
