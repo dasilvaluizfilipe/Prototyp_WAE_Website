@@ -127,6 +127,44 @@ body {
     padding: 8px 6px;
 }
 
+/* --- INFO-PANEL: Slide-Out bei Hover --- */
+.sidebar li {
+    position: relative; /* wichtig für absolute Panels */
+}
+
+/* Das ausgefahrene Info-Panel */
+.sidebar-info {
+    position: absolute;
+    top: 0;
+    left: 100%;            /* Panel rechts vom Menüpunkt */
+    margin-left: 10px;
+    width: 240px;          /* → Variante 1a */
+    padding: 12px;
+
+    background: #202020;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: #ddd;
+    font-size: 0.9rem;
+
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s ease;
+}
+
+/* Hover aktiviert das Panel */
+.sidebar li:hover .sidebar-info {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    z-index: 50;
+}
+
+
 
 /* Sidebar */
 
