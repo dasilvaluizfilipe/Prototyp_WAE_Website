@@ -256,7 +256,7 @@ p, li {
 .datatable td {
     padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    word-break: break-word;
+    word-break: normal;
     vertical-align: middle;
     text-align: center;
     font-size: 1.0rem;
