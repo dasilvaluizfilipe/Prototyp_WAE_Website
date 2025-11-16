@@ -1,55 +1,6 @@
 console.log("LOADCOUNTRYDATA: Datei geladen");
 
 // ============================================================================
-//  FLAGGEN (Emoji-Flags basierend auf Ländernamen)
-// ============================================================================
-const COUNTRY_FLAGS = {
-    "USA": "🇺🇸",
-    "United States": "🇺🇸",
-    "Germany": "🇩🇪",
-    "France": "🇫🇷",
-    "United Kingdom": "🇬🇧",
-    "Russia": "🇷🇺",
-    "Ukraine": "🇺🇦",
-    "China": "🇨🇳",
-    "Japan": "🇯🇵",
-    "South Korea": "🇰🇷",
-    "North Korea": "🇰🇵",
-    "Brazil": "🇧🇷",
-    "Argentina": "🇦🇷",
-    "India": "🇮🇳",
-    "Iran": "🇮🇷",
-    "Israel": "🇮🇱",
-    "Turkey": "🇹🇷",
-    "Australia": "🇦🇺",
-    "Canada": "🇨🇦",
-    "Mexico": "🇲🇽",
-    "Poland": "🇵🇱",
-    "Italy": "🇮🇹",
-    "Spain": "🇪🇸",
-    "Portugal": "🇵🇹",
-    "Netherlands": "🇳🇱",
-    "Sweden": "🇸🇪",
-    "Norway": "🇳🇴",
-    "Denmark": "🇩🇰",
-    "Czechia": "🇨🇿",
-    "Finland": "🇫🇮",
-    "Belgium": "🇧🇪",
-    "Switzerland": "🇨🇭",
-    "Austria": "🇦🇹",
-    "Greece": "🇬🇷",
-    "Romania": "🇷🇴",
-    "Bulgaria": "🇧🇬",
-    "Hungary": "🇭🇺",
-    "Serbia": "🇷🇸"
-};
-
-// Fallback für Länder, die nicht gemappt sind
-function flagFor(country) {
-    return COUNTRY_FLAGS[country] ?? "🏳️";
-}
-
-// ============================================================================
 //  EXAKTES LÄNDERMATCHING
 // ============================================================================
 function matchCountry(value, target) {
@@ -90,6 +41,7 @@ async function loadCountryData(countryName) {
         incident_type: "Typ"
     };
 
+    // Indexe für Länderspalten
     const rc = header.indexOf("receiver_country");
     const ic = header.indexOf("initiator_country");
 
@@ -104,8 +56,8 @@ async function loadCountryData(countryName) {
         }
     }
 
-    // Wenn keine Treffer
     const container = document.getElementById("country-data");
+
     if (!rows.length) {
         container.innerHTML = `<p style="color:#888;">Keine Daten für ${countryName} gefunden.</p>`;
         return;
@@ -131,7 +83,7 @@ async function loadCountryData(countryName) {
         return db - da;
     });
 
-    // Tabellen HTML bauen
+    // Tabelle bauen
     let html = "<table class='datatable'><thead><tr>";
     for (let col of selectedColumns) html += `<th>${TITLE_MAP[col]}</th>`;
     html += "</tr></thead><tbody>";
@@ -147,7 +99,6 @@ async function loadCountryData(countryName) {
         const s = row[idxStart] || "";
         const e = row[idxEnd] || "";
 
-        // Zeitformat
         let timeCell = s;
         if (e && e !== s) timeCell = `${s} → ${e}`;
 
@@ -158,11 +109,11 @@ async function loadCountryData(countryName) {
             let cell = "";
 
             if (col === "initiator_combined") {
-                cell = `${inName} | ${flagFor(inCountry)} ${inCountry}`;
+                cell = `${inName} | ${inCountry}`;
             }
 
             else if (col === "receiver_combined") {
-                cell = `${reName} | ${flagFor(reCountry)} ${reCountry}`;
+                cell = `${reName} | ${reCountry}`;
             }
 
             else if (col === "date_combined") {
@@ -207,5 +158,4 @@ function parseCSVLine(line) {
     return result;
 }
 
-// Exportieren
 window.loadCountryData = loadCountryData;

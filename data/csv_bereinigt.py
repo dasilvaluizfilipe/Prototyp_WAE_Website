@@ -11,7 +11,7 @@ OUTPUT_LIGHT = "cyber_incidents_light.csv"
 OUTPUT_COUNTRIES = "countries_index.json"
 OUTPUT_DEBUG = "country_debug.csv"
 
-MAX_DESCRIPTION_LENGTH = 300
+MAX_DESCRIPTION_LENGTH = 200
 
 # =====================================================================
 # ISO-3166 COUNTRY MAP (vollständig + Synonyme + Normalformen)
