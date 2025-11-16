@@ -31,7 +31,6 @@ async function loadCountryData(countryName) {
 
     // Relevante Spalten für Anzeige
     const selectedColumns = [
-        "incident_id",
         "name",
         "description",
         "start_date",
@@ -45,7 +44,6 @@ async function loadCountryData(countryName) {
     ];
 
     const TITLE_MAP = {
-        incident_id: "Incident ID",
         name: "Name",
         description: "Beschreibung",
         start_date: "Startdatum",
