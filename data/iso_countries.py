@@ -292,6 +292,7 @@ ISO_COUNTRY_MAP = {
     # Iran
     "ir": "Iran", "irn": "Iran", "iran": "Iran",
     "iran islamic republic of": "Iran",
+    "islamic republic of,": "Iran",
 
     # Iraq
     "iq": "Iraq", "irq": "Iraq", "iraq": "Iraq",
@@ -327,11 +328,15 @@ ISO_COUNTRY_MAP = {
     "kp": "North Korea", "prk": "North Korea",
     "north korea": "North Korea",
     "korea democratic peoples republic of": "North Korea",
+    "Korea, Democratic People's Republic of": "North Korea",
+    "korea,": "North Korea",
+    "democratic people's republic of,": "North Korea",
 
     # Korea South
     "kr": "South Korea", "kor": "South Korea",
     "south korea": "South Korea",
     "korea republic of": "South Korea",
+    
 
     # Kuwait
     "kw": "Kuwait", "kwt": "Kuwait", "kuwait": "Kuwait",
@@ -702,7 +707,7 @@ ISO_COUNTRY_MAP = {
 
     # Vietnam
     "vn": "Vietnam", "vnm": "Vietnam", "vietnam": "Vietnam",
-
+    
     # Yemen
     "ye": "Yemen", "yem": "Yemen", "yemen": "Yemen",
 
