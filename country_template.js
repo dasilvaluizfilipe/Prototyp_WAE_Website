@@ -172,6 +172,7 @@ function parseCSVLine(line) {
     res.push(cur);
 
     return res;
+    loadCountryData(countryCode);
 }
 
 loadCountry();
