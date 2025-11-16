@@ -1,18 +1,44 @@
 console.log("LOADCOUNTRYDATA: Datei geladen");
+
+// ============================================================================
+//  FLEXIBLES LÄNDERMATCHING (WICHTIG!)
+// ============================================================================
+function matchCountry(value, target) {
+    if (!value || !target) return false;
+
+    value = value.toLowerCase().trim();
+    target = target.toLowerCase().trim();
+
+    return (
+        value === target ||               // exakt
+        value.includes(target) ||         // "Russian Federation" enthält "russia"
+        target.includes(value)            // "ru" passt zu "russia"
+    );
+}
+
+// ============================================================================
+//  HAUPTFUNKTION
+// ============================================================================
 async function loadCountryData(countryName) {
-console.log("LOADCOUNTRYDATA: startet für:", countryName);
+
+    console.log("LOADCOUNTRYDATA: startet für:", countryName);
+
     // CSV laden
-    const response = await fetch("../data/cyber_incidents.csv");
+    const response = await fetch("/Prototyp_WAE_Website/data/cyber_incidents.csv");
     const text = await response.text();
 
     const lines = text.split("\n").filter(l => l.trim().length > 0);
+
+    // HEADER ENTQUOTEN (KRITISCHER FIX!)
     let header = parseCSVLine(lines[0]).map(h =>
-    h.replace(/^"+|"+$/g, "")   // entfernt führende + trailing "
-      .trim()
-);
+        h.replace(/^"+|"+$/g, "").trim()
+    );
 
+    console.log("HEADER:", header);
 
+    // ----------------------------
     // Spalten, die angezeigt werden
+    // ----------------------------
     const selectedColumns = [
         "incident_id",
         "name",
@@ -27,7 +53,6 @@ console.log("LOADCOUNTRYDATA: startet für:", countryName);
         "has_disruption"
     ];
 
-    // Mapping: CSV → schöner Titel
     const TITLE_MAP = {
         incident_id: "Incident ID",
         name: "Name",
@@ -42,29 +67,37 @@ console.log("LOADCOUNTRYDATA: startet für:", countryName);
         has_disruption: "Störung?"
     };
 
-    // Spaltenindices sammeln
     const colIndex = selectedColumns.map(col => header.indexOf(col));
 
-    // Mögliche Namensfelder, weil CSV inkonsistent ist
-    const receiverCountryIndex = header.indexOf("receiver_country");
-    const receiverCodeIndex     = header.indexOf("receiver_country_alpha_2_code");
-    const initiatorCountryIndex = header.indexOf("initiator_country");
-    const initiatorCodeIndex    = header.indexOf("initiator_alpha_2");
+    // ----------------------------
+    // Länderspalten
+    // ----------------------------
+    const rc  = header.indexOf("receiver_country");
+    const ra2 = header.indexOf("receiver_country_alpha_2_code");
+    const ic  = header.indexOf("initiator_country");
+    const ia2 = header.indexOf("initiator_alpha_2");
 
-    // Daten für dieses Land extrahieren
+    console.log("INDEX CHECK:", { rc, ra2, ic, ia2 });
+
     let rows = [];
+
+    // ========================================================================
+    //  DATEN MATCHEN: JETZT MIT FLEXIBLER SUCHE
+    // ========================================================================
     for (let i = 1; i < lines.length; i++) {
         const cols = parseCSVLine(lines[i]);
 
         if (
-            cols[receiverCountryIndex] === countryName ||
-            cols[initiatorCountryIndex] === countryName ||
-            cols[receiverCodeIndex] === countryName ||
-            cols[initiatorCodeIndex] === countryName
+            matchCountry(cols[rc],  countryName) ||
+            matchCountry(cols[ra2], countryName) ||
+            matchCountry(cols[ic],  countryName) ||
+            matchCountry(cols[ia2], countryName)
         ) {
             rows.push(cols);
         }
     }
+
+    console.log("MATCHING ROWS:", rows.length);
 
     const container = document.getElementById("country-data");
 
@@ -73,35 +106,30 @@ console.log("LOADCOUNTRYDATA: startet für:", countryName);
         return;
     }
 
-        // -------------------------------------------
-    // CSV-Bereinigung + Datumssortierung (Variante C)
-    // -------------------------------------------
-
-    // Entfernt Nullbytes, doppelte Spaces usw.
+    // ========================================================================
+    //  BEREINIGUNG + DATUMSORTIERUNG
+    // ========================================================================
     function cleanRow(row) {
         return row.map(col =>
             col.trim()
-               .replace(/\u0000/g, '')
-               .replace(/\s+/g, ' ')
+               .replace(/\u0000/g, "")
+               .replace(/\s+/g, " ")
         );
     }
 
-    // Versucht, mehrere Datumsformate zu erkennen
     function normalizeDate(dateStr) {
         if (!dateStr || dateStr.trim() === "") return null;
 
         const cleaned = dateStr.trim().replace(/\u0000/g, "");
 
-        // 1) Standard ISO (YYYY-MM-DD)
         let d = new Date(cleaned);
         if (!isNaN(d)) return d;
 
-        // 2) Fallback-Patterns
         const patterns = [
-            /(\d{2})\/(\d{2})\/(\d{4})/,      // DD/MM/YYYY
-            /(\d{2})-(\d{2})-(\d{4})/,        // DD-MM-YYYY
-            /(\d{4})\.(\d{2})\.(\d{2})/,      // YYYY.MM.DD
-            /(\d{4})\/(\d{2})\/(\d{2})/       // YYYY/MM/DD
+            /(\d{2})\/(\d{2})\/(\d{4})/,
+            /(\d{2})-(\d{2})-(\d{4})/,
+            /(\d{4})\.(\d{2})\.(\d{2})/,
+            /(\d{4})\/(\d{2})\/(\d{2})/
         ];
 
         for (const p of patterns) {
@@ -114,18 +142,10 @@ console.log("LOADCOUNTRYDATA: startet für:", countryName);
         return null;
     }
 
-    // Priorität: start_date → end_date fallback
     function extractRelevantDate(row, startIndex, endIndex) {
-        const startD = normalizeDate(row[startIndex]);
-        if (startD) return startD;
-
-        const endD = normalizeDate(row[endIndex]);
-        if (endD) return endD;
-
-        return null;
+        return normalizeDate(row[startIndex]) || normalizeDate(row[endIndex]) || null;
     }
 
-    // Sortierung nach Datum (neueste zuerst)
     function sortByIncidentDate(rows, startIndex, endIndex) {
         rows.sort((a, b) => {
             const da = extractRelevantDate(a, startIndex, endIndex);
@@ -135,30 +155,22 @@ console.log("LOADCOUNTRYDATA: startet für:", countryName);
             if (!da) return 1;
             if (!db) return -1;
 
-            return db - da; // Neueste oben
+            return db - da;
         });
     }
 
-    // -------------------
-    // CSV-Bereinigung vor Sortierung
-    // -------------------
     rows = rows.map(cleanRow);
 
-    // Spaltenindices für Datumsfelder
     const startIndex = header.indexOf("start_date");
     const endIndex   = header.indexOf("end_date");
 
-    // Sortieren nach wichtigstem Incident-Datum
     sortByIncidentDate(rows, startIndex, endIndex);
 
-
-    // -----------------------------
-    // Tabelle generieren
-    // -----------------------------
-
+    // ========================================================================
+    //  TABELLE RENDERN
+    // ========================================================================
     let html = "<table class='datatable'><thead><tr>";
 
-    // Headers (mit TITLE_MAP)
     for (let col of selectedColumns) {
         const title = TITLE_MAP[col] || col;
         html += `<th>${title}</th>`;
@@ -166,7 +178,6 @@ console.log("LOADCOUNTRYDATA: startet für:", countryName);
 
     html += "</tr></thead><tbody>";
 
-    // Rows
     for (let row of rows) {
         html += "<tr>";
         for (let idx of colIndex) {
@@ -180,9 +191,9 @@ console.log("LOADCOUNTRYDATA: startet für:", countryName);
     container.innerHTML = `<div class="table-wrapper">${html}</div>`;
 }
 
-
-
-// CSV Parser – robust gegen Quotes
+// ============================================================================
+//  CSV Parser
+// ============================================================================
 function parseCSVLine(line) {
     const result = [];
     let current = "";
@@ -203,7 +214,8 @@ function parseCSVLine(line) {
     return result;
 }
 
-
+// EXPORTIEREN FÜR country_template.js
+window.loadCountryData = loadCountryData;
 
 
 /* async function loadCountryData(countryName) {
