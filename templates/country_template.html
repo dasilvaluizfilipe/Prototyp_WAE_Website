@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title id="page-title">Cyber Incidents</title>
+
 <link rel="stylesheet" href="../styles.css">
-<script defer src="../country_template.js"></script>
+
+<!-- Wichtig: Template-JS NICHT relativ, sondern aus templates/ -->
+<script defer src="country_template.js"></script>
 </head>
 
 <body>
@@ -26,11 +29,36 @@
     </div>
 
 </div>
+<div class="sidebar-map-container">
+
+    <aside class="sidebar">
+  <nav>
+    <li>
+  <a href="index.html">Home</a>
+  <div class="sidebar-info">Info über Home (Platzhalter)</div>
+</li>
+
+<li>
+  <a href="ueber-uns.html">Über uns</a>
+  <div class="sidebar-info">Info über „Über uns“ (Platzhalter)</div>
+</li>
+
+<li>
+  <a href="kontakt.html">Kontakt</a>
+  <div class="sidebar-info">Kontaktinformationen (Platzhalter)</div>
+</li>
+
+  </nav>
+</aside>
+
 
 <div id="country-data"></div>
- <script src="../loadCountryData.js"></script>
-    
+
 <div class="chart-area" id="chart-area"></div>
+</div>
+<!-- Wichtig: absolute Pfade, damit GitHub Pages es findet -->
+<script src="/Prototyp_WAE_Website/loadCountryData.js"></script>
+<script src="/Prototyp_WAE_Website/templates/country_template.js"></script>
 
 </body>
 </html>

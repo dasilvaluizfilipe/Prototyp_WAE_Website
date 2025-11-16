@@ -1,12 +1,18 @@
+// ----------------------------
 // URL-Parameter auslesen
+// ----------------------------
 function getCountryCode() {
     const params = new URLSearchParams(window.location.search);
-    return params.get("code"); // z.B. "DE"
+    return params.get("code"); 
 }
 
+// ----------------------------
+// Hauptfunktion
+// ----------------------------
 async function loadCountry() {
 
     const countryCode = getCountryCode();
+
     if (!countryCode) {
         document.getElementById("country-data").innerHTML =
             "<p style='color:red'>Kein ?code= Parameter gefunden.</p>";
@@ -16,14 +22,21 @@ async function loadCountry() {
     document.getElementById("country-title").innerText =
         "Cyber Incidents in " + countryCode;
 
+    document.getElementById("country-description").innerText =
+        `Diese Seite zeigt Cyber-Incidents für ${countryCode}.`;
+
+    // ----------------------------
     // CSV laden
+    // ----------------------------
     const resp = await fetch("../data/cyber_incidents.csv");
     const text = await resp.text();
 
     const lines = text.split("\n").filter(l => l.trim() !== "");
     const header = parseCSVLine(lines[0]);
 
-    // Relevante Spalten
+    // ----------------------------
+    // Tabellenspalten
+    // ----------------------------
     const selectedColumns = [
         "incident_id",
         "name",
@@ -54,21 +67,27 @@ async function loadCountry() {
 
     const colIndex = selectedColumns.map(c => header.indexOf(c));
 
-    // Ortsfelder (Name/ISO-Code)
+    // ----------------------------
+    // Länder-Felder in CSV
+    // ----------------------------
     const rc = header.indexOf("receiver_country");
     const ra2 = header.indexOf("receiver_country_alpha_2_code");
     const ic = header.indexOf("initiator_country");
     const ia2 = header.indexOf("initiator_alpha_2");
 
-    // Filter
+    // ----------------------------
+    // Filtern nach Land
+    // ----------------------------
     let rows = [];
     for (let i = 1; i < lines.length; i++) {
         const cols = parseCSVLine(lines[i]);
 
-        if (cols[rc] === countryCode ||
+        if (
+            cols[rc] === countryCode ||
             cols[ra2] === countryCode ||
             cols[ic] === countryCode ||
-            cols[ia2] === countryCode) {
+            cols[ia2] === countryCode
+        ) {
             rows.push(cols);
         }
     }
@@ -79,10 +98,9 @@ async function loadCountry() {
         return;
     }
 
-    // --------------------------
-    // DATUMS-SORTIERUNG (C)
-    // --------------------------
-
+    // ----------------------------
+    // Datum sortieren (start_date → fallback end_date)
+    // ----------------------------
     function cleanRow(row) {
         return row.map(col =>
             col.trim().replace(/\u0000/g, "").replace(/\s+/g, " ")
@@ -91,6 +109,7 @@ async function loadCountry() {
 
     function normalizeDate(d) {
         if (!d || d.trim() === "") return null;
+
         const cleaned = d.trim().replace(/\u0000/g, "");
         let dt = new Date(cleaned);
         if (!isNaN(dt)) return dt;
@@ -132,10 +151,9 @@ async function loadCountry() {
 
     rows = sortRowsByDate(rows);
 
-    // --------------------------
-    // TABELLE GENERIEREN
-    // --------------------------
-
+    // ----------------------------
+    // Tabelle generieren
+    // ----------------------------
     let html = "<table class='datatable'><thead><tr>";
 
     for (let col of selectedColumns) {
@@ -156,7 +174,9 @@ async function loadCountry() {
         `<div class="table-wrapper">${html}</div>`;
 }
 
+// ----------------------------
 // CSV-Parser
+// ----------------------------
 function parseCSVLine(line) {
     const res = [];
     let cur = "";
@@ -170,9 +190,10 @@ function parseCSVLine(line) {
         } else cur += c;
     }
     res.push(cur);
-
     return res;
-    loadCountryData(countryCode);
 }
 
+// ----------------------------
+// START
+// ----------------------------
 loadCountry();
