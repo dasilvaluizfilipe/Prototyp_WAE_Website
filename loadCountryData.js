@@ -100,7 +100,7 @@ async function loadCountryData(countryName) {
         const e = row[idxEnd] || "";
 
         let timeCell = s;
-        if (e && e !== s) timeCell = `${s} → ${e}`;
+        if (e && e !== s) timeCell = `${s} | ${e}`;
 
         html += "<tr>";
 
