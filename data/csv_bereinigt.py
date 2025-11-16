@@ -93,6 +93,8 @@ def normalize_country(raw, debug_list):
         return "Unknown"
 
     raw = clean_field(raw).lower().strip()
+    raw = re.sub(r'^(the )?republic of ', '', raw)
+
 
     # Split bei allen typischen Trennzeichen
     parts = re.split(r"[|;,/]+|\s{2,}|\t+", raw)
