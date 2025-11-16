@@ -1,6 +1,6 @@
 console.log("LOADCOUNTRYDATA: Datei geladen");
 async function loadCountryData(countryName) {
-console.log("LOADCOUNTRYDATA: startet für:", country);
+console.log("LOADCOUNTRYDATA: startet für:", countryName);
     // CSV laden
     const response = await fetch("../data/cyber_incidents.csv");
     const text = await response.text();
