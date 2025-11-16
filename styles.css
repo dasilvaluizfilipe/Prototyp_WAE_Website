@@ -90,25 +90,51 @@ body {
     background: #ff4444;
 }
 
-/* Sidebar */
-.sidebar-container {
-    
-  
-    font-size: 1.2rem;
+/* Sidebar + Map nebeneinander */
+.sidebar-map-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
 }
 
-/* Links */
-.sidebar-container a {
-    color: #ccc;
-    padding: 8px 6px;
-    text-decoration: none;
-    position: left;
-    transition: color 0.2s ease;
+/* Sidebar Styling */
+.sidebar {
+    width: 220px;
+    background: #181818;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid rgba(255,255,255,0.15);
+    text-align: left;      /* wichtig */
 }
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 12px;
+}
+
+.sidebar a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1.0rem;
+    display: block;        /* wichtig für linksbündig */
+    position: relative;
+    transition: color 0.2s ease;
+    padding: 8px 6px;
+}
+
+
+/* Sidebar */
+
 
 /* moderner Hover-Underline */
 .sidebar a::after {
     content: "";
+    display: block;
     position: absolute;
     left: 0;
     bottom: -4px;
@@ -119,27 +145,25 @@ body {
 }
 
 /* Hover */
-.sidebar-container a:hover {
+.sidebar a:hover {
     color: #fff;
 }
 
-.sidebar-container a:hover::after {
+.sidebar a:hover::after {
     width: 100%;
 }
 
 /* Active */
-.sidebar-container a.active {
+.sidebar a.active {
     color: #ff4444;
 }
 
-.sidebar-container a.active::after {
+.sidebar a.active::after {
     width: 100%;
     background: #ff4444;
 }
 
-.sidebar-map-container{
-    display: flex;
-}
+
 
 
 /* ========== CONTENT BLOCKS ========== */
