@@ -79,10 +79,14 @@ function renderCharts(rows, header) {
         data: {
             labels: Object.keys(incidentCounts),
             datasets: [{
-                data: Object.values(incidentCounts)
+                data: Object.values(incidentCounts),
+                backgroundColor: Object.keys(incidentCounts).map((_, i) =>
+                    `hsl(${(i * 40) % 360}, 70%, 60%)`
+                )
             }]
         }
     });
+
 
     //----------------------------------------------------------------------
     // 2) PIE: Initiator-Länder (initiator_country)
@@ -95,7 +99,10 @@ function renderCharts(rows, header) {
         data: {
             labels: Object.keys(initCounts),
             datasets: [{
-                data: Object.values(initCounts)
+                data: Object.values(initCounts),
+                backgroundColor: Object.keys(initCounts).map((_, i) =>
+                    `hsl(${(i * 40) % 360}, 70%, 60%)`
+                )
             }]
         }
     });
@@ -126,6 +133,7 @@ function renderCharts(rows, header) {
             }]
         }
     });
+
 }
 
 
