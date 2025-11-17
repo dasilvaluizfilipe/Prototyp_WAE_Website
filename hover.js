@@ -79,8 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 c.addEventListener("mousemove", (e) => {
-                    tooltip.style.left = (e.pageX + 8) + "px";
-                    tooltip.style.top = (e.pageY + 8) + "px";
+                    tooltip.style.left = (e.pageX + 12) + "px";   // leicht rechts
+                    tooltip.style.top = (e.pageY - tooltip.offsetHeight - 12) + "px"; // über Maus
                 });
 
                 c.addEventListener("mouseleave", () => {
