@@ -1,5 +1,5 @@
 
-
+import { normalizeCountry } from "./iso_map.js";
 console.log("LOADCOUNTRYDATA: Datei geladen");
 
 // ============================================================================

@@ -21,24 +21,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const countries = svg.querySelectorAll(".country");
 
         countries.forEach(country => {
-    country.addEventListener("click", () => {
-        // 1. Title-Attribut lesen (nicht die JS-Eigenschaft)
-        const rawTitle = country.getAttribute("title");
-        // 2. Fallback: ID verwenden, falls kein title existiert
-        const base = rawTitle || country.id || "unknown";
+            country.addEventListener("click", () => {
 
-        // 3. Dateinamen-sicher machen: nur Buchstaben/Zahlen, Rest zu _
-        const safeName = base
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, "_")
-            .replace(/^_+|_+$/g, ""); // führende/trailing _ weg
+                // Raw-ID oder Name aus SVG holen
+                const raw = country.getAttribute("title")
+                    || country.id
+                    || "unknown";
 
-        console.log("📌 Klick in country.js:", base, "→", safeName);
+                console.log("📌 Klick in country.js → raw:", raw);
 
-window.location.href =
-    `${window.location.origin}/Prototyp_WAE_Website/templates/country_template.html?code=${safeName}`;
+                // raw → korrekter URL-Code (Unterstriche statt Leerzeichen)
+                const urlCode = raw
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, "_")
+                    .replace(/^_+|_+$/g, "");
 
-    });
-});
+                console.log("📌 erzeugter URL-Code:", urlCode);
+
+                // Weiterleiten
+                window.location.href =
+                    `/Prototyp_WAE_Website/country/country_template.html?code=${encodeURIComponent(urlCode)}`;
+            });
+        });
     });
 });
