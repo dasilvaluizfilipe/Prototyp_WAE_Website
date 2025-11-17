@@ -1,3 +1,5 @@
+import { normalizeCountry } from "./iso_map.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const obj = document.getElementById("mapObject");
 

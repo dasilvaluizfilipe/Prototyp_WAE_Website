@@ -9,24 +9,23 @@
 
 <body>
 
-<div class="page-wrapper">     <!-- WICHTIG: alles kommt hier rein -->
+    <div class="page-wrapper">
+        <!-- WICHTIG: alles kommt hier rein -->
 
-    <div class="header-wrapper">
-        <h1 class="pagetitle" id="country-title">Loading…</h1>
+        <div class="header-wrapper">
+            <h1 class="pagetitle" id="country-title">Loading…</h1>
 
-        <div class="topnav">
-            <a href="../index.html">Home</a>
-            <a class="active" id="country-link" href="#">Land</a>
+            <div class="topnav">
+                <a href="../index.html">Home</a>
+                <a class="active" id="country-link" href="#">Land</a>
+            </div>
         </div>
-    </div>
 
-     <div>
+        <div>
             <h2>Übersicht</h2>
             <p id="country-description"></p>
         </div>
-</div> <!-- /page-wrapper -->
-
-
+    </div> <!-- /page-wrapper -->
     <!-- Alles in DIESEM Container, nicht außerhalb -->
     <div class="sidebar-map-container">
 
@@ -34,86 +33,84 @@
             <nav>
 
                 <li>
-                  <a href="global-overview.html">Globaler Schaden</a>
-                  <div class="sidebar-info">
-                    Übersicht der weltweit größten Schäden durch Cybervorfälle.
-                    Basierend auf finanziellen, politischen und operativen Auswirkungen.
-                  </div>
+                    <a href="global-overview.html">Globaler Schaden</a>
+                    <div class="sidebar-info">
+                        Übersicht der weltweit größten Schäden durch Cybervorfälle.
+                        Basierend auf finanziellen, politischen und operativen Auswirkungen.
+                    </div>
                 </li>
                 <li>
-                  <a href="attack-density.html">Höchste Angriffsdichte</a>
-                  <div class="sidebar-info">
-                    Länder mit der höchsten relativen Anzahl an Cyberangriffen.
-                    Rankings nach Jahr, Region und Angriffsart.
-                  </div>
+                    <a href="attack-density.html">Höchste Angriffsdichte</a>
+                    <div class="sidebar-info">
+                        Länder mit der höchsten relativen Anzahl an Cyberangriffen.
+                        Rankings nach Jahr, Region und Angriffsart.
+                    </div>
                 </li>
                 <li>
-                  <a href="top-actors.html">Aktivste Angreifer</a>
-                  <div class="sidebar-info">
-                    Liste der häufigsten Angreifer: Staaten, Hackergruppen und APTs.
-                    Analyse ihrer bevorzugen Taktiken.
-                  </div>
+                    <a href="top-actors.html">Aktivste Angreifer</a>
+                    <div class="sidebar-info">
+                        Liste der häufigsten Angreifer: Staaten, Hackergruppen und APTs.
+                        Analyse ihrer bevorzugen Taktiken.
+                    </div>
                 </li>
                 <li>
-                  <a href="critical-infra.html">Kritische Infrastruktur</a>
-                  <div class="sidebar-info">
-                    Angriffe auf Energie, Transport, Gesundheit und staatliche Systeme.
-                  </div>
+                    <a href="critical-infra.html">Kritische Infrastruktur</a>
+                    <div class="sidebar-info">
+                        Angriffe auf Energie, Transport, Gesundheit und staatliche Systeme.
+                    </div>
                 </li>
                 <li>
-                  <a href="ransomware-hubs.html">Ransomware-Hotspots</a>
-                  <div class="sidebar-info">
-                    Regionen mit starker Ransomware-Aktivität.
-                  </div>
+                    <a href="ransomware-hubs.html">Ransomware-Hotspots</a>
+                    <div class="sidebar-info">
+                        Regionen mit starker Ransomware-Aktivität.
+                    </div>
                 </li>
                 <li>
-                  <a href="state-vs-state.html">Staatliche Cyberkonflikte</a>
-                  <div class="sidebar-info">
-                    Staaten gegeneinander in digitalen Konflikten.
-                  </div>
+                    <a href="state-vs-state.html">Staatliche Cyberkonflikte</a>
+                    <div class="sidebar-info">
+                        Staaten gegeneinander in digitalen Konflikten.
+                    </div>
                 </li>
                 <li>
-                  <a href="economy-impact.html">Ökonomische Auswirkungen</a>
-                  <div class="sidebar-info">
-                    Wirtschaftliche Schäden durch weltweite Cybervorfälle.
-                  </div>
+                    <a href="economy-impact.html">Ökonomische Auswirkungen</a>
+                    <div class="sidebar-info">
+                        Wirtschaftliche Schäden durch weltweite Cybervorfälle.
+                    </div>
                 </li>
                 <li>
-                  <a href="supply-chain.html">Supply-Chain-Angriffe</a>
-                  <div class="sidebar-info">
-                    Angriffe über Lieferketten wie SolarWinds.
-                  </div>
+                    <a href="supply-chain.html">Supply-Chain-Angriffe</a>
+                    <div class="sidebar-info">
+                        Angriffe über Lieferketten wie SolarWinds.
+                    </div>
                 </li>
                 <li>
-                  <a href="zero-day-tracker.html">Zero-Day Tracking</a>
-                  <div class="sidebar-info">
-                    Zero-Day-Exploits in aktiver Nutzung.
-                  </div>
+                    <a href="zero-day-tracker.html">Zero-Day Tracking</a>
+                    <div class="sidebar-info">
+                        Zero-Day-Exploits in aktiver Nutzung.
+                    </div>
                 </li>
                 <li>
-                  <a href="incident-types.html">Angriffsarten</a>
-                  <div class="sidebar-info">
-                    Übersicht über alle bekannten Angriffsformen.
-                  </div>
+                    <a href="incident-types.html">Angriffsarten</a>
+                    <div class="sidebar-info">
+                        Übersicht über alle bekannten Angriffsformen.
+                    </div>
                 </li>
 
             </nav>
         </aside>
 
 
-       
+
 
         <div id="country-data"></div>
 
         <div class="chart-area" id="chart-area"></div>
 
     </div> <!-- /sidebar-map-container -->
-
-
-
-<!-- SCRIPTS — richtige Reihenfolge -->
-<script src="/Prototyp_WAE_Website/loadCountryData.js"></script>
-<script src="/Prototyp_WAE_Website/country_template.js"></script>
+    <!-- SCRIPTS — richtige Reihenfolge -->
+    <script type="module" src="/Prototyp_WAE_Website/iso_map.js"></script>
+    <script type="module" src="/Prototyp_WAE_Website/loadCountryData.js"></script>
+    <script type="module" src="/Prototyp_WAE_Website/country_template.js"></script>
 
 </body>
 </html>
