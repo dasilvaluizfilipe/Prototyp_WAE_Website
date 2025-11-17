@@ -36,81 +36,98 @@ function parseCSVLine(line) {
 // ============================================================================
 // CHART-RENDERING
 // ============================================================================
-function renderCharts(rows, header, countryName) {
-    const idxStart = header.indexOf("start_date");
-    const idxType = header.indexOf("incident_type");
-    const idxInitC = header.indexOf("initiator_country");
+// ============================================================================
+//  CHARTS GENERIEREN (Pie Charts + Timeline)
+// ============================================================================
 
-    // ---------------------------------------------------------
-    // 1) TIMELINE (Angriffe pro Jahr)
-    // ---------------------------------------------------------
-    let timeline = {};
+function renderCharts(rows, header) {
 
-    rows.forEach(row => {
-        let date = row[idxStart];
-        if (!date) return;
-        let year = date.substring(0, 4);
-        timeline[year] = (timeline[year] || 0) + 1;
+    const chartArea = document.getElementById("chart-area");
+    chartArea.innerHTML = ""; // vorherige Charts löschen
+
+    //----------------------------------------------------------------------
+    // Hilfsfunktionen
+    //----------------------------------------------------------------------
+    function countByColumn(colName) {
+        const idx = header.indexOf(colName);
+        const map = {};
+        for (let row of rows) {
+            let v = (row[idx] || "Unbekannt").trim();
+            if (!map[v]) map[v] = 0;
+            map[v]++;
+        }
+        return map;
+    }
+
+    function generateCanvas(id) {
+        const c = document.createElement("canvas");
+        c.id = id;
+        c.style.width = "100%";
+        c.style.maxHeight = "300px";
+        chartArea.appendChild(c);
+        return c;
+    }
+
+    //----------------------------------------------------------------------
+    // 1) PIE: Angriffsarten (incident_type)
+    //----------------------------------------------------------------------
+    const incidentCounts = countByColumn("incident_type");
+
+    const canvas1 = generateCanvas("chart_incident_type");
+    new Chart(canvas1, {
+        type: "pie",
+        data: {
+            labels: Object.keys(incidentCounts),
+            datasets: [{
+                data: Object.values(incidentCounts)
+            }]
+        }
     });
 
-    new Chart(document.getElementById("chartTimeline"), {
+    //----------------------------------------------------------------------
+    // 2) PIE: Initiator-Länder (initiator_country)
+    //----------------------------------------------------------------------
+    const initCounts = countByColumn("initiator_country");
+
+    const canvas2 = generateCanvas("chart_initiators");
+    new Chart(canvas2, {
+        type: "pie",
+        data: {
+            labels: Object.keys(initCounts),
+            datasets: [{
+                data: Object.values(initCounts)
+            }]
+        }
+    });
+
+    //----------------------------------------------------------------------
+    // 3) LINE CHART: Timeline (start_date)
+    //----------------------------------------------------------------------
+    const idxStart = header.indexOf("start_date");
+    const timeMap = {};
+
+    for (let row of rows) {
+        const raw = row[idxStart];
+        if (!raw) continue;
+        const year = raw.substring(0, 4);
+        if (!timeMap[year]) timeMap[year] = 0;
+        timeMap[year]++;
+    }
+
+    const canvas3 = generateCanvas("chart_timeline");
+    new Chart(canvas3, {
         type: "line",
         data: {
-            labels: Object.keys(timeline),
+            labels: Object.keys(timeMap),
             datasets: [{
-                label: "Angriffe pro Jahr",
-                data: Object.values(timeline),
-                borderWidth: 2,
+                label: "Anzahl Vorfälle",
+                data: Object.values(timeMap),
                 tension: 0.3
             }]
         }
     });
-
-    // ---------------------------------------------------------
-    // 2) TYPEN (incident_type)
-    // ---------------------------------------------------------
-    let types = {};
-
-    rows.forEach(row => {
-        let t = row[idxType] || "Unknown";
-        types[t] = (types[t] || 0) + 1;
-    });
-
-    new Chart(document.getElementById("chartTypes"), {
-        type: "bar",
-        data: {
-            labels: Object.keys(types),
-            datasets: [{
-                label: "Vorfallarten",
-                data: Object.values(types),
-                borderWidth: 1
-            }]
-        }
-    });
-
-    // ---------------------------------------------------------
-    // 3) INITIATOREN (initiator_country)
-    // ---------------------------------------------------------
-    let initiators = {};
-
-    rows.forEach(row => {
-        let raw = row[idxInitC] || "Unknown";
-        let name = normalizeCountry(raw);
-        initiators[name] = (initiators[name] || 0) + 1;
-    });
-
-    new Chart(document.getElementById("chartInitiators"), {
-        type: "bar",
-        data: {
-            labels: Object.keys(initiators),
-            datasets: [{
-                label: "Angriffe durch Initiatorländer",
-                data: Object.values(initiators),
-                borderWidth: 1
-            }]
-        }
-    });
 }
+
 
 // ============================================================================
 // MAIN-FUNKTION
@@ -229,7 +246,7 @@ async function loadCountryData(countryName) {
     container.innerHTML = `<div class="table-wrapper">${html}</div>`;
 
     // CHARTS jetzt rendern
-    renderCharts(rows, header, countryName);
+    renderCharts(rows, header);
 }
 
 window.loadCountryData = loadCountryData;
