@@ -79,8 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 c.addEventListener("mousemove", (e) => {
-                    tooltip.style.left = (e.pageX + 10) + "px";
-                    tooltip.style.top = (e.pageY - 30) + "px";
+                    const rect = obj.getBoundingClientRect();
+
+                    const x = rect.left + e.clientX;
+                    const y = rect.top + e.clientY;
+
+                    tooltip.style.left = (x + 10) + "px";
+                    tooltip.style.top = (y - 30) + "px";
                 });
 
 
