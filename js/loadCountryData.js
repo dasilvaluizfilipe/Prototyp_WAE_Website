@@ -1,5 +1,5 @@
 // ============================================================================
-// loadCountryData.js — gesamte Datei funktionsfähig inkl. Charts
+// loadCountryData.js — vollständige Version inkl. bereinigter Pie-Charts
 // ============================================================================
 
 import { normalizeCountry } from "./iso_map.js";
@@ -7,16 +7,14 @@ import { normalizeCountry } from "./iso_map.js";
 console.log("LOADCOUNTRYDATA: Datei geladen");
 
 // ============================================================================
-// Vergleichsfunktion für Länder
+// Hilfsfunktionen
 // ============================================================================
+
 function matchCountry(value, target) {
     if (!value || !target) return false;
     return value.trim().toLowerCase() === target.trim().toLowerCase();
 }
 
-// ============================================================================
-// CSV Parser
-// ============================================================================
 function parseCSVLine(line) {
     const result = [];
     let current = "";
@@ -34,30 +32,39 @@ function parseCSVLine(line) {
 }
 
 // ============================================================================
-// CHART-RENDERING
+// INCIDENT-TYPE NORMALISIERUNG
 // ============================================================================
+
+const INCIDENT_NORMALIZATION = [
+    { match: /ransomware/i, norm: "Ransomware" },
+    { match: /phishing|social engineering/i, norm: "Phishing" },
+    { match: /ddos/i, norm: "DDoS" },
+    { match: /malware|virus|trojan/i, norm: "Malware" },
+    { match: /data theft|datatheft|theft/i, norm: "Datendiebstahl" },
+    { match: /espionage|spy/i, norm: "Spionage" },
+    { match: /sabotage|infrastructure/i, norm: "Sabotage" },
+    { match: /supply|dependency/i, norm: "Lieferkettenangriff" },
+    { match: /vulnerability|zero\-?day/i, norm: "Zero-Day Exploit" }
+];
+
+function cleanIncidentType(raw) {
+    if (!raw) return "Unbekannt";
+    const t = raw.trim();
+
+    for (let rule of INCIDENT_NORMALIZATION) {
+        if (rule.match.test(t)) return rule.norm;
+    }
+    return t; // fallback → Original
+}
+
 // ============================================================================
-//  CHARTS GENERIEREN (Pie Charts + Timeline)
+// CHARTS
 // ============================================================================
 
 function renderCharts(rows, header) {
 
     const chartArea = document.getElementById("chart-area");
-    chartArea.innerHTML = ""; // vorherige Charts löschen
-
-    //----------------------------------------------------------------------
-    // Hilfsfunktionen
-    //----------------------------------------------------------------------
-    function countByColumn(colName) {
-        const idx = header.indexOf(colName);
-        const map = {};
-        for (let row of rows) {
-            let v = (row[idx] || "Unbekannt").trim();
-            if (!map[v]) map[v] = 0;
-            map[v]++;
-        }
-        return map;
-    }
+    chartArea.innerHTML = "";
 
     function generateCanvas(id) {
         const c = document.createElement("canvas");
@@ -68,78 +75,96 @@ function renderCharts(rows, header) {
         return c;
     }
 
-    //----------------------------------------------------------------------
-    // 1) PIE: Angriffsarten (incident_type)
-    //----------------------------------------------------------------------
-    const incidentCounts = countByColumn("incident_type");
+    function countCustomIncidentTypes() {
+        const idx = header.indexOf("incident_type");
+        const map = {};
+        for (let r of rows) {
+            let clean = cleanIncidentType(r[idx]);
+            map[clean] = (map[clean] || 0) + 1;
+        }
+        return map;
+    }
 
-    const canvas1 = generateCanvas("chart_incident_type");
-    new Chart(canvas1, {
+    function countByColumn(col) {
+        const idx = header.indexOf(col);
+        const map = {};
+        for (let r of rows) {
+            let v = r[idx] || "Unbekannt";
+            v = v.trim();
+            map[v] = (map[v] || 0) + 1;
+        }
+        return map;
+    }
+
+    // ------------------------------
+    // PIE 1: Bereinigte Angriffsarten
+    // ------------------------------
+    const incidentCounts = countCustomIncidentTypes();
+    const c1 = generateCanvas("chart_incident_type");
+
+    new Chart(c1, {
         type: "pie",
         data: {
             labels: Object.keys(incidentCounts),
             datasets: [{
                 data: Object.values(incidentCounts),
                 backgroundColor: Object.keys(incidentCounts).map((_, i) =>
-                    `hsl(${(i * 40) % 360}, 70%, 60%)`
+                    `hsl(${(i * 50) % 360}, 70%, 55%)`
                 )
             }]
         }
     });
 
-
-    //----------------------------------------------------------------------
-    // 2) PIE: Initiator-Länder (initiator_country)
-    //----------------------------------------------------------------------
+    // ------------------------------
+    // PIE 2: Initiatoren (nach Land)
+    // ------------------------------
     const initCounts = countByColumn("initiator_country");
+    const c2 = generateCanvas("chart_initiators");
 
-    const canvas2 = generateCanvas("chart_initiators");
-    new Chart(canvas2, {
+    new Chart(c2, {
         type: "pie",
         data: {
             labels: Object.keys(initCounts),
             datasets: [{
                 data: Object.values(initCounts),
                 backgroundColor: Object.keys(initCounts).map((_, i) =>
-                    `hsl(${(i * 40) % 360}, 70%, 60%)`
+                    `hsl(${(i * 40) % 360}, 70%, 55%)`
                 )
             }]
         }
     });
 
-    //----------------------------------------------------------------------
-    // 3) LINE CHART: Timeline (start_date)
-    //----------------------------------------------------------------------
+    // ------------------------------
+    // LINE: Timeline der Attacken
+    // ------------------------------
     const idxStart = header.indexOf("start_date");
-    const timeMap = {};
+    const timeline = {};
 
-    for (let row of rows) {
-        const raw = row[idxStart];
-        if (!raw) continue;
-        const year = raw.substring(0, 4);
-        if (!timeMap[year]) timeMap[year] = 0;
-        timeMap[year]++;
+    for (let r of rows) {
+        const d = r[idxStart];
+        if (!d) continue;
+        const year = d.substring(0, 4);
+        timeline[year] = (timeline[year] || 0) + 1;
     }
 
-    const canvas3 = generateCanvas("chart_timeline");
-    new Chart(canvas3, {
+    const c3 = generateCanvas("chart_timeline");
+    new Chart(c3, {
         type: "line",
         data: {
-            labels: Object.keys(timeMap),
+            labels: Object.keys(timeline),
             datasets: [{
-                label: "Anzahl Vorfälle",
-                data: Object.values(timeMap),
+                label: "Angriffe pro Jahr",
+                data: Object.values(timeline),
                 tension: 0.3
             }]
         }
     });
-
 }
 
+// ============================================================================
+// MAIN
+// ============================================================================
 
-// ============================================================================
-// MAIN-FUNKTION
-// ============================================================================
 async function loadCountryData(countryName) {
 
     const response = await fetch("/Prototyp_WAE_Website/data/cyber_incidents_light.csv");
@@ -150,7 +175,52 @@ async function loadCountryData(countryName) {
         h.replace(/^"+|"+$/g, "").trim()
     );
 
-    // Spalten, die angezeigt werden
+    const idxReceiver = header.indexOf("receiver_country");
+    const idxInitiator = header.indexOf("initiator_country");
+    const idxStart = header.indexOf("start_date");
+    const idxEnd = header.indexOf("end_date");
+
+    const rows = [];
+
+    for (let i = 1; i < lines.length; i++) {
+        const cols = parseCSVLine(lines[i]);
+
+        if (
+            matchCountry(cols[idxReceiver], countryName) ||
+            matchCountry(cols[idxInitiator], countryName)
+        ) {
+            rows.push(cols);
+        }
+    }
+
+    const container = document.getElementById("country-data");
+
+    if (!rows.length) {
+        container.innerHTML = `<p style="color:#888;">Keine Daten für ${countryName}.</p>`;
+        return;
+    }
+
+    // --------------------------
+    // Sortieren nach Datum
+    // --------------------------
+    function parseDate(raw) {
+        if (!raw || !raw.trim()) return null;
+        const d = new Date(raw.trim());
+        return isNaN(d) ? null : d;
+    }
+
+    rows.sort((a, b) => {
+        const da = parseDate(a[idxStart]) || parseDate(a[idxEnd]);
+        const db = parseDate(b[idxStart]) || parseDate(b[idxEnd]);
+        if (!da && !db) return 0;
+        if (!da) return 1;
+        if (!db) return -1;
+        return db - da;
+    });
+
+    // --------------------------
+    // Tabelle rendern
+    // --------------------------
     const selectedColumns = [
         "name",
         "description",
@@ -169,82 +239,39 @@ async function loadCountryData(countryName) {
         incident_type: "Typ"
     };
 
-    // Indexe
-    const idxReceiverC = header.indexOf("receiver_country");
-    const idxInitiatorC = header.indexOf("initiator_country");
-    const idxStart = header.indexOf("start_date");
-    const idxEnd = header.indexOf("end_date");
-
-    let rows = [];
-
-    // FILTER → nach Land
-    for (let i = 1; i < lines.length; i++) {
-        const cols = parseCSVLine(lines[i]);
-
-        if (
-            matchCountry(cols[idxReceiverC], countryName) ||
-            matchCountry(cols[idxInitiatorC], countryName)
-        ) {
-            rows.push(cols);
-        }
-    }
-
-    const container = document.getElementById("country-data");
-
-    if (!rows.length) {
-        container.innerHTML = `<p style="color:#888;">Keine Daten für ${countryName} gefunden.</p>`;
-        return;
-    }
-
-    // SORTIEREN nach Datum
-    function parseDate(str) {
-        if (!str || str.trim() === "") return null;
-        let d = new Date(str.trim());
-        if (!isNaN(d)) return d;
-        return null;
-    }
-
-    rows.sort((a, b) => {
-        const da = parseDate(a[idxStart]) || parseDate(a[idxEnd]);
-        const db = parseDate(b[idxStart]) || parseDate(b[idxEnd]);
-        if (!da && !db) return 0;
-        if (!da) return 1;
-        if (!db) return -1;
-        return db - da;
-    });
-
-    // TABELLE bauen
     let html = "<table class='datatable'><thead><tr>";
-    for (let col of selectedColumns) {
-        html += `<th>${TITLE_MAP[col]}</th>`;
-    }
+
+    for (let col of selectedColumns) html += `<th>${TITLE_MAP[col]}</th>`;
     html += "</tr></thead><tbody>";
 
     for (let row of rows) {
-
         const inName = row[header.indexOf("initiator_name")] || "-";
         const inCountry = row[header.indexOf("initiator_country")] || "-";
-
         const reName = row[header.indexOf("receiver_name")] || "-";
         const reCountry = row[header.indexOf("receiver_country")] || "-";
 
         const s = row[idxStart] || "";
         const e = row[idxEnd] || "";
-
-        let timeCell = s;
-        if (e && e !== s) timeCell = `${s} | ${e}`;
+        const combinedDate = (e && e !== s) ? `${s} | ${e}` : s;
 
         html += "<tr>";
 
         for (let col of selectedColumns) {
-            let cell = "";
 
-            if (col === "initiator_combined") cell = `${inName} | ${inCountry}`;
-            else if (col === "receiver_combined") cell = `${reName} | ${reCountry}`;
-            else if (col === "date_combined") cell = timeCell;
-            else cell = row[header.indexOf(col)] ?? "";
+            if (col === "initiator_combined")
+                html += `<td>${inName} | ${inCountry}</td>`;
 
-            html += `<td>${cell}</td>`;
+            else if (col === "receiver_combined")
+                html += `<td>${reName} | ${reCountry}</td>`;
+
+            else if (col === "date_combined")
+                html += `<td>${combinedDate}</td>`;
+
+            else if (col === "incident_type")
+                html += `<td>${cleanIncidentType(row[header.indexOf("incident_type")])}</td>`;
+
+            else
+                html += `<td>${row[header.indexOf(col)] || ""}</td>`;
         }
 
         html += "</tr>";
@@ -253,7 +280,7 @@ async function loadCountryData(countryName) {
     html += "</tbody></table>";
     container.innerHTML = `<div class="table-wrapper">${html}</div>`;
 
-    // CHARTS jetzt rendern
+    // Charts generieren
     renderCharts(rows, header);
 }
 
