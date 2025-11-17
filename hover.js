@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Hover-Effekt (nur Rahmen + Glow)
         country.setAttribute("stroke", "#ff3333");
-        country.setAttribute("stroke-width", "1.0");
-        country.style.filter = "drop-shadow(0 0 8px #ff4444)";
+        country.setAttribute("stroke-width", "5");
+        country.style.filter = "drop-shadow(0 0 16px #ff4444)";
     });
 
     country.addEventListener("mouseleave", () => {
