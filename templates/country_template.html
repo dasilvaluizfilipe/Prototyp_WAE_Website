@@ -107,10 +107,14 @@
         <div class="chart-area" id="chart-area"></div>
 
     </div> <!-- /sidebar-map-container -->
-    <!-- SCRIPTS — richtige Reihenfolge -->
-    <script type="module" src="/Prototyp_WAE_Website/iso_map.js"></script>
-    <script type="module" src="/Prototyp_WAE_Website/loadCountryData.js"></script>
-    <script type="module" src="/Prototyp_WAE_Website/country_template.js"></script>
+    <!-- 1. Chart.js global -->
+    <script src="/Prototyp_WAE_Website/js/chart.umd.js"></script>
+
+    <!-- 2. Module in richtiger Reihenfolge -->
+    <script type="module" src="/Prototyp_WAE_Website/js/iso_map.js"></script>
+    <script type="module" src="/Prototyp_WAE_Website/js/loadCountryData.js"></script>
+    <script type="module" src="/Prototyp_WAE_Website/js/country_template.js"></script>
+
 
 </body>
 </html>
