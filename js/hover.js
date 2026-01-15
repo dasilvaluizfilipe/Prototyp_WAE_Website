@@ -50,19 +50,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Stats holen
                 const value = countryStats[countryName] ?? 0;
 
-              // HEATMAP (weiß → rot) mit logarithmischer Skalierung
+             // HEATMAP (weiß → rot) - Optimierte Spreizung
 // -----------------------------------------------------------------
 if (value <= 0) {
     c.style.fill = "#ffffff";
 } else {
-    // Logarithmische Skalierung: log(v + 1) / log(max + 1)
-    // Das "+ 1" verhindert Probleme mit log(0) oder log(1)
+    // 1. Logarithmische Basis
     let logValue = Math.log(value + 1);
     let logMax = Math.log(maxValue + 1);
     
-    let t = logValue / logMax;
+    // 2. Exponentielle Spreizung (Power Scale)
+    // Ein Wert < 1 (z.B. 0.5 für Quadratwurzel-Effekt) verstärkt kleine Werte massiv.
+    // Ein Wert von 0.3 bis 0.6 ist ideal, um kleine Länder sichtbarer zu machen.
+    let exponent = 0.5; 
+    let t = Math.pow(logValue / logMax, exponent);
 
-    // Begrenzung von t auf den Bereich [0, 1] zur Sicherheit
+    // Sicherheitshalber begrenzen
     t = Math.max(0, Math.min(1, t));
 
     let r = 255;
