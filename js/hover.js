@@ -69,8 +69,8 @@ if (value <= 0) {
     t = Math.max(0, Math.min(1, t));
 
     let r = 255;
-    let g = Math.round(180 * (1 - t));
-    let b = Math.round(180 * (1 - t));
+    let g = Math.round(100 * (1 - t));
+    let b = Math.round(255 * (1 - t));
     
     c.style.fill = `rgb(${r},${g},${b})`;
 }
