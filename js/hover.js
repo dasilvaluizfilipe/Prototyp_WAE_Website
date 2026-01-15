@@ -50,18 +50,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Stats holen
                 const value = countryStats[countryName] ?? 0;
 
-                // -----------------------------------------------------------------
-                // HEATMAP (weiß → rot)
-                // -----------------------------------------------------------------
-                if (value === 0) {
-                    c.style.fill = "#ffffff";
-                } else {
-                    let t = value / maxValue;
-                    let r = 255;
-                    let g = Math.round(255 * (1 - t));
-                    let b = Math.round(255 * (1 - t));
-                    c.style.fill = `rgb(${r},${g},${b})`;
-                }
+              // HEATMAP (weiß → rot) mit logarithmischer Skalierung
+// -----------------------------------------------------------------
+if (value <= 0) {
+    c.style.fill = "#ffffff";
+} else {
+    // Logarithmische Skalierung: log(v + 1) / log(max + 1)
+    // Das "+ 1" verhindert Probleme mit log(0) oder log(1)
+    let logValue = Math.log(value + 1);
+    let logMax = Math.log(maxValue + 1);
+    
+    let t = logValue / logMax;
+
+    // Begrenzung von t auf den Bereich [0, 1] zur Sicherheit
+    t = Math.max(0, Math.min(1, t));
+
+    let r = 255;
+    let g = Math.round(255 * (1 - t));
+    let b = Math.round(255 * (1 - t));
+    
+    c.style.fill = `rgb(${r},${g},${b})`;
+}
 
                 // -----------------------------------------------------------------
                 // HOVER
