@@ -19,6 +19,14 @@ body {
     padding: 30px;
 }
 
+.map-wrapper
+{
+     width: 100%;
+    max-width: auto;
+    margin: 0 auto;
+    padding: 30px;
+}
+
 #map-container svg path {
     transition: fill 0.15s ease;
 }
