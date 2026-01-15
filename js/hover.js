@@ -51,37 +51,50 @@ document.addEventListener("DOMContentLoaded", () => {
                 const value = countryStats[countryName] ?? 0;
 
              
-// DYNAMISCHE STUFEN-HEATMAP (Power-Scale Logarithmus)
+
+// HEATMAP (Dynamische Stufen über RGB-Logik)
 // -----------------------------------------------------------------
 if (value <= 0) {
-    c.style.fill = "#ffffff"; // Weiß
+    c.style.fill = "#ffffff";
 } else {
-    // 1. Logarithmische Basis
+    // 1. Logarithmische Basis & Exponentielle Spreizung (Ihre Logik)
     let logValue = Math.log(value + 1);
     let logMax = Math.log(maxValue + 1);
-    
-    // 2. Exponentielle Spreizung (Ihre Logik)
     let exponent = 0.5; 
     let t = Math.pow(logValue / logMax, exponent);
     t = Math.max(0, Math.min(1, t));
 
-    // 3. Zuweisung der Farbstufen basierend auf dem gespreizten Wert t
-    if (t < 0.2) {
-        c.style.fill = "#a1d99b"; // Hellgrün
-    } else if (t < 0.4) {
-        c.style.fill = "#ffffb2"; // Gelb
-    } else if (t < 0.6) {
-        c.style.fill = "#fecc5c"; // Hellorange
-    } else if (t < 0.8) {
-        c.style.fill = "#fd8d3c"; // Dunkelorange
-    } else {
-        c.style.fill = "#e31a1c"; // Rot
+    let r, g, b;
+
+    // 2. Farbstufen-Logik über RGB-Manipulation
+    if (t < 0.25) { 
+        // Weiß zu Grün
+        r = Math.round(255 * (1 - t * 4)); 
+        g = 255;
+        b = Math.round(255 * (1 - t * 4));
+    } else if (t < 0.5) { 
+        // Grün zu Gelb
+        r = Math.round(255 * ((t - 0.25) * 4));
+        g = 255;
+        b = 0;
+    } else if (t < 0.75) { 
+        // Gelb zu Orange/Rot
+        r = 255;
+        g = Math.round(255 * (1 - (t - 0.5) * 4));
+        b = 0;
+    } else { 
+        // Volles Rot
+        r = 255;
+        g = 0;
+        b = 0;
     }
+
+    c.style.fill = `rgb(${r},${g},${b})`;
 }
 
 
-------------------------
-                // HOVER
+
+     // HOVER
                 // -----------------------------------------------------------------
                 c.addEventListener("mouseenter", () => {
                     c.dataset.oldStroke = c.getAttribute("stroke") || "";
