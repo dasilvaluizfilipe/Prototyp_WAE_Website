@@ -51,17 +51,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 const value = countryStats[countryName] ?? 0;
 
              
-// DYNAMISCHE STUFEN-HEATMAP (Logarithmisch verteilt)
+// DYNAMISCHE STUFEN-HEATMAP (Power-Scale Logarithmus)
 // -----------------------------------------------------------------
 if (value <= 0) {
     c.style.fill = "#ffffff"; // Weiß
 } else {
-    // Logarithmische Normalisierung für die Stufenberechnung
+    // 1. Logarithmische Basis
     let logValue = Math.log(value + 1);
     let logMax = Math.log(maxValue + 1);
-    let t = logValue / logMax; 
+    
+    // 2. Exponentielle Spreizung (Ihre Logik)
+    let exponent = 0.5; 
+    let t = Math.pow(logValue / logMax, exponent);
+    t = Math.max(0, Math.min(1, t));
 
-    // Farbstufen-Zuweisung (Weiß -> Grün -> Gelb -> Orange -> Rot)
+    // 3. Zuweisung der Farbstufen basierend auf dem gespreizten Wert t
     if (t < 0.2) {
         c.style.fill = "#a1d99b"; // Hellgrün
     } else if (t < 0.4) {
@@ -74,6 +78,7 @@ if (value <= 0) {
         c.style.fill = "#e31a1c"; // Rot
     }
 }
+
 
 ------------------------
                 // HOVER
