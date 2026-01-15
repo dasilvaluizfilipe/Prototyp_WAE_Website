@@ -52,10 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
              
 
-// HEATMAP (Optimierte Farbstufen-Verteilung)
+// HEATMAP (Gelb -> Orange -> Rot)
 // -----------------------------------------------------------------
 if (value <= 0) {
-    c.style.fill = "#ffffff";
+    c.style.fill = "#ffffff"; // Weiß bei 0
 } else {
     let logValue = Math.log(value + 1);
     let logMax = Math.log(maxValue + 1);
@@ -65,24 +65,26 @@ if (value <= 0) {
 
     let r, g, b;
 
-    // Übergänge angepasst: Rot startet erst ab t > 0.6 deutlich
-    if (t < 0.3) { 
-        // Weiß zu Grün (0.0 - 0.3)
-        r = Math.round(255 * (1 - t / 0.3)); 
-        g = 255;
-        b = Math.round(255 * (1 - t / 0.3));
-    } else if (t < 0.6) { 
-        // Grün zu Gelb (0.3 - 0.6)
-        r = Math.round(255 * ((t - 0.3) / 0.3));
-        g = 255;
-        b = 0;
-    } else if (t < 0.9) { 
-        // Gelb zu Orange (0.6 - 0.9)
+    if (t < 0.33) {
+        // Stufe 1: Weiß zu Gelb (0.0 - 0.33)
+        // Blauanteil sinkt, damit aus Weiß Gelb wird
         r = 255;
-        g = Math.round(255 * (1 - (t - 0.6) / 0.3));
+        g = 255;
+        b = Math.round(255 * (1 - t / 0.33));
+    } else if (t < 0.66) {
+        // Stufe 2: Gelb zu Orange (0.33 - 0.66)
+        // Grünanteil sinkt leicht für Orange-Töne
+        r = 255;
+        g = Math.round(255 * (1 - (t - 0.33) * 0.8)); // g sinkt bis ca. 185
         b = 0;
-    } else { 
-        // Hartes Rot erst ab 90% der gespreizten Skala
+    } else if (t < 0.9) {
+        // Stufe 3: Orange zu hellem Rot (0.66 - 0.9)
+        // Grünanteil sinkt weiter stark
+        r = 255;
+        g = Math.round(185 * (1 - (t - 0.66) / 0.24));
+        b = 0;
+    } else {
+        // Stufe 4: Volles Rot (0.9 - 1.0)
         r = 255;
         g = 0;
         b = 0;
