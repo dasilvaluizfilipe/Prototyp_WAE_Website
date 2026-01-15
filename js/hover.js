@@ -52,12 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
              
 
-// HEATMAP (Dynamische Stufen über RGB-Logik)
+// HEATMAP (Optimierte Farbstufen-Verteilung)
 // -----------------------------------------------------------------
 if (value <= 0) {
     c.style.fill = "#ffffff";
 } else {
-    // 1. Logarithmische Basis & Exponentielle Spreizung (Ihre Logik)
     let logValue = Math.log(value + 1);
     let logMax = Math.log(maxValue + 1);
     let exponent = 0.5; 
@@ -66,24 +65,24 @@ if (value <= 0) {
 
     let r, g, b;
 
-    // 2. Farbstufen-Logik über RGB-Manipulation
-    if (t < 0.25) { 
-        // Weiß zu Grün
-        r = Math.round(255 * (1 - t * 4)); 
+    // Übergänge angepasst: Rot startet erst ab t > 0.6 deutlich
+    if (t < 0.3) { 
+        // Weiß zu Grün (0.0 - 0.3)
+        r = Math.round(255 * (1 - t / 0.3)); 
         g = 255;
-        b = Math.round(255 * (1 - t * 4));
-    } else if (t < 0.5) { 
-        // Grün zu Gelb
-        r = Math.round(255 * ((t - 0.25) * 4));
+        b = Math.round(255 * (1 - t / 0.3));
+    } else if (t < 0.6) { 
+        // Grün zu Gelb (0.3 - 0.6)
+        r = Math.round(255 * ((t - 0.3) / 0.3));
         g = 255;
         b = 0;
-    } else if (t < 0.75) { 
-        // Gelb zu Orange/Rot
+    } else if (t < 0.9) { 
+        // Gelb zu Orange (0.6 - 0.9)
         r = 255;
-        g = Math.round(255 * (1 - (t - 0.5) * 4));
+        g = Math.round(255 * (1 - (t - 0.6) / 0.3));
         b = 0;
     } else { 
-        // Volles Rot
+        // Hartes Rot erst ab 90% der gespreizten Skala
         r = 255;
         g = 0;
         b = 0;
