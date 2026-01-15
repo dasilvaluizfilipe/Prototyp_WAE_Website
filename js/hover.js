@@ -50,32 +50,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Stats holen
                 const value = countryStats[countryName] ?? 0;
 
-             // HEATMAP (weiß → rot) - Optimierte Spreizung
+             
+// DYNAMISCHE STUFEN-HEATMAP (Logarithmisch verteilt)
 // -----------------------------------------------------------------
 if (value <= 0) {
-    c.style.fill = "#ffffff";
+    c.style.fill = "#ffffff"; // Weiß
 } else {
-    // 1. Logarithmische Basis
+    // Logarithmische Normalisierung für die Stufenberechnung
     let logValue = Math.log(value + 1);
     let logMax = Math.log(maxValue + 1);
-    
-    // 2. Exponentielle Spreizung (Power Scale)
-    // Ein Wert < 1 (z.B. 0.5 für Quadratwurzel-Effekt) verstärkt kleine Werte massiv.
-    // Ein Wert von 0.3 bis 0.6 ist ideal, um kleine Länder sichtbarer zu machen.
-    let exponent = 0.5; 
-    let t = Math.pow(logValue / logMax, exponent);
+    let t = logValue / logMax; 
 
-    // Sicherheitshalber begrenzen
-    t = Math.max(0, Math.min(1, t));
-
-    let r = 255;
-    let g = Math.round(100 * (1 - t));
-    let b = Math.round(255 * (1 - t));
-    
-    c.style.fill = `rgb(${r},${g},${b})`;
+    // Farbstufen-Zuweisung (Weiß -> Grün -> Gelb -> Orange -> Rot)
+    if (t < 0.2) {
+        c.style.fill = "#a1d99b"; // Hellgrün
+    } else if (t < 0.4) {
+        c.style.fill = "#ffffb2"; // Gelb
+    } else if (t < 0.6) {
+        c.style.fill = "#fecc5c"; // Hellorange
+    } else if (t < 0.8) {
+        c.style.fill = "#fd8d3c"; // Dunkelorange
+    } else {
+        c.style.fill = "#e31a1c"; // Rot
+    }
 }
 
-                // -----------------------------------------------------------------
+------------------------
                 // HOVER
                 // -----------------------------------------------------------------
                 c.addEventListener("mouseenter", () => {
