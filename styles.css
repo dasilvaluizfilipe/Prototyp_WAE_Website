@@ -120,36 +120,7 @@ main {
 }
 
 /* ========== MAP CONTAINER ========== */
-.map-wrapper {
-    width: 100% !important;
-    height: calc(100vh - 180px) !important;
-    overflow: visible !important;
-    position: relative;
-    background: #181818;
-    border-radius: 8px;
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    padding: 0;
-    margin: 0;
-    flex: 1;
-}
 
-#mapObject {
-    width: 100% !important;
-    height: 100% !important;
-    background-color: #f8f9fa;
-    display: block !important;
-    overflow: visible !important;
-}
-
-/* SVG-Inhalt skalieren lassen */
-#mapObject svg {
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-    overflow: visible !important;
-    max-width: none !important;
-    preserveAspectRatio: xMinYMid meet !important;
-}
 
 #map-container svg path {
     transition: fill 0.15s ease;
