@@ -139,17 +139,19 @@ section {
 
 
 .map-wrapper {
+    position: relative;
     width: 100%;
-    max-width: 100%;
-    background: #000;
+    height: 0;
+    padding-bottom: 42.85%; /* Erzwingt das 2000:857 Verhältnis */
+    overflow: hidden;
 }
 
 #mapObject {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    aspect-ratio: 2000 / 857; /* Verhindert das "Ausschnitt-Problem" */
-    display: block;
-    pointer-events: none; /* Optional: Falls du nur gucken willst */
+    height: 100%;
 }
 
 
