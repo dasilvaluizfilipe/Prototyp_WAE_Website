@@ -98,12 +98,6 @@ nav a:hover::after {
 }
 
 /* ========== SEKTIONS-LAYOUT (STIL VON DATEI 1) ========== */
-.page-wrapper {
-    max-width: 2000px;
-    margin: 0;
-    padding: 30px;
-}
-
 section {
     display: flex;
     align-items: center;
