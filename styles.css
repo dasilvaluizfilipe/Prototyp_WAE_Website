@@ -142,7 +142,10 @@ section {
 }
 /* 2. Das SVG-Objekt zwingen, sich dem Container anzupassen */
 #mapObject {
-    width: 95%;       /* Die Karte nimmt nur 80% des Containers ein */
+    pointer-events: none;
+    width: 95%;
+    height: auto;
+    max-width: 500px;/* Die Karte nimmt nur 80% des Containers ein */
     margin: 0 auto;   /* Zentriert die Karte im Wrapper */
     display: block;
     aspect-ratio: 2000 / 857; 
