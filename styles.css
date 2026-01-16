@@ -123,21 +123,48 @@ section {
     border: 1px solid #ddd;
     border-radius: 8px;
 }
+.page-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+
+
+#map-container svg path {
+    transition: fill 0.15s ease;
+}
+
+
+
+#map-container svg path:hover {
+    fill: #ff6666 !important;
+    stroke: #fff !important;
+    stroke-width: 1.2px;
+    cursor: pointer;
+}
+
+
 
 .map-wrapper {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    line-height: 0;
+    width: auto;
+    overflow-x: visible;
     background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    padding: 0;
+    margin-top: 0;
+    text-align: center;
 }
-/* 2. Das SVG-Objekt zwingen, sich dem Container anzupassen */
+/* 2. Das SVG-Objekt zwingen, sich dem Container anzupassen 
 #mapObject {
-    margin: 0 auto;   /* Zentriert die Karte im Wrapper */
+    margin: 0 auto;   /* Zentriert die Karte im Wrapper 
     display: block;
     aspect-ratio: 2000 / 857; 
 }
 
-/* Texte & Content */
+ Texte & Content */
 .Startseite_Text_IM, 
 .Startseite_Text_Statistiken, 
 .Startseite_Text_Cyberhub {
