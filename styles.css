@@ -136,8 +136,20 @@ section {
 
 ./* In styles.css */
 
-.map-wrapper{
-    background: #f8f9fa;
+
+
+.map-wrapper {
+    width: 100%;
+    max-width: 100%;
+    background: #000;
+}
+
+#mapObject {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2000 / 857; /* Verhindert das "Ausschnitt-Problem" */
+    display: block;
+    pointer-events: none; /* Optional: Falls du nur gucken willst */
 }
 
 
