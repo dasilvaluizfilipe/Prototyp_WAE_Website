@@ -257,6 +257,21 @@ p {
     display: block;
 }
 
+#tooltip {
+    position: absolute;
+    display: none;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-size: 14px;
+    pointer-events: none; /* Wichtig: Tooltip darf Hover-Events auf der Karte nicht stören */
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    white-space: nowrap;
+}
+
 /* ========== FOOTER ========== */
 footer {
     background: #111;
