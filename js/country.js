@@ -1,47 +1,40 @@
 import { normalizeCountry } from "./iso_map.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const obj = document.getElementById("mapObject");
+    // 1. Direktzugriff auf die Inline-SVG via ID
+    const svg = document.getElementById("mapObject");
 
-    if (!obj) {
-        console.error("❌ <object id='mapObject'> nicht gefunden");
+    if (!svg) {
+        console.error("❌ SVG mit ID 'mapObject' nicht im HTML gefunden (country.js)");
         return;
     }
 
-    obj.addEventListener("load", () => {
-        const svg = obj.contentDocument.querySelector("svg");
+    console.log("📌 country.js: Inline-SVG bereit");
 
-        if (!svg) {
-            console.error("❌ SVG im object nicht gefunden (country.js)");
-            return;
-        }
+    // 2. Länder-Pfade direkt selektieren
+    const countries = svg.querySelectorAll(".country");
 
-        console.log("📌 country.js SVG geladen");
+    countries.forEach(country => {
+        country.addEventListener("click", () => {
 
-        const countries = svg.querySelectorAll(".country");
+            // Raw-ID oder Name aus SVG holen
+            const raw = country.getAttribute("title")
+                || country.id
+                || "unknown";
 
-        countries.forEach(country => {
-            country.addEventListener("click", () => {
+            console.log("📌 Klick in country.js → raw:", raw);
 
-                // Raw-ID oder Name aus SVG holen
-                const raw = country.getAttribute("title")
-                    || country.id
-                    || "unknown";
+            // raw → korrekter URL-Code
+            const urlCode = raw
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "_")
+                .replace(/^_+|_+$/g, "");
 
-                console.log("📌 Klick in country.js → raw:", raw);
+            console.log("📌 erzeugter URL-Code:", urlCode);
 
-                // raw → korrekter URL-Code (Unterstriche statt Leerzeichen)
-                const urlCode = raw
-                    .toLowerCase()
-                    .replace(/[^a-z0-9]+/g, "_")
-                    .replace(/^_+|_+$/g, "");
-
-                console.log("📌 erzeugter URL-Code:", urlCode);
-
-                // Weiterleiten
-                window.location.href =
-                    `/Prototyp_WAE_Website/templates/country_template.html?code=${encodeURIComponent(urlCode)}`;
-            });
+            // Weiterleiten
+            window.location.href =
+                `/Prototyp_WAE_Website/templates/country_template.html?code=${encodeURIComponent(urlCode)}`;
         });
     });
 });
