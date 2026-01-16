@@ -47,7 +47,7 @@ nav {
     margin: 0;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;;
+    align-items: flex-end;
     padding: 1rem 0;
     gap: 2rem;
 }
@@ -86,8 +86,9 @@ nav a:hover, .topnav a:hover {
     position: relative;
     border-radius: 25px;
     background: #fff;
-	float:right
-text-align: right
+	float:right;
+	text-align: right;
+	align-items: flex-end;
 }
 
 .search-container input[type="text"] {
