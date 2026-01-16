@@ -37,64 +37,51 @@ header {
     border-bottom: 1px solid #000;
 }
 
-.header-wrapper {
-    text-align: left;
-    margin-bottom: 30px;
-}
-
 nav {
     max-width: 1200px;
-    margin: 0;
+    margin: 0 auto;
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 1rem 0;
-    gap: 2rem;
+    justify-content: space-between; /* Verteilt Links, Mitte, Rechts */
+    align-items: center; /* Vertikale Zentrierung */
+    padding: 1rem 30px;
 }
 
+/* Der Titel/Logo (Links) */
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex: 1; /* Nimmt Platz ein, um Mitte zu schieben */
+}
+
+/* Die Navigation (Mitte) */
 nav ul {
     list-style: none;
     display: flex;
     gap: 1.5rem;
     padding: 0;
+    margin: 0;
+    flex: 2; /* Gibt der Mitte mehr Raum */
+    justify-content: center; /* Zentriert die Links innerhalb ihres Bereichs */
 }
 
-.topnav {
-    font-size: 1.2rem;
-}
-
-nav a, .topnav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 0;
-    position: relative;
-    transition: color 0.2s ease;
-}
-
-nav a:hover, .topnav a:hover {
-    color: #d40000;
-    text-decoration: underline;
-}
-
-
-/* ========== SEARCH CONTAINER ========== */
+/* Der Search Container (Rechts) */
 .search-container {
     font-size: 16px;
-    border: 2px solid #000;
-    display: inline-block;
+    border: 2px solid #fff; /* Weißer Rand auf schwarzem Header */
+    display: flex;
     position: relative;
     border-radius: 25px;
     background: #fff;
-	float:right;
-	text-align: right;
-	align-items: flex-end;
+    flex: 1; /* Nimmt Platz ein, um Mitte zu schieben */
+    justify-content: flex-end; /* Inhalt innerhalb des Containers rechts */
+    max-width: fit-content;
+    margin-left: auto; /* Erzwingt Rechtsbündigkeit */
 }
 
 .search-container input[type="text"] {
     font-family: inherit;
     font-weight: bold;
-    width: 40px; /* Geschlossener Zustand */
+    width: 40px;
     height: 40px;
     padding: 0 10px;
     border: none;
@@ -107,45 +94,7 @@ nav a:hover, .topnav a:hover {
 
 .search-container input[type="text"]:focus {
     outline: none;
-    width: 200px; /* Offener Zustand */
-}
-
-/* Platzhalter Farbe */
-.search-container input::placeholder {
-    color: #999;
-}
-	
-	button[type="reset"] {
-		background-color: transparent;
-		width: $handle-height;
-		height: $handle-height;
-		border: 0;
-		padding: 0;
-		outline: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: absolute;
-		top: ($size / 2) - ($handle-height / 2);
-		right: ($size / 2) - ($handle-height / 2);
-		transform: rotate(-45deg) translateY($size - $frame-thickness);
-		transition:
-			transform $close-trans-time ease-out $close-trans-time;
-		&:before, &:after {
-			content: "";
-			background-color: $frame-color;
-			width: $frame-thickness;
-			height: $handle-height;
-			position: absolute;
-		}
-		&:after {
-			transform: rotate(90deg);
-			opacity: 0;
-			transition:
-				transform $close-trans-time ease-out,
-				opacity $close-trans-time ease-out;
-		}
-	}
+    width: 200px;
 }
 
 
