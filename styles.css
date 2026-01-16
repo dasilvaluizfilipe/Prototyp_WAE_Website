@@ -131,12 +131,26 @@ section {
     padding: 30px;
 }
 
-.map-wrapper
-{
-     width: 100%;
-    max-width: auto;
-    margin: 0 auto;
-    padding: 30px;
+/* In styles.css ergänzen */
+
+.map-wrapper {
+    width: 100%;
+    background-color: #f8f9fa;
+    height: calc(100vh - 120px);
+    overflow: auto; /* Oder hidden */
+    position: relative;
+    border: 2px solid red; /* Zum Debuggen */
+}
+
+#mapObject {
+    display: block;
+    border: 1px solid blue; /* Zum Debuggen */
+}
+
+/* SVG-Inhalt direkt ansprechen */
+#mapObject svg {
+    display: block !important;
+    max-width: none !important;
 }
 
 #map-container svg path {
