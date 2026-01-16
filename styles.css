@@ -127,29 +127,34 @@ section {
 .page-wrapper {
     width: 100%;
     max-width: auto;
-    margin: 0 auto;
+    margin: 0;
     padding: 30px;
 }
 
 /* In styles.css ergänzen */
 
+./* In styles.css */
 .map-wrapper {
     width: 100%;
-    background-color: #f8f9fa;
     height: calc(100vh - 120px);
-    overflow: auto; /* Oder hidden */
+    overflow: visible !important; /* WICHTIG: Nicht hidden/auto */
     position: relative;
-    border: 2px solid red; /* Zum Debuggen */
 }
 
 #mapObject {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #f8f9fa
     display: block;
-    border: 1px solid blue; /* Zum Debuggen */
+    overflow: visible !important;
 }
 
-/* SVG-Inhalt direkt ansprechen */
+/* SVG-Inhalt skalieren lassen */
 #mapObject svg {
+    width: 100% !important;
+    height: 100% !important;
     display: block !important;
+    overflow: visible !important;
     max-width: none !important;
 }
 
