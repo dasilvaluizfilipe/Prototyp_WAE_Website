@@ -282,22 +282,4 @@ footer {
     text-align: center;
 }
 
-/* ========== MOBILE ========== */
-@media (max-width: 800px) {
-    section, .Beschreibung_Statistiken {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .Startseite_Bild_IM, 
-    .Startseite_Bild_Statistiken, 
-    .Startseite_Bild_Cyberhub,
-    .map-wrapper {
-        width: 100%;
-    }
-    
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
+
