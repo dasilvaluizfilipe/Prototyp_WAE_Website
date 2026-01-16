@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B.R.O.K.E.N. A.R.R.O.W. - Cyber Intelligence Hub</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">B.R.O.K.E.N. A.R.R.O.W.</div>
+            <ul>
+                <li><a href="/">Startseite</a></li>
+                <li><a href="/Map">Incident Map</a></li>
+                <li><a href="/Analyse">Daten-Analyse</a></li>
+                <li><a href="/Cyberhub">Cyberhub Wiki</a></li>
+                <li><a href="/about">Über uns</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" placeholder="Akteure oder TTPs suchen...">
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-wrapper">
+        <main>
+            <section class="Beschreibung_Map">
+
+                <img src="" alt="" class="Startseite_Bild_IM">
+
+                <div class="Startseite_Text_IM">
+
+                    <h2 class="Startseite_IM_Title"></h2>
+
+                    <p class="Startseite_Beschreibung_IM"></p>
+
+                    <a href="#" class="Startseite_Button_IM"></a>
+
+                </div>
+
+            </section>
+
+
+
+            <section class="Beschreibung_Statistiken">
+
+                <img src="" alt="" class="Startseite_Bild_Statistiken">
+
+                <div class="Startseite_Text_Statistiken">
+
+                    <h2 class="Startseite_Statistiken_Title"></h2>
+
+                    <p class="Startseite_Beschreibung_Statistiken"></p>
+
+                    <a href="#" class="Startseite_Button_Statistiken"></a>
+
+                </div>
+
+            </section>
+
+            <section class="Beschreibung_Cyberhub">
+                <img src="./Img/Cyberhub.png" alt="Intelligence Database" class="Startseite_Bild_Cyberhub">
+                <div class="Startseite_Text_Cyberhub">
+                    <h2 class="Startseite_Cyberhub_Title">Cyberhub Intelligence</h2>
+                    <p class="Startseite_Beschreibung_Cyberhub">
+                        Zentrales Repository für Threat Intelligence. Profile staatlicher Akteure, Analyse von Zero-Day-Exploits und Dokumentation von Taktiken nach MITRE ATT&CK.
+                    </p>
+                    <a href="#" class="Startseite_Button_Cyberhub">Datenbank durchsuchen</a>
+                </div>
+            </section>
+
+            <div class="sidebar-map-container">
+                <aside class="sidebar">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="global-overview.html">Globaler Schaden</a>
+                                <div class="sidebar-info">Kumulierte wirtschaftliche Verluste pro Quartal.</div>
+                            </li>
+                            <li>
+                                <a href="attack-density.html">Angriffsdichte</a>
+                                <div class="sidebar-info">Hotspots aktiver Command-and-Control Infrastruktur.</div>
+                            </li>
+                            <li>
+                                <a href="top-actors.html">Aktivste Gruppen</a>
+                                <div class="sidebar-info">Ranking der derzeit aktivsten APT-Kollektive.</div>
+                            </li>
+                            <li>
+                                <a href="critical-infra.html">KRITIS-Status</a>
+                                <div class="sidebar-info">Überwachung von Angriffen auf Energie- und Wasserversorgung.</div>
+                            </li>
+                            <li>
+                                <a href="ransomware-hubs.html">Ransomware-Tracking</a>
+                                <div class="sidebar-info">Aktuelle Verschlüsselungskampagnen und Leak-Sites.</div>
+                            </li>
+                            <li>
+                                <a href="state-vs-state.html">Staatliche Operationen</a>
+                                <div class="sidebar-info">Analyse geopolitisch motivierter Kyber-Konflikte.</div>
+                            </li>
+                            <li>
+                                <a href="economy-impact.html">Markt-Auswirkungen</a>
+                                <div class="sidebar-info">Einfluss von Datenleaks auf Börsenwerte betroffener Firmen.</div>
+                            </li>
+                            <li>
+                                <a href="supply-chain.html">Lieferketten-Risiko</a>
+                                <div class="sidebar-info">Überwachung von Schwachstellen in Drittanbieter-Software.</div>
+                            </li>
+                            <li>
+                                <a href="zero-day-tracker.html">Exploit-Monitoring</a>
+                                <div class="sidebar-info">Echtzeit-Status von ungespatchten Sicherheitslücken.</div>
+                            </li>
+                            <li>
+                                <a href="incident-types.html">Vorfalls-Klassifizierung</a>
+                                <div class="sidebar-info">Taxonomie nach Schweregrad und Zielobjekt.</div>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <div id="tooltip"></div>
+
+   <footer class="Startseite_footer">
+        <nav class="Startseite_footer_nav">
+            <ul>
+                <li><a href="Impressum">Impressum</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script type="module" src="./js/iso_map.js"></script>            
+    <script type="module" src="./js/country.js"></script>
+    <script type="module" src="./js/hover.js"></script>
+</body>
+</html>
