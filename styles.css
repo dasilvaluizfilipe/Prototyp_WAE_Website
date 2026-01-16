@@ -142,6 +142,13 @@ section {
     flex-grow: 1;
 }
 
+#mapObject {
+    width: 95%;       /* Die Karte nimmt nur 80% des Containers ein */
+    margin: 0 auto;   /* Zentriert die Karte im Wrapper */
+    display: block;
+    aspect-ratio: 2000 / 857; 
+}
+
 /* Texte & Content */
 .Startseite_Text_IM, 
 .Startseite_Text_Statistiken, 
