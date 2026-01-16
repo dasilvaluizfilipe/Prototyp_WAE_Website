@@ -78,7 +78,7 @@ nav a:hover, .topnav a:hover {
 }
 
 
-.search-container {
+search-container {
 	font-size: $font-size;
 	border: solid $frame-thickness $frame-color;
 	display: inline-block;
