@@ -303,3 +303,124 @@ footer {
         width: 100%;
     }
 }
+
+/* ========== MOBILE OPTIMIERUNG ========== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stapelt Logo, Nav und Suche untereinander */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .logo {
+        text-align: center;
+        flex: none;
+    }
+
+    nav ul {
+        flex-wrap: wrap; /* Erlaubt Zeilenumbruch der Links */
+        justify-content: center;
+        gap: 10px;
+        flex: none;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem; /* Etwas kleinerer Text für mehr Platz */
+    }
+
+    .search-container {
+        justify-content: center;
+        flex: none;
+        width: 100%; /* Suche zentriert auf Handy */
+    }
+
+    .search-container input[type="text"] {
+        width: 100%; /* Volle Breite auf dem Handy */
+        max-width: 250px;
+    }
+
+    .search-container input[type="text"]:focus {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+/* ========== MOBILE OPTIMIERUNG ========== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stapelt Logo, Nav und Suche untereinander */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .logo {
+        text-align: center;
+        flex: none;
+    }
+
+    nav ul {
+        flex-wrap: wrap; /* Erlaubt Zeilenumbruch der Links */
+        justify-content: center;
+        gap: 10px;
+        flex: none;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem; /* Etwas kleinerer Text für mehr Platz */
+    }
+
+    .search-container {
+        justify-content: center;
+        flex: none;
+        width: 100%; /* Suche zentriert auf Handy */
+    }
+
+    .search-container input[type="text"] {
+        width: 100%; /* Volle Breite auf dem Handy */
+        max-width: 250px;
+    }
+
+    .search-container input[type="text"]:focus {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+/* ========== MOBILE OPTIMIERUNG ========== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stapelt Logo, Nav und Suche untereinander */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .logo {
+        text-align: center;
+        flex: none;
+    }
+
+    nav ul {
+        flex-wrap: wrap; /* Erlaubt Zeilenumbruch der Links */
+        justify-content: center;
+        gap: 10px;
+        flex: none;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem; /* Etwas kleinerer Text für mehr Platz */
+    }
+
+    .search-container {
+        justify-content: center;
+        flex: none;
+        width: 100%; /* Suche zentriert auf Handy */
+    }
+
+    .search-container input[type="text"] {
+        width: 100%; /* Volle Breite auf dem Handy */
+        max-width: 250px;
+    }
+
+    .search-container input[type="text"]:focus {
+        width: 100%;
+        max-width: 280px;
+    }
+}
