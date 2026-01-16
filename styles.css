@@ -183,27 +183,33 @@ p {
     list-style: none;
 }
 
-.sidebar li {
-    margin-bottom: 10px;
-}
-
 .sidebar a {
     color: #000;
 }
 
-/* Versteckt das Tooltip standardmäßig */
-#tooltip {
+/* Container für den Link muss relativ sein, damit der Tooltip sich daran ausrichtet */
+.sidebar li {
+    margin-bottom: 10px;
+    position: relative; 
+}
+
+/* Die Klasse für die Info-Box (früher #tooltip) */
+.sidebar-info {
     position: absolute;
+    left: 100%; /* Erscheint rechts neben dem Text */
+    top: 0;
     background: #111;
     color: #fff;
     padding: 5px 10px;
     border-radius: 4px;
-    display: none; /* Wichtig: Startzustand */
+    white-space: nowrap;
     z-index: 1000;
+    display: none; /* Standardmäßig aus */
+    pointer-events: none;
 }
 
-/* Zeigt das Tooltip nur an, wenn über das Elternelement gehovert wird */
-.sidebar li:hover #tooltip {
+/* Nur beim Hover über das Listen-Element anzeigen */
+.sidebar li:hover .sidebar-info {
     display: block;
 }
 
