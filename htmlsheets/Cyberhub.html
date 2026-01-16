@@ -18,9 +18,12 @@
                 <li><a href="Cyberhub.html">Cyberhub</a></li>
                 <li><a href="/about">Über uns</a></li>
             </ul>
-            <div class="search-container">
-                <input type="text" placeholder="Akteure oder TTPs suchen...">
-            </div>
+            <div class="nav-right">
+        <button id="dark-mode-toggle">Mode</button>
+        <div class="search-container">
+            <input type="text" placeholder="Suchen...">
+        </div>
+    </div>
         </nav>
     </header>
 
@@ -28,7 +31,7 @@
         <main>
 
             <section class="Beschreibung_Cyberhub">
-                <img src="./Img/Cyberhub.png" alt="Intelligence Database" class="Startseite_Bild_Cyberhub">
+                <img src="../Img/Platzhalter.png" alt="Intelligence Database" class="Startseite_Bild_Cyberhub">
                 <div class="Startseite_Text_Cyberhub">
                     <h2 class="Startseite_Cyberhub_Title">Cyberhub Intelligence</h2>
                     <p class="Startseite_Beschreibung_Cyberhub">
@@ -40,15 +43,23 @@
 
             <section class="Beschreibung_Statistiken">
 
-                <img src="" alt="" class="Startseite_Bild_Statistiken">
+                <img src="../Img/Platzhalter.png" alt="" class="Startseite_Bild_Statistiken">
 
                 <div class="Startseite_Text_Statistiken">
 
                     <h2 class="Startseite_Statistiken_Title"></h2>
 
                     <p class="Startseite_Beschreibung_Statistiken"></p>
+                    “Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquid ex ea commodi consequat. 
+                    Quis aute iure reprehenderit in voluptate velit esse 
+                    cillum dolore eu fugiat nulla pariatur. 
+                    Excepteur sint obcaecat cupiditat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.”
 
-                    <a href="#" class="Startseite_Button_Statistiken"></a>
+                    <a href="#" class="Startseite_Button_Statistiken">Datenbank durchsuchen</a>
 
                 </div>
 
@@ -56,15 +67,22 @@
 
             <section class="Beschreibung_Map">
 
-                <img src="" alt="" class="Startseite_Bild_IM">
+                <img src="../Img/Platzhalter.png" alt="" class="Startseite_Bild_IM">
 
                 <div class="Startseite_Text_IM">
 
                     <h2 class="Startseite_IM_Title"></h2>
 
                     <p class="Startseite_Beschreibung_IM"></p>
-
-                    <a href="#" class="Startseite_Button_IM"></a>
+                     “Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquid ex ea commodi consequat. 
+                    Quis aute iure reprehenderit in voluptate velit esse 
+                    cillum dolore eu fugiat nulla pariatur. 
+                    Excepteur sint obcaecat cupiditat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.”
+                    <a href="#" class="Startseite_Button_IM">Datenbank durchsuchen</a>
 
                 </div>
 
@@ -132,8 +150,31 @@
         </nav>
     </footer>
 
-    <script type="module" src="./js/iso_map.js"></script>            
-    <script type="module" src="./js/country.js"></script>
-    <script type="module" src="./js/hover.js"></script>
+    
+    <script src="../js/darkmode.js"></script>
+
+<script>
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+const body = document.body;
+
+// Prüfen, ob beim letzten Besuch der Darkmode aktiviert wurde
+if (localStorage.getItem('dark-mode') === 'enabled') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = 'Light Mode';
+}
+
+toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    // Status in localStorage speichern und Button-Text anpassen
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('dark-mode', 'enabled');
+        toggleBtn.textContent = 'Light Mode';
+    } else {
+        localStorage.setItem('dark-mode', 'disabled');
+        toggleBtn.textContent = 'Dark Mode';
+    }
+});
+</script>
 </body>
 </html>

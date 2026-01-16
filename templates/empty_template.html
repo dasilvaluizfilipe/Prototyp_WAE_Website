@@ -9,20 +9,23 @@
 <body>
 
     <header>
-        <nav>
-            <div class="logo">CYBER</div>
-            <ul>
-                <li><a href="/">Startseite</a></li>
-                <li><a href="/Map">Map</a></li>
-                <li><a href="/Analyse">Analyse</a></li>
-                <li><a href="/Cyberhub">Cyberhub</a></li>
-                <li><a href="/about">About us</a></li>
-            </ul>
-            <div class="search-container">
-                <input type="text" placeholder="Suche...">
-            </div>
-        </nav>
-    </header>
+    <nav>
+        <div class="logo">CYBER</div>
+        <ul>
+            <li><a href="./index.html">Startseite</a></li>
+            <li><a href="./htmlsheets/Karte.html">Map</a></li>
+            <li><a href="/Analyse">Analyse</a></li>
+            <li><a href="./htmlsheets/Cyberhub.html">Cyberhub</a></li>
+            <li><a href="/about us">About us</a></li>
+        </ul>
+        <div class="nav-right">
+        <button id="dark-mode-toggle">Mode</button>
+        <div class="search-container">
+            <input type="text" placeholder="Suchen...">
+        </div>
+    </div>
+    </nav>
+</header>
 
     <div class="page-wrapper">
        
@@ -112,8 +115,30 @@
     </footer>
 
     
-    <script type="module" src="./js/iso_map.js"></script>            
-    <script type="module" src="./js/country.js"></script>
-    <script type="module" src="./js/hover.js"></script>
+   <script src="../js/darkmode.js"></script>
+
+<script>
+    const toggleBtn = document.getElementById('dark-mode-toggle');
+const body = document.body;
+
+// Prüfen, ob beim letzten Besuch der Darkmode aktiviert wurde
+if (localStorage.getItem('dark-mode') === 'enabled') {
+    body.classList.add('dark-mode');
+    toggleBtn.textContent = 'Light Mode';
+}
+
+toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    // Status in localStorage speichern und Button-Text anpassen
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('dark-mode', 'enabled');
+        toggleBtn.textContent = 'Light Mode';
+    } else {
+        localStorage.setItem('dark-mode', 'disabled');
+        toggleBtn.textContent = 'Dark Mode';
+    }
+});
+</script>
 </body>
 </html>
