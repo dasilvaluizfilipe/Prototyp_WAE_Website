@@ -125,8 +125,7 @@ section {
 }
 .page-wrapper {
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+    margin: 0;
     padding: 30px;
 }
 
@@ -148,14 +147,10 @@ section {
 
 
 .map-wrapper {
-    width: auto;
-    overflow-x: visible;
     background-color: #f8f9fa;
+    width: auto;
     border-radius: 8px;
     border: 2px solid rgba(255, 255, 255, 0.15);
-    padding: 0;
-    margin-top: 0;
-    text-align: center;
 }
 /* 2. Das SVG-Objekt zwingen, sich dem Container anzupassen 
 #mapObject {
