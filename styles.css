@@ -99,23 +99,27 @@ nav a:hover::after {
 
 /* ========== SEKTIONS-LAYOUT (STIL VON DATEI 1) ========== */
 .page-wrapper {
-    width: fit-content;
-    max-width: 95vw;
-    margin: 0 ;
+    width: 100%;       
+    max-width: 2000px; 
+    margin: 0;         
     padding: 30px;
 }
 
 .map-wrapper {
-    width: auto;
-    display:block;
-    flex-grow: 1;
+    flex: 0 0 65%;    /* Die Karte nimmt fest 65% der Breite ein */
+    max-width: 1000px; 
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    line-height: 0;    /* Verhindert Lücken unter dem Object */
 }
 
 #mapObject {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    display: block;
+    aspect-ratio: 3000 / 857; /* WICHTIG: Erhält das Format der Weltkarte */
 }
-
 section {
     display: flex;
     align-items: center;
