@@ -158,7 +158,13 @@ section {
     cursor: pointer;
 }
 
-
+/* Ziel: Die SVG oder das Bild-Element */
+svg, #mapObject {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+}
 
 /*background-color: #f8f9fa;
 
