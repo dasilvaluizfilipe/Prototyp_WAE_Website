@@ -133,6 +133,7 @@ section {
 /* Map-Spezifisch: Falls die Map breiter sein soll */
 
 .map-wrapper {
+    background: #f0f2f5;
     flex: 0 0 45%;    /* Kleinerer Wert = kleinere Karte */
     max-width: 2000px; /* Zusätzliche absolute Begrenzung */
     height: auto;
