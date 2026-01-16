@@ -12,46 +12,51 @@ html {
 
 body {
     line-height: 1.6;
-    color: #111;
-    background: white;
+    color: #000;
+    background: #fff;
+    text-align: left;
 }
 
 /* ========== LAYOUT WRAPPERS ========== */
 .page-wrapper, .container {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0; /* Linksbündig */
     padding: 30px;
 }
 
 section {
-    padding: 4rem 1rem;
+    padding: 2rem 0;
+    text-align: left;
 }
 
 /* ========== HEADER & NAVIGATION ========== */
 header {
     background: #fff;
     color: #000;
+    border-bottom: 1px solid #000;
 }
 
 .header-wrapper {
-    text-align: center;
+    text-align: left;
     margin-bottom: 30px;
 }
 
 nav {
     max-width: 1200px;
-    margin: auto;
+    margin: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Linksbündig */
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 0;
+    gap: 2rem;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 1.5rem;
+    padding: 0;
 }
 
 .topnav {
@@ -59,81 +64,39 @@ nav ul {
 }
 
 nav a, .topnav a {
-    color: #ccc;
+    color: #000;
     text-decoration: none;
     font-weight: 500;
-    padding: 8px 6px;
+    padding: 8px 0;
     position: relative;
     transition: color 0.2s ease;
 }
 
 nav a:hover, .topnav a:hover {
-    color: #fff;
+    color: #d40000;
     text-decoration: underline;
-}
-
-/* Modern Underline Effect für Topnav */
-.topnav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    height: 2px;
-    width: 0;
-    background: #d40000;
-    transition: width 0.25s ease;
-}
-
-.topnav a:hover::after {
-    width: 100%;
-}
-
-.topnav a.active {
-    color: #ff4444;
-}
-
-.topnav a.active::after {
-    width: 100%;
-    background: #ff4444;
-}
-
-/* ========== HERO SECTION ========== */
-/*.hero {
-    background: linear-gradient(135deg, #000, #333);
-    color: #fff;
-    padding: 5rem 1rem;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    max-width: 700px;
-    margin: auto;
 }
 
 /* ========== SIDEBAR & MAP LAYOUT ========== */
 .sidebar-map-container {
     display: flex;
     align-items: flex-start;
-    gap: 5px;
+    gap: 20px;
+    text-align: left;
 }
 
 .sidebar {
     width: 220px;
     background: #fff;
     color: #000;
-    padding: 20px;
-    border-radius: 8px;
-    border: 2px solid rgba(255,255,255,0.15);
+    padding: 20px 0;
+    border: none;
     text-align: left;
 }
 
 .sidebar ul {
     list-style: none;
+    padding: 0;
 }
 
 .sidebar li {
@@ -142,19 +105,19 @@ nav a:hover, .topnav a:hover {
 }
 
 .sidebar a {
-    color: #ccc;
+    color: #000;
     text-decoration: none;
     font-size: 1.0rem;
     display: block;
-    padding: 8px 6px;
+    padding: 4px 0;
     transition: color 0.2s ease;
 }
 
 .sidebar a:hover {
-    color: red;
+    color: #d40000;
 }
 
-/* Sidebar Info Panel (Hover) */
+/* Sidebar Info Panel */
 .sidebar-info {
     position: absolute;
     top: 0;
@@ -162,10 +125,9 @@ nav a:hover, .topnav a:hover {
     margin-left: 10px;
     width: 240px;
     padding: 12px;
-    background: #202020;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 6px;
-    color: #ddd;
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
     font-size: 0.9rem;
     opacity: 0;
     transform: translateX(-10px);
@@ -183,111 +145,104 @@ nav a:hover, .topnav a:hover {
 /* ========== MAP STYLING ========== */
 .map-wrapper {
     flex-grow: 1;
-    background: #000;
-    border-radius: 8px;
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    text-align: center;
-    padding: 30px;
+    background: #fff;
+    border: 1px solid #000;
+    text-align: left;
+    padding: 20px;
 }
 
 #map-container svg path {
+    fill: #eee;
+    stroke: #000;
     transition: fill 0.15s ease;
 }
 
 #map-container svg path:hover {
     fill: #ff6666 !important;
-    stroke: #fff !important;
-    stroke-width: 1.2px;
     cursor: pointer;
 }
 
 /* ========== TABLES ========== */
 .table-wrapper {
     width: 100%;
-    background: #181818;
-    border-radius: 8px;
-    border: 2px solid rgba(255, 255, 255, 0.15);
+    background: #fff;
+    border: 1px solid #000;
+    margin-top: 20px;
 }
 
 .datatable {
     width: 100%;
     border-collapse: collapse;
-    color: #eee;
+    color: #000;
 }
 
 .datatable th {
-    background: #222;
-    border-bottom: 2px solid #444;
+    background: #f0f0f0;
+    border-bottom: 2px solid #000;
     padding: 12px;
-    text-align: center;
+    text-align: left;
 }
 
 .datatable td {
     padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    text-align: center;
+    border: 1px solid #ccc;
+    text-align: left;
 }
 
 .datatable tr:nth-child(even) {
-    background: #202020;
+    background: #f9f9f9;
 }
 
 /* ========== STARTSEITE SECTIONS ========== */
 .Beschreibung_Map, .Beschreibung_Statistiken, .Beschreibung_Cyberhub {
     display: flex;
-    align-items: center;
+    flex-direction: row; /* Immer Standard-Reihenfolge für Linksbündigkeit */
+    align-items: flex-start;
     margin-bottom: 4rem;
+    gap: 40px;
 }
 
 .Beschreibung_Statistiken {
-    flex-direction: row-reverse;
+    flex-direction: row; /* Umgekehrt aufgehoben */
 }
 
 .Startseite_Bild_IM, .Startseite_Bild_Statistiken, .Startseite_Bild_Cyberhub {
     width: 40%;
     height: auto;
-}
-
-.Startseite_Bild_IM, .Startseite_Bild_Cyberhub {
-    margin-right: 50px;
-}
-
-.Startseite_Bild_Statistiken {
-    margin-left: 50px;
+    margin: 0;
 }
 
 .Startseite_Beschreibung_IM {
     font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
     margin-top: 15px;
+    text-align: left;
 }
 
 .Startseite_Button_IM, .Startseite_Button_Statistiken, .Startseite_Button_Cyberhub {
     display: inline-block;
     padding: 12px 24px;
-    background: black;
-    color: white;
+    background: #000;
+    color: #fff;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 /* ========== FOOTER & RESPONSIVE ========== */
 footer {
-    background: #111;
-    color: #fff;
-    padding: 2rem 1rem;
-    text-align: center;
+    background: #fff;
+    color: #000;
+    border-top: 1px solid #000;
+    padding: 2rem 0;
+    text-align: left;
 }
 
 @media (max-width: 800px) {
     .Beschreibung_Map, .Beschreibung_Statistiken, .Beschreibung_Cyberhub {
         flex-direction: column;
-        text-align: center;
     }
     .Startseite_Bild_IM, .Startseite_Bild_Statistiken, .Startseite_Bild_Cyberhub {
-        width: 80%;
-        margin: 0 0 20px 0;
+        width: 100%;
     }
     .sidebar-map-container {
         flex-direction: column;
