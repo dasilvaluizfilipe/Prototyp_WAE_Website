@@ -100,7 +100,7 @@ nav a:hover::after {
 /* ========== SEKTIONS-LAYOUT (STIL VON DATEI 1) ========== */
 .page-wrapper {
     max-width: 2000px;
-    margin: 0 ;
+    margin: 0;
     padding: 30px;
 }
 
@@ -131,9 +131,6 @@ section {
 }
 
 .map-wrapper {
-    flex: 0 0 45%;    /* Kleinerer Wert = kleinere Karte */
-    max-width: 800px; /* Zusätzliche absolute Begrenzung */
-    height: auto;
     border: 1px solid #ddd;
     border-radius: 8px;
     line-height: 0;
@@ -141,8 +138,6 @@ section {
 }
 /* 2. Das SVG-Objekt zwingen, sich dem Container anzupassen */
 #mapObject {
-
-    width: 95%;
     margin: 0 auto;   /* Zentriert die Karte im Wrapper */
     display: block;
     aspect-ratio: 2000 / 857; 
