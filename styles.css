@@ -47,7 +47,7 @@ nav {
     margin: 0;
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;;
     padding: 1rem 0;
     gap: 2rem;
 }
