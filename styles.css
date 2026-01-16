@@ -131,21 +131,18 @@ section {
 }
 
 .map-wrapper {
-    flex: 0 0 95%;    /* Kleinerer Wert = kleinere Karte */
+    flex: 0 0 45%;    /* Kleinerer Wert = kleinere Karte */
     max-width: 800px; /* Zusätzliche absolute Begrenzung */
     height: auto;
-    background-color: #f8f9fa;
-    border: 1px solid #e0e0e0;
     border: 1px solid #ddd;
     border-radius: 8px;
     line-height: 0;
+    background-color: #f8f9fa;
 }
 /* 2. Das SVG-Objekt zwingen, sich dem Container anzupassen */
 #mapObject {
-    pointer-events: none;
+
     width: 95%;
-    height: auto;
-    max-width: 500px;/* Die Karte nimmt nur 80% des Containers ein */
     margin: 0 auto;   /* Zentriert die Karte im Wrapper */
     display: block;
     aspect-ratio: 2000 / 857; 
