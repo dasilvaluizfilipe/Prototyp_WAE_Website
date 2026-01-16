@@ -177,6 +177,7 @@ p {
 /* ========== SIDEBAR & TOOLTIP ========== */
 .sidebar {
     width: 100%;
+    color: #000;
 }
 
 .sidebar ul {
@@ -193,8 +194,15 @@ p {
     color: #fff;
     padding: 5px 10px;
     border-radius: 4px;
-    display: none;
+    display: none; /* Wichtig: Startzustand */
+    z-index: 1000;
 }
+
+/* Zeigt das Tooltip nur an, wenn über das Elternelement gehovert wird */
+.sidebar li:hover #tooltip {
+    display: block;
+}
+
 
 /* ========== FOOTER ========== */
 footer {
