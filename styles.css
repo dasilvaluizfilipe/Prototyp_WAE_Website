@@ -144,10 +144,34 @@ section {
     cursor: pointer;
 }
 
-
+/* Ergänze in deiner styles.css */
 
 .map-wrapper {
+    width: 100%;
+    height: calc(100vh - 120px); /* Höhe anpassen */
+    overflow: hidden;
+    display: flex;
     background-color: #f8f9fa;
+}
+
+#mapObject {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Oder 'cover' für volle Abdeckung */
+    object-position: left center; /* Links ausrichten */
+}
+
+/* Für responsive Anpassung */
+@media (max-width: 768px) {
+    .map-wrapper {
+        height: calc(100vh - 100px);
+    }
+}
+
+/*background-color: #f8f9fa;
+
+.map-wrapper {
+    
     width: auto;
     border-radius: 8px;
     border: 2px solid rgba(255, 255, 255, 0.15);
