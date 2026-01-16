@@ -135,15 +135,12 @@ section {
 /* In styles.css ergänzen */
 
 ./* In styles.css */
-.map-wrapper {
-    width: 100%;
-    height: calc(100vh - 120px);
-    overflow: visible !important; /* WICHTIG: Nicht hidden/auto */
-    position: relative;
-}
 
-#mapObject {
-    background-color: #f8f9fa;
+
+.mapObject {
+  background-color: #f8f9fa;
+  width: 100%;
+  height: auto;
 }
 
 
