@@ -146,19 +146,31 @@ section {
 
 /* Ergänze in deiner styles.css */
 
+/* Stärkere Kontrolle über das Object-Element */
 .map-wrapper {
+    position: relative;
     width: 100%;
-    height: calc(100vh - 120px); /* Höhe anpassen */
-    overflow: hidden;
-    display: flex;
+    aspect-ratio: 2000/857; /* Oder das Verhältnis deiner SVG */
+    max-height: 80vh;
     background-color: #f8f9fa;
 }
 
 #mapObject {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Oder 'cover' für volle Abdeckung */
-    object-position: left center; /* Links ausrichten */
+    max-width: 100%;
+    display: block;
+}
+
+/* SVG-Inhalt direkt stylen (wenn geladen) */
+#mapObject svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
 }
 
 /* Für responsive Anpassung */
