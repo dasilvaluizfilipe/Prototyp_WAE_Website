@@ -3,7 +3,7 @@ import { COUNTRY_COORDS } from './koordinaten.js';
 
 async function updateMapWithDShield() {
     try {
-        const response = await fetch('proxy.php');
+        const response = await fetch('/api/incidents');
         if (!response.ok) throw new Error("Proxy-Fehler");
         
         const data = await response.json();
