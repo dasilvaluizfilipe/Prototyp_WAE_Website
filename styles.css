@@ -80,9 +80,10 @@ nav a:hover, .topnav a:hover {
 /* ========== SIDEBAR & MAP LAYOUT ========== */
 .sidebar-map-container {
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
     gap: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .sidebar {
@@ -91,7 +92,7 @@ nav a:hover, .topnav a:hover {
     color: #fff;
     padding: 20px 0;
     border: none;
-    text-align: left;
+    text-align: center;
 }
 
 .sidebar ul {
@@ -234,7 +235,7 @@ footer {
     color: #fff;
     border-top: 1px solid #000;
     padding: 2rem 0;
-    text-align: left;
+    text-align: center;
 }
 
 @media (max-width: 800px) {
