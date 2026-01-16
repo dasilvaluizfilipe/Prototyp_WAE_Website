@@ -99,9 +99,21 @@ nav a:hover::after {
 
 /* ========== SEKTIONS-LAYOUT (STIL VON DATEI 1) ========== */
 .page-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: fit-content;
+    max-width: 95vw;
+    margin: 0 ;
     padding: 30px;
+}
+
+.map-wrapper {
+    width: auto;
+    display:block;
+    flex-grow: 1;
+}
+
+#mapObject {
+    max-width: 100%;
+    height: auto;
 }
 
 section {
@@ -131,10 +143,8 @@ section {
     border-radius: 8px;
 }
 
-/* Map-Spezifisch: Falls die Map breiter sein soll */
-.map-wrapper {
-    flex-grow: 1;
-}
+
+
 
 /* Texte & Content */
 .Startseite_Text_IM, 
