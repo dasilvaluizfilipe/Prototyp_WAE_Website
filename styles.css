@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif;
 }
 html {
@@ -40,26 +40,26 @@ body {
 }
 
 
-/* ========== HEADER & NAVIGATION ========== */
+/* ========== HEADER & NAVIGATION ========== 
 .header-wrapper {
     text-align: center;
     margin-bottom: 30px;
 }
 
 .pagetitle {
-    font-size: 2.2rem;   /* vorher 2rem → größer */
+    font-size: 2.2rem;   /* vorher 2rem → größer 
     color: #fff;
     margin-bottom: 20px;
 }
 
-/* Navigation */
+/* Navigation 
 .topnav {
     
   
     font-size: 1.2rem;
 }
 
-/* Links */
+/* Links 
 .topnav a {
     color: #ccc;
     padding: 8px 6px;
@@ -68,7 +68,7 @@ body {
     transition: color 0.2s ease;
 }
 
-/* moderner Hover-Underline */
+/* moderner Hover-Underline 
 .topnav a::after {
     content: "";
     position: absolute;
@@ -80,7 +80,7 @@ body {
     transition: width 0.25s ease;
 }
 
-/* Hover */
+/* Hover 
 .topnav a:hover {
     color: #fff;
 }
@@ -89,7 +89,7 @@ body {
     width: 100%;
 }
 
-/* Active */
+/* Active 
 .topnav a.active {
     color: #ff4444;
 }
@@ -99,22 +99,21 @@ body {
     background: #ff4444;
 }
 
-/* Sidebar + Map nebeneinander */
+/* Sidebar + Map nebeneinander 
 .sidebar-map-container {
     display: flex;
     align-items: flex-start;
     gap: 5px;
 }
 
-/* Sidebar Styling */
+/* Sidebar Styling 
 .sidebar {
     width: 220px;
     background: #181818;
     padding: 20px;
     border-radius: 8px;
     border: 2px solid rgba(255,255,255,0.15);
-    text-align: left;      /* wichtig */
-}
+    text-align: left;      /* wichtig 
 
 .sidebar ul {
     list-style: none;
@@ -130,24 +129,24 @@ body {
     color: #ccc;
     text-decoration: none;
     font-size: 1.0rem;
-    display: block;        /* wichtig für linksbündig */
+    display: block;        /* wichtig für linksbündig 
     position: relative;
     transition: color 0.2s ease;
     padding: 8px 6px;
 }
 
-/* --- INFO-PANEL: Slide-Out bei Hover --- */
+/* --- INFO-PANEL: Slide-Out bei Hover --- 
 .sidebar li {
-    position: relative; /* wichtig für absolute Panels */
+    position: relative; /* wichtig für absolute Panels 
 }
 
-/* Das ausgefahrene Info-Panel */
+/* Das ausgefahrene Info-Panel 
 .sidebar-info {
     position: absolute;
     top: 0;
-    left: 100%;            /* Panel rechts vom Menüpunkt */
+    left: 100%;            /* Panel rechts vom Menüpunkt 
     margin-left: 10px;
-    width: 240px;          /* → Variante 1a */
+    width: 240px;          /* → Variante 1a 
     padding: 12px;
 
     background: #202020;
@@ -165,7 +164,7 @@ body {
         transform 0.22s ease;
 }
 
-/* Hover aktiviert das Panel */
+/* Hover aktiviert das Panel 
 .sidebar li:hover .sidebar-info {
     opacity: 1;
     transform: translateX(0);
@@ -178,7 +177,7 @@ body {
 /* Sidebar */
 
 
-/* moderner Hover-Underline */
+/* moderner Hover-Underline 
 .sidebar a::after {
     content: "";
     display: block;
@@ -191,7 +190,7 @@ body {
     transition: width 0.25s ease;
 }
 
-/* Hover */
+/* Hover 
 .sidebar a:hover {
     color: #fff;
 }
@@ -200,7 +199,7 @@ body {
     width: 100%;
 }
 
-/* Active */
+/* Active 
 .sidebar a.active {
     color: #ff4444;
 }
@@ -213,7 +212,7 @@ body {
 
 
 
-/* ========== CONTENT BLOCKS ========== */
+/* ========== CONTENT BLOCKS ========== 
 .content-block {
     width: 100%;
     text-align: center;
@@ -221,16 +220,16 @@ body {
 }
 
 h2 {
-    font-size: 1.8rem;   /* größer */
+    font-size: 1.8rem;   /* größer 
     margin-bottom: 15px;
     color: white;
 }
 
 p, li {
-    font-size: 1.1rem;   /* größerer Fließtext */
+    font-size: 1.1rem;   /* größerer Fließtext 
 }
 
-/* ========== TABLE WRAPPER ========== */
+/* ========== TABLE WRAPPER ========== 
 .table-wrapper {
     width: 100%;
     overflow-x: visible;
@@ -241,16 +240,16 @@ p, li {
     margin-top: 0;
 }
 
-/* ========== TABELLE ========== */
+/* ========== TABELLE ========== 
 .datatable {
     width: 100%;
     table-layout: auto;
     border-collapse: collapse;
-    font-size: 1.0rem;  /* vorher kleiner → jetzt größer */
+    font-size: 1.0rem;  /* vorher kleiner → jetzt größer 
     color: #eee;
 }
 
-/* Tabellen-Header */
+/* Tabellen-Header 
 .datatable th {
     width: fit-content;
     background: #222;
@@ -261,7 +260,7 @@ p, li {
     font-size: 1.05rem;
 }
 
-/* Tabellen-Zellen */
+/* Tabellen-Zellen 
 .datatable td {
     padding: 10px;
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -271,7 +270,7 @@ p, li {
     font-size: 1.0rem;
 }
 
-/* Zebra-Linien */
+/* Zebra-Linien 
 .datatable tr:nth-child(even) {
     background: #202020;
 }
@@ -287,6 +286,157 @@ p, li {
     text-align: center;
 }
 
+nav {
+    max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem;
+}
+nav ul {
+    list-style: none; display: flex; gap: 1.5rem;
+}
+nav a {
+    color: #fff; text-decoration: none; font-weight: 500; font-size: 1em; padding: 0.25em 0;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.hero {
+    background: linear-gradient(135deg, #000, #333); color: #fff; padding: 5rem 1rem; text-align: center;
+}
+.hero h1 {
+    font-size: 3rem; margin-bottom: 1rem;
+}
+.hero p {
+    max-width: 700px; margin: auto;
+}
+section {
+    padding: 4rem 1rem;
+}
+.container {
+    max-width: 1200px; margin: auto;
+}
+.grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;
+}
+.card {
+    border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.card h3 {
+    margin-bottom: .5rem;
+}
+footer {
+    background: #111; color: #fff; padding: 2rem 1rem; text-align: center;
+}
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column; gap: 1rem; }
+}
+
+/* Layout für Startseite_Interaktive_Map 
+.Beschreibung_Map {
+    display: flex;
+    align-items: center;
+}
+.Startseite_Bild_IM {
+    width: 40%;
+    height: 35%;
+    float: left;
+    margin-right: 200px;
+    margin-left: 0px;
+}
+.Startseite_IM_Title {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+}
+.Startseite_Beschreibung_IM {
+    margin: 0;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+
+}
+.Startseite_Button_IM {
+    display: inline-block;
+    padding: 12px 24px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/* Layout für Startseite_Statistiken 
+.Beschreibung_Statistiken {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.Startseite_Bild_Statistiken {
+    width: 40%;
+    height: 35%;
+    float: right;
+    margin-left: 200px;
+    margin-right: 0px;
+}
+.Startseite_Statistiken_Title {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+}
+.Startseite_Beschreibung_Statistiken {
+    margin: 0;
+}
+.Startseite_Button_Statistiken {
+    display: inline-block;
+    padding: 12px 24px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+/* Layout für Startseite_Cyberhub */
+/*
+.Beschreibung_Cyberhub {
+    display: flex;
+    align-items: center;
+}
+.Startseite_Bild_Cyberhub {
+    width: 40%;
+    height: 35%;
+    float: left;
+    margin-right: 200px;
+    margin-left: 0px;
+}
+.Startseite_Cyberhub_Title {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+}
+.Startseite_Beschreibung_Cyberhub {
+    margin: 0;
+}
+.Startseite_Button_Cyberhub {
+    display: inline-block;
+    padding: 12px 24px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+*/
+
+* {
+    box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif;
+}
+body {
+    line-height: 1.6; color: #111;
+}
+header {
+    background: #000; color: #fff;
+}
 nav {
     max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem;
 }
