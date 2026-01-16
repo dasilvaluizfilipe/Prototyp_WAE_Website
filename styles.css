@@ -78,43 +78,40 @@ nav a:hover, .topnav a:hover {
 }
 
 
-search-container {
-	font-size: $font-size;
-	border: solid $frame-thickness $frame-color;
-	display: inline-block;
-	position: relative;
-	border-radius: $size;
-	input[type="text"] {
-		font-family: inherit;
-		font-weight: bold;
-		width: $size;
-		height: $size;
-		padding: $open-padding;
-		border: none;
-		box-sizing: border-box;
-		border-radius: $size;
-		transition:
-			width $open-trans-time cubic-bezier(0.68, -0.55, 0.27, 1.55) $close-trans-time;
-		&:focus {
-			outline: none;
-		}
-		&:focus, &:not(:placeholder-shown) {
-			width: $open-width;
-			transition: width $open-trans-time cubic-bezier(0.68, -0.55, 0.27, 1.55);
-			+ button[type="reset"] {
-				transform: rotate(-45deg) translateY(0);
-				transition:
-					transform $close-trans-time ease-out $open-trans-time;
-			}
-			+ button[type="reset"]:after {
-				opacity: 1;
-				transition:
-					top $close-trans-time ease-out ($open-trans-time + $close-trans-time),
-					right $close-trans-time ease-out ($open-trans-time + $close-trans-time),
-					opacity $close-trans-time ease ($open-trans-time + $close-trans-time);
-			}
-		}
-	}
+/* ========== SEARCH CONTAINER ========== */
+.search-container {
+    font-size: 16px;
+    border: 2px solid #000;
+    display: inline-block;
+    position: relative;
+    border-radius: 25px;
+    background: #fff;
+}
+
+.search-container input[type="text"] {
+    font-family: inherit;
+    font-weight: bold;
+    width: 40px; /* Geschlossener Zustand */
+    height: 40px;
+    padding: 0 10px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 25px;
+    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    background: transparent;
+    color: #000;
+}
+
+.search-container input[type="text"]:focus {
+    outline: none;
+    width: 200px; /* Offener Zustand */
+}
+
+/* Platzhalter Farbe */
+.search-container input::placeholder {
+    color: #999;
+}
+	
 	button[type="reset"] {
 		background-color: transparent;
 		width: $handle-height;
