@@ -20,7 +20,7 @@ body {
 /* ========== LAYOUT WRAPPERS ========== */
 .page-wrapper, .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: max-content;
     margin: 0 auto;
     padding: 30px;
 }
