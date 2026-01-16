@@ -86,6 +86,8 @@ nav a:hover, .topnav a:hover {
     position: relative;
     border-radius: 25px;
     background: #fff;
+	float:right
+text-align: right
 }
 
 .search-container input[type="text"] {
