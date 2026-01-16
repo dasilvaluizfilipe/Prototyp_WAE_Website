@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="4c1ff0a3-7189-48ab-b870-8b6796381b96" name="test2datenbank Mapping">
+      <data-sources db="04e57e34-5f84-458a-87b8-428defd46d18" ddl="ef637e87-97be-4f11-b395-195ab2df5fbb" />
+      <scope>
+        <node negative="1">
+          <node kind="database" negative="1">
+            <node kind="schema" negative="1" />
+          </node>
+          <node kind="database" qname="@" />
+        </node>
+      </scope>
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="ef637e87-97be-4f11-b395-195ab2df5fbb" />
+          <option name="name" value="test2datenbank (DDL)" />
+          <option name="dbmsName" value="POSTGRES" />
+          <option name="urls">
+            <array />
+          </option>
+          <option name="outLayout" value="File per object by schema.groovy" />
+        </State>
+      </list>
+    </option>
+  </component>
+</project>

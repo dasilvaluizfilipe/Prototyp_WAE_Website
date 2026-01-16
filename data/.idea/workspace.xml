@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7014843c-99fc-4500-8220-b4b757d6eab7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/queries/Query.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/VSWorkspaceState.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/VSWorkspaceState.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/slnx.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/test2.slnx/v18/.wsuo" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/test2.slnx/v18/.wsuo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/test2.slnx/v18/DocumentLayout.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/test2.slnx/v18/DocumentLayout.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/test2/CopilotIndices/18.0.925.419/CodeChunks.db" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/test2/CopilotIndices/18.0.925.419/CodeChunks.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/test2/CopilotIndices/18.0.925.419/SemanticSymbols.db" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="370yqMsqg1SDqsYvjAwBF5m1BrG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Luiz.da-Silva/Dropbox/1DACS/4.Semester/Web&AppProgrammierung/WebsiteProjekt/test2/data"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7014843c-99fc-4500-8220-b4b757d6eab7" name="Changes" comment="" />
+      <created>1766054477145</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1766054477145</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -123,10 +123,9 @@ section {
 }
 
 .page-wrapper {
-    background: #f8f9fa;
     width: 100%;
-    max-width: 1200px; /* Auf Standardwert für Konsistenz begrenzt */
-    margin: 0 auto;
+    max-width: auto; /* Auf Standardwert für Konsistenz begrenzt */
+    margin: 0;
     padding: 10px 30px;
 }
 
@@ -137,7 +136,7 @@ section {
 }
 
 #mapObject {
-    margin: 0 auto;
+    margin: 0;
     display: block;
     width: 100%;
     aspect-ratio: 2000 / 857; 
@@ -181,21 +180,32 @@ p {
 }
 
 /* ========== SIDEBAR & TOOLTIP ========== */
+/* ========== SIDEBAR ANPASSUNG ========== */
 .sidebar {
     width: 100%;
+    display: flex;          /* Ermöglicht Ausrichtung */
+    justify-content: flex-start; /* Erzwingt Linksbündigkeit */
+    text-align: left;       /* Richtet Text innerhalb der Liste links aus */
 }
 
 .sidebar ul {
     list-style: none;
-}
-
-.sidebar a {
-    color: #000;
+    padding: 0;             /* Entfernt Standard-Einrückung von Browsern */
+    margin: 0;              /* Entfernt Standard-Abstände */
+    width: 100%;            /* Nutzt verfügbaren Platz */
 }
 
 .sidebar li {
     position: relative;
     margin-bottom: 15px;
+    display: block;         /* Sorgt dafür, dass sie untereinander stehen */
+    text-align: left;       /* Sicherheitshalber für jedes Item */
+}
+
+.sidebar a {
+    color: #000;
+    text-decoration: none;
+    display: inline-block;  /* Verhindert, dass der Link die volle Breite erzwingt, falls nicht gewünscht */
 }
 
 .sidebar-info {
