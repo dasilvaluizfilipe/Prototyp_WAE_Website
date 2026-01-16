@@ -3,101 +3,115 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Incident Map - Taskvault</title>
+    <title>Incident Map</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header>
-    <nav>
-        <div class="logo">CYBER</div>
-        <ul>
-            <li><a href="/">Startseite</a></li>
-            <li><a href="/Map">Map</a></li>
-            <li><a href="/Analyse">Analyse</a></li>
-            <li><a href="/Cyberhub">Cyberhub</a></li>
-            <li><a href="/about">About us</a></li>
-        </ul>
-        <div class="search-container">
-            <input type="text" placeholder="Suche...">
-        </div>
-    </nav>
-</header>
-
-<main class="page-wrapper">
-    <section class="Beschreibung_Map">
-        <div class="map-wrapper">
-            <object id="mapObject" data="worldtest.svg" type="image/svg+xml"></object>
-        </div>
-        
-        <div class="Startseite_Text_IM">
-            <h2 class="Startseite_IM_Title">Interaktive Map</h2>
-            <p class="Startseite_Beschreibung_IM">
-                Die interaktive Karte zeigt Cyber Incidents weltweit und in Deutschland in Echtzeit. 
-                Nutzen Sie die Geolokationsdaten, um regionale Risikohotspots zu identifizieren und 
-                Ihre Sicherheitsstrategie datenbasiert anzupassen.
-            </p>
-            <a href="/Map" class="Startseite_Button_IM">Karte vergrößern</a>
-        </div>
-    </section>
-
-    <section class="Beschreibung_Statistiken">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="global-overview.html">Globaler Schaden</a>
-                        <div class="sidebar-info">Übersicht der weltweit größten Schäden durch Cybervorfälle.</div>
-                    </li>
-                    <li>
-                        <a href="attack-density.html">Höchste Angriffsdichte</a>
-                        <div class="sidebar-info">Länder mit der höchsten relativen Anzahl an Cyberangriffen.</div>
-                    </li>
-                    <li>
-                        <a href="top-actors.html">Aktivste Angreifer</a>
-                        <div class="sidebar-info">Liste der häufigsten Angreifer: Staaten und Hackergruppen.</div>
-                    </li>
-                    <li>
-                        <a href="critical-infra.html">Kritische Infrastruktur</a>
-                        <div class="sidebar-info">Angriffe auf Energie, Transport und Gesundheit.</div>
-                    </li>
-                    <li>
-                        <a href="ransomware-hubs.html">Ransomware-Hotspots</a>
-                        <div class="sidebar-info">Regionen mit den stärksten Ransomware-Aktivitäten.</div>
-                    </li>
-                    <li>
-                        <a href="state-vs-state.html">Staatliche Cyberkonflikte</a>
-                        <div class="sidebar-info">Cyberoperationen zwischen Staaten.</div>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
-        <div class="Startseite_Text_Statistiken">
-            <h2 class="Startseite_Statistiken_Title">Zusätzliche Metriken</h2>
-            <p class="Startseite_Beschreibung_Statistiken">
-                Wählen Sie einen Fokusbereich aus der Liste, um tiefergehende Analysen zu 
-                ökonomischen Auswirkungen, Zero-Day-Tracking oder Supply-Chain-Angriffen zu erhalten.
-            </p>
-        </div>
-    </section>
-</main>
-
-<div id="tooltip"></div>
-
-<footer class="Startseite_footer">
-    <div class="Startseite_footer_nav">
+    <header>
         <nav>
+            <div class="logo">CYBER</div>
+            <ul>
+                <li><a href="/">Startseite</a></li>
+                <li><a href="/Map">Map</a></li>
+                <li><a href="/Analyse">Analyse</a></li>
+                <li><a href="/Cyberhub">Cyberhub</a></li>
+                <li><a href="/about">About us</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" placeholder="Suche...">
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-wrapper">
+        <main>
+            <div class="map-wrapper">
+                <object id="mapObject" data="worldtest.svg" type="image/svg+xml"></object>
+            </div>
+
+            <div class="sidebar-map-container">
+                <aside class="sidebar">
+                    <nav>
+                        <ul> <li>
+                                <a href="global-overview.html">Globaler Schaden</a>
+                                <div class="sidebar-info">
+                                    Übersicht der weltweit größten Schäden durch Cybervorfälle.
+                                </div>
+                            </li>
+                            <li>
+                                <a href="attack-density.html">Höchste Angriffsdichte</a>
+                                <div class="sidebar-info">
+                                    Länder mit der höchsten relativen Anzahl an Cyberangriffen.
+                                </div>
+                            </li>
+                            <li>
+                                <a href="top-actors.html">Aktivste Angreifer</a>
+                                <div class="sidebar-info">
+                                    Liste der häufigsten Angreifer: Staaten und Hackergruppen.
+                                </div>
+                            </li>
+                            <li>
+                                <a href="critical-infra.html">Kritische Infrastruktur</a>
+                                <div class="sidebar-info">
+                                    Angriffe auf Energie, Transport und Gesundheit.
+                                </div>
+                            </li>
+                            <li>
+                                <a href="ransomware-hubs.html">Ransomware-Hotspots</a>
+                                <div class="sidebar-info">
+                                    Regionen mit den stärksten Ransomware-Aktivitäten.
+                                </div>
+                            </li>
+                            <li>
+                                <a href="state-vs-state.html">Staatliche Cyberkonflikte</a>
+                                <div class="sidebar-info">
+                                    Cyberoperationen zwischen Staaten.
+                                </div>
+                            </li>
+                            <li>
+                                <a href="economy-impact.html">Ökonomische Auswirkungen</a>
+                                <div class="sidebar-info">
+                                    Globaler wirtschaftlicher Schaden durch Cyberangriffe.
+                                </div>
+                            </li>
+                            <li>
+                                <a href="supply-chain.html">Supply-Chain-Angriffe</a>
+                                <div class="sidebar-info">
+                                    Angriffe über Lieferketten und Softwareabhängigkeiten.
+                                </div>
+                            </li>
+                            <li>
+                                <a href="zero-day-tracker.html">Zero-Day Tracking</a>
+                                <div class="sidebar-info">
+                                    Übersicht über Zero-Day-Exploits in aktiver Nutzung.
+                                </div>
+                            </li>
+                            <li>
+                                <a href="incident-types.html">Angriffsarten</a>
+                                <div class="sidebar-info">
+                                    Klassifikation aller Cybervorfälle.
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+            </div>
+        </main>
+    </div>
+
+    <div id="tooltip"></div>
+
+    <footer class="Startseite_footer">
+        <nav class="Startseite_footer_nav">
             <ul>
                 <li><a href="Impressum">Impressum</a></li>
             </ul>
         </nav>
-    </div>
-</footer>
+    </footer>
 
-<script type="module" src="./js/iso_map.js"></script>            
-<script type="module" src="./js/country.js"></script>
-<script type="module" src="./js/hover.js"></script>
-
+    <script type="module" src="./js/iso_map.js"></script>            
+    <script type="module" src="./js/country.js"></script>
+    <script type="module" src="./js/hover.js"></script>
 </body>
 </html>
