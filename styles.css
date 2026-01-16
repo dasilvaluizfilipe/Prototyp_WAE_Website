@@ -1,85 +1,115 @@
+/* ========== GLOBALS & RESET ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    font-size: 20px;
+}
+
+body {
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+    text-align: left;
+}
+
+/* ========== LAYOUT WRAPPERS ========== */
+.page-wrapper, .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0; /* Linksbündig */
+    padding: 30px;
+}
+
+section {
+    padding: 2rem 0;
+    text-align: left;
+}
+
+/* ========== HEADER & NAVIGATION ========== */
 header {
-    background: #000;
-    color: #fff;
-    border-bottom: 1px solid #000;
+    background: #000;
+    color: #fff;
+    border-bottom: 1px solid #000;
 }
 
 .header-wrapper {
-    text-align: left;
-    margin-bottom: 30px;
+    text-align: left;
+    margin-bottom: 30px;
 }
 
 nav {
-    max-width: 1200px;
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 1rem 0;
-    gap: 2rem;
+    max-width: 1200px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 2rem;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
 }
 
 .topnav {
-    font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
 nav a, .topnav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 0;
-    position: relative;
-    transition: color 0.2s ease;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.2s ease;
 }
 
 nav a:hover, .topnav a:hover {
-    color: #d40000;
-    text-decoration: underline;
+    color: #d40000;
+    text-decoration: underline;
 }
 
 
 /* ========== SEARCH CONTAINER ========== */
 .search-container {
-    font-size: 16px;
-    border: 2px solid #000;
-    display: inline-block;
-    position: relative;
-    border-radius: 25px;
-    background: #fff;
-	float:right;
-	text-align: right;
-	align-items: flex-end;
+    font-size: 16px;
+    border: 2px solid #000;
+    display: inline-block;
+    position: relative;
+    border-radius: 25px;
+    background: #fff;
 }
 
 .search-container input[type="text"] {
-    font-family: inherit;
-    font-weight: bold;
-    width: 40px; /* Geschlossener Zustand */
-    height: 40px;
-    padding: 0 10px;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 25px;
-    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    background: transparent;
-    color: #000;
+    font-family: inherit;
+    font-weight: bold;
+    width: 40px; /* Geschlossener Zustand */
+    height: 40px;
+    padding: 0 10px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 25px;
+    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    background: transparent;
+    color: #000;
 }
 
 .search-container input[type="text"]:focus {
-    outline: none;
-    width: 200px; /* Offener Zustand */
+    outline: none;
+    width: 200px; /* Offener Zustand */
 }
 
 /* Platzhalter Farbe */
 .search-container input::placeholder {
-    color: #999;
+    color: #999;
 }
 	
 	button[type="reset"] {
@@ -115,4 +145,179 @@ nav a:hover, .topnav a:hover {
 	}
 }
 
-machs so dass der searchcontainer rechts ist, die einzelnen navleiste evenly in der mitte und der titel links
+
+/* ========== SIDEBAR & MAP LAYOUT ========== */
+.sidebar-map-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.sidebar {
+    width: 220px;
+    background: #fff;
+    color: #fff;
+    padding: 20px 0;
+    border: none;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.sidebar a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.0rem;
+    display: block;
+    padding: 4px 0;
+    transition: color 0.2s ease;
+}
+
+.sidebar a:hover {
+    color: #d40000;
+}
+
+/* Sidebar Info Panel */
+.sidebar-info {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 10px;
+    width: 240px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateX(-10px);
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.sidebar li:hover .sidebar-info {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    z-index: 50;
+}
+
+/* ========== MAP STYLING ========== */
+.map-wrapper {
+    flex-grow: 1;
+    background: #fff;
+    border: 1px solid #000;
+    text-align: left;
+    padding: 20px;
+}
+
+#map-container svg path {
+    fill: #eee;
+    stroke: #000;
+    transition: fill 0.15s ease;
+}
+
+#map-container svg path:hover {
+    fill: #ff6666 !important;
+    cursor: pointer;
+}
+
+/* ========== TABLES ========== */
+.table-wrapper {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #000;
+    margin-top: 20px;
+}
+
+.datatable {
+    width: 100%;
+    border-collapse: collapse;
+    color: #000;
+}
+
+.datatable th {
+    background: #f0f0f0;
+    border-bottom: 2px solid #000;
+    padding: 12px;
+    text-align: left;
+}
+
+.datatable td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.datatable tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* ========== STARTSEITE SECTIONS ========== */
+.Beschreibung_Map, .Beschreibung_Statistiken, .Beschreibung_Cyberhub {
+    display: flex;
+    flex-direction: row; /* Immer Standard-Reihenfolge für Linksbündigkeit */
+    align-items: flex-start;
+    margin-bottom: 4rem;
+    gap: 40px;
+}
+
+.Beschreibung_Statistiken {
+    flex-direction: row; /* Umgekehrt aufgehoben */
+}
+
+.Startseite_Bild_IM, .Startseite_Bild_Statistiken, .Startseite_Bild_Cyberhub {
+    width: 40%;
+    height: auto;
+    margin: 0;
+}
+
+.Startseite_Beschreibung_IM {
+    font-family: 'JetBrains Mono', 'Roboto Mono', monospace;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.Startseite_Button_IM, .Startseite_Button_Statistiken, .Startseite_Button_Cyberhub {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* ========== FOOTER & RESPONSIVE ========== */
+footer {
+    background: #000;
+    color: #fff;
+    border-top: 1px solid #000;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .Beschreibung_Map, .Beschreibung_Statistiken, .Beschreibung_Cyberhub {
+        flex-direction: column;
+    }
+    .Startseite_Bild_IM, .Startseite_Bild_Statistiken, .Startseite_Bild_Cyberhub {
+        width: 100%;
+    }
+    .sidebar-map-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+}
