@@ -121,7 +121,6 @@ section {
 }
 
 /* Bilder-Styling */
-.map-wrapper, 
 .Startseite_Bild_IM, 
 .Startseite_Bild_Statistiken, 
 .Startseite_Bild_Cyberhub {
@@ -132,7 +131,14 @@ section {
 }
 
 /* Map-Spezifisch: Falls die Map breiter sein soll */
+
 .map-wrapper {
+    flex: 0 0 45%;    /* Kleinerer Wert = kleinere Karte */
+    max-width: 2000px; /* Zusätzliche absolute Begrenzung */
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    line-height: 0;
     flex-grow: 1;
 }
 
@@ -187,28 +193,33 @@ p {
     color: #000;
 }
 
-/* Container für den Link muss relativ sein, damit der Tooltip sich daran ausrichtet */
+/* Das Elternelement muss die Basis für die Positionierung sein */
 .sidebar li {
-    margin-bottom: 10px;
-    position: relative; 
+    position: relative;
+    margin-bottom: 15px; /* Etwas mehr Platz nach unten */
 }
 
-/* Die Klasse für die Info-Box (früher #tooltip) */
 .sidebar-info {
     position: absolute;
-    left: 100%; /* Erscheint rechts neben dem Text */
-    top: 0;
+    /* Zentriert den Tooltip unter dem Wort */
+    top: 100%; 
+    left: 0;
+    
+    margin-top: 5px; /* Kleiner Abstand zum Wort */
     background: #111;
     color: #fff;
-    padding: 5px 10px;
+    padding: 8px 12px;
     border-radius: 4px;
-    white-space: nowrap;
+    font-size: 0.8rem;
+    white-space: normal; /* Erlaubt Zeilenumbruch bei langem Text */
+    width: 200px;        /* Feste Breite, damit er nach unten wächst */
+    
     z-index: 1000;
-    display: none; /* Standardmäßig aus */
+    display: none;       /* Standardmäßig unsichtbar */
     pointer-events: none;
 }
 
-/* Nur beim Hover über das Listen-Element anzeigen */
+/* Erscheint beim Hovern über das Listen-Element */
 .sidebar li:hover .sidebar-info {
     display: block;
 }
