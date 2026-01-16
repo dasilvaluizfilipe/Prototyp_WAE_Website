@@ -34,48 +34,55 @@ section {
 header {
     background: #000;
     color: #fff;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #333;
 }
 
 nav {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Verteilt Links, Mitte, Rechts */
-    align-items: center; /* Vertikale Zentrierung */
-    padding: 1rem 30px;
+    justify-content: space-between; /* Verteilt die drei Blöcke */
+    align-items: center;
+    padding: 0.5rem 30px;
 }
 
-/* Der Titel/Logo (Links) */
+/* Links: Logo */
 .logo {
     font-weight: bold;
     font-size: 1.2rem;
-    flex: 1; /* Nimmt Platz ein, um Mitte zu schieben */
+    color: #fff;
+    flex: 1;
+    text-align: left;
 }
 
-/* Die Navigation (Mitte) */
+/* Mitte: Navigation */
 nav ul {
     list-style: none;
     display: flex;
     gap: 1.5rem;
     padding: 0;
     margin: 0;
-    flex: 2; /* Gibt der Mitte mehr Raum */
-    justify-content: center; /* Zentriert die Links innerhalb ihres Bereichs */
+    flex: 2;
+    justify-content: center; /* Zentriert die Liste in der Mitte */
 }
 
-/* Der Search Container (Rechts) */
+nav ul li a {
+    color: #fff !important; /* Erzwingt Weiß */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: #d40000 !important;
+}
+
+/* Rechts: Suche */
 .search-container {
-    font-size: 16px;
-    border: 2px solid #fff; /* Weißer Rand auf schwarzem Header */
+    flex: 1;
     display: flex;
-    position: relative;
-    border-radius: 25px;
-    background: #fff;
-    flex: 1; /* Nimmt Platz ein, um Mitte zu schieben */
-    justify-content: flex-end; /* Inhalt innerhalb des Containers rechts */
-    max-width: fit-content;
-    margin-left: auto; /* Erzwingt Rechtsbündigkeit */
+    justify-content: flex-end; /* Schiebt die Suche nach ganz rechts */
 }
 
 .search-container input[type="text"] {
@@ -85,16 +92,21 @@ nav ul {
     height: 40px;
     padding: 0 10px;
     border: none;
-    box-sizing: border-box;
     border-radius: 25px;
-    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    background: transparent;
+    background: #fff;
     color: #000;
+    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    text-align: left;
 }
 
 .search-container input[type="text"]:focus {
     outline: none;
-    width: 200px;
+    width: 180px;
+}
+
+.search-container input::placeholder {
+    color: #000;
+    text-align: center;
 }
 
 
