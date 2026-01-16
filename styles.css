@@ -129,7 +129,7 @@ section {
     width: 100%;
     max-width: auto;
     margin: 0;
-    padding: 30px;
+    padding: 0;
 }
 
 /* In styles.css ergänzen */
@@ -143,21 +143,10 @@ section {
 }
 
 #mapObject {
-    width: 100% !important;
-    height: 100% !important;
-    background-color: #f8f9fa
-    display: block;
-    overflow: visible !important;
+    background-color: #f8f9fa;
 }
 
-/* SVG-Inhalt skalieren lassen */
-#mapObject svg {
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-    overflow: visible !important;
-    max-width: none !important;
-}
+
 
 #map-container svg path {
     transition: fill 0.15s ease;
@@ -170,12 +159,7 @@ section {
     cursor: pointer;
 }
 
-/* Für responsive Anpassung */
-@media (max-width: 768px) {
-    .map-wrapper {
-        height: calc(100vh - 100px);
-    }
-}
+
 
 /*background-color: #f8f9fa;
 
