@@ -47,6 +47,7 @@ nav ul {
 }
 
 nav a {
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
     padding: 8px 0;
@@ -186,13 +187,24 @@ p {
     margin-bottom: 10px;
 }
 
+.sidebar a {
+    color: #000;
+}
+
+/* Versteckt das Tooltip standardmäßig */
 #tooltip {
     position: absolute;
     background: #111;
     color: #fff;
     padding: 5px 10px;
     border-radius: 4px;
-    display: none;
+    display: none; /* Wichtig: Startzustand */
+    z-index: 1000;
+}
+
+/* Zeigt das Tooltip nur an, wenn über das Elternelement gehovert wird */
+.sidebar li:hover #tooltip {
+    display: block;
 }
 
 /* ========== FOOTER ========== */
