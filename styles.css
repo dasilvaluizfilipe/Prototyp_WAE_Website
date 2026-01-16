@@ -31,120 +31,102 @@ section {
 }
 
 /* ========== HEADER & NAVIGATION ========== */
+/* ========== HEADER & NAVIGATION ========== */
 header {
     background: #000;
     color: #fff;
-    border-bottom: 1px solid #000;
-}
-
-.header-wrapper {
-    text-align: left;
-    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
 }
 
 nav {
     max-width: 1200px;
-    margin: 0;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
-    gap: 2rem;
+    padding: 0.5rem 30px;
 }
 
+/* Links: Logo */
+.logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+    flex: 1;
+    text-align: left;
+}
+
+/* Mitte: Navigation */
 nav ul {
     list-style: none;
     display: flex;
     gap: 1.5rem;
     padding: 0;
+    margin: 0;
+    flex: 2;
+    justify-content: center;
 }
 
-.topnav {
-    font-size: 1.2rem;
-}
-
-nav a, .topnav a {
-    color: #fff;
+nav ul li a, .topnav a {
+    color: #fff !important;
     text-decoration: none;
     font-weight: 500;
+    font-size: 1rem;
     padding: 8px 0;
     position: relative;
     transition: color 0.2s ease;
 }
 
-nav a:hover, .topnav a:hover {
-    color: #d40000;
-    text-decoration: underline;
+/* Unterstreichung Animation (von links nach rechts) */
+nav ul li a::after, .topnav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #d40000;
+    transition: width 0.3s ease-in-out;
 }
 
+nav ul li a:hover {
+    color: #d40000 !important;
+}
 
-/* ========== SEARCH CONTAINER ========== */
+nav ul li a:hover::after, .topnav a:hover::after {
+    width: 100%;
+}
+
+/* Rechts: Suche */
 .search-container {
-    font-size: 16px;
-    border: 2px solid #000;
-    display: inline-block;
-    position: relative;
-    border-radius: 25px;
-    background: #fff;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .search-container input[type="text"] {
     font-family: inherit;
     font-weight: bold;
-    width: 40px; /* Geschlossener Zustand */
+    width: 40px;
     height: 40px;
     padding: 0 10px;
     border: none;
-    box-sizing: border-box;
     border-radius: 25px;
-    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    background: transparent;
+    background: #fff;
     color: #000;
+    transition: width 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    text-align: left;
 }
 
 .search-container input[type="text"]:focus {
     outline: none;
-    width: 200px; /* Offener Zustand */
+    width: 180px;
 }
 
-/* Platzhalter Farbe */
 .search-container input::placeholder {
-    color: #999;
+    color: #000;
+    text-align: center;
 }
-	
-	button[type="reset"] {
-		background-color: transparent;
-		width: $handle-height;
-		height: $handle-height;
-		border: 0;
-		padding: 0;
-		outline: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		position: absolute;
-		top: ($size / 2) - ($handle-height / 2);
-		right: ($size / 2) - ($handle-height / 2);
-		transform: rotate(-45deg) translateY($size - $frame-thickness);
-		transition:
-			transform $close-trans-time ease-out $close-trans-time;
-		&:before, &:after {
-			content: "";
-			background-color: $frame-color;
-			width: $frame-thickness;
-			height: $handle-height;
-			position: absolute;
-		}
-		&:after {
-			transform: rotate(90deg);
-			opacity: 0;
-			transition:
-				transform $close-trans-time ease-out,
-				opacity $close-trans-time ease-out;
-		}
-	}
-}
-
 
 /* ========== SIDEBAR & MAP LAYOUT ========== */
 .sidebar-map-container {
