@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+const Parser = require('rss-parser');
+const parser = new Parser();
 
 // Statische Dateien aus dem Hauptordner servieren
 app.use(express.static('.'));
@@ -18,4 +20,16 @@ app.get('/api/incidents', async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Taskvault Node-Server läuft auf http://localhost:${PORT}`);
+});
+
+app.get('/api/news', async (req, res) => {
+    try {
+        // Beispiel: Heise Security RSS
+        const feed = await parser.parseURL('https://www.heise.de/security/rss/news-atom.xml');
+        // Wir senden nur Titel und Link an das Frontend
+        const items = feed.items.map(item => ({ title: item.title, link: item.link }));
+        res.json(items);
+    } catch (error) {
+        res.status(500).json({ error: 'News konnten nicht geladen werden' });
+    }
 });

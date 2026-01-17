@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let countryStats = {};
 
     // 2. JSON laden
-    const statsLoaded = fetch("/Prototyp_WAE_Website/data/countries_index.json")
+    const statsLoaded = fetch("../data/countries_index.json")
         .then(res => res.json())
         .then(json => {
             countryStats = json;

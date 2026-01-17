@@ -10,7 +10,7 @@ async function updateMapWithDShield() {
 
         data.forEach((incident, index) => {
             // 1. Land normalisieren
-            const countryName = normalizeCountry(incident.country);
+            const countryName = normalizeCountry(incident.country) || "Unknown";
             
             // 2. Koordinaten holen
             let coords = COUNTRY_COORDS[countryName];
@@ -20,18 +20,18 @@ async function updateMapWithDShield() {
                 coords = [Math.random() * 120 - 60, Math.random() * 300 - 150];
             }
 
-            // 4. Jitter (Streuung), damit Punkte nicht exakt übereinander liegen
+            // 4. Jitter (Streuung)
             const lat = coords[0] + (Math.random() * 4 - 2);
             const lon = coords[1] + (Math.random() * 4 - 2);
 
-            // 5. Score-Bestimmung (DShield nutzt oft 'attacks' Feld)
-            const riskScore = incident.attacks || 50;
+            // 5. Score
+            const riskScore = parseInt(incident.attacks) || 50;
 
-            // 6. Zeitversetztes Zeichnen für Live-Effekt
+            // 6. Zeitversetztes Zeichnen (Alle 2 Sekunden ein neuer Punkt/Ticker-Eintrag)
             setTimeout(() => {
                 addPointToMap(lat, lon, riskScore);
                 updateTicker(incident.ip || "Unknown", countryName);
-            }, index * 150);
+            }, index * 2000); // Erhöht auf 2000ms, damit der Ticker lesbar bleibt
         });
     } catch (e) {
         console.error("Cyber-Map Fehler:", e);
@@ -39,46 +39,39 @@ async function updateMapWithDShield() {
 }
 
 function addPointToMap(lat, lon, score) {
-    // Da das SVG direkt im HTML ist, greifen wir direkt darauf zu
     const svg = document.querySelector('svg');
     if (!svg) return;
 
-    // Farbauswahl basierend auf Risiko
-    let color = "#ffcc00"; // Niedrig (Gelb)
-    if (score > 40) color = "#ff6600"; // Mittel (Orange)
-    if (score > 80) color = "#d40000"; // Hoch (Taskvault-Rot)
+    let color = "#ffcc00"; 
+    if (score > 40) color = "#ff6600"; 
+    if (score > 80) color = "#d40000"; 
 
-    // Koordinaten-Umrechnung auf die SVG-ViewBox (hier 2000x857)
+    // Koordinaten-Umrechnung (Equirectangular Projection)
     const x = (lon + 180) * (2000 / 360);
     const y = (90 - lat) * (857 / 180);
 
-    // SVG-Element erstellen
     const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
     circle.setAttribute("cx", x);
     circle.setAttribute("cy", y);
     circle.setAttribute("r", "5");
     circle.setAttribute("fill", color);
 
-    // Animation einfügen
     circle.innerHTML = `
-        <animate attributeName="r" from="2" to="12" dur="1.5s" begin="0s" repeatCount="indefinite" />
-        <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" begin="0s" repeatCount="indefinite" />
+        <animate attributeName="r" from="2" to="12" dur="1.5s" repeatCount="indefinite" />
+        <animate attributeName="opacity" from="0.8" to="0" dur="1.5s" repeatCount="indefinite" />
     `;
 
     svg.appendChild(circle);
-
-    // Punkt nach 15 Sekunden wieder entfernen
     setTimeout(() => circle.remove(), 15000);
 }
 
 function updateTicker(ip, country) {
     const ticker = document.getElementById('cyber-ticker');
     if (ticker) {
-        const entry = ` +++ ALERT: Attack from ${ip} (${country}) +++ `;
-        ticker.textContent = entry + ticker.textContent;
+        // Wir zeigen nur den aktuellsten Alert an oder begrenzen die Länge
+        ticker.innerHTML = `<span style="color: #d40000;">[ALERT]</span> Attack from ${ip} (${country})`;
     }
 }
 
-// Initialer Start und Intervall (alle 5 Min)
 updateMapWithDShield();
 setInterval(updateMapWithDShield, 300000);

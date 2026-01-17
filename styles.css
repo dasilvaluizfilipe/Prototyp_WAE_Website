@@ -328,6 +328,34 @@ p {
     animation: ticker-animation 30s linear infinite;
 }
 
+#news-ticker-container {
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff00; /* Hacker-Grün */
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 2px solid #333;
+}
+
+#news-ticker-content a {
+    color: #00ff00;
+    text-decoration: none;
+}
+
+#tooltip {
+    position: absolute; /* Zwingend erforderlich für top/left */
+    display: none;      /* Standardmäßig aus */
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    pointer-events: none; /* Verhindert, dass der Tooltip das Mouseover flackern lässt */
+    z-index: 9999;        /* Ganz nach oben */
+    font-size: 14px;
+    
+}
+
 @keyframes ticker-animation {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
