@@ -1,0 +1,2104 @@
+{
+  "Russia": {
+    "received_total": 186,
+    "sent_total": 370,
+    "targets": {
+      "Ukraine": 70,
+      "Germany": 14,
+      "Denmark": 2,
+      "Afghanistan": 3,
+      "United Kingdom": 17,
+      "Kazakhstan": 1,
+      "USA": 74,
+      "Unknown": 34,
+      "Georgia": 12,
+      "Japan": 2,
+      "Belgium": 4,
+      "Austria": 2,
+      "Taiwan": 2,
+      "Belarus": 1,
+      "France": 9,
+      "Mongolia": 1,
+      "Poland": 10,
+      "Liechtenstein": 1,
+      "Netherlands": 6,
+      "Switzerland": 10,
+      "Spain": 5,
+      "Luxembourg": 2,
+      "Sweden": 3,
+      "India": 3,
+      "Puerto Rico": 2,
+      "Malta": 1,
+      "Iceland": 1,
+      "Finland": 3,
+      "Australia": 3,
+      "Italy": 10,
+      "Saudi Arabia": 2,
+      "Senegal": 1,
+      "China": 1,
+      "Czechia": 7,
+      "Estonia": 4,
+      "Bermuda": 1,
+      "Canada": 3,
+      "New Zealand": 2,
+      "South Africa": 1,
+      "United Arab Emirates": 1,
+      "Russia": 10,
+      "Tajikistan": 1,
+      "Israel": 2,
+      "Lithuania": 7,
+      "Portugal": 1,
+      "Moldova": 1,
+      "Norway": 2,
+      "Latvia": 1,
+      "Bulgaria": 4,
+      "Romania": 2,
+      "Slovakia": 1,
+      "Armenia": 1,
+      "Iran": 1,
+      "Montenegro": 2,
+      "Syria": 1,
+      "Turkey": 1,
+      "Kyrgyzstan": 1
+    },
+    "sources": {
+      "Ukraine": 72,
+      "Unknown": 84,
+      "China": 5,
+      "USA": 7,
+      "Russia": 10,
+      "Belarus": 1,
+      "United Kingdom": 1,
+      "Australia": 1,
+      "Turkey": 3,
+      "Netherlands": 1,
+      "Georgia": 1
+    }
+  },
+  "Ukraine": {
+    "received_total": 105,
+    "sent_total": 83,
+    "targets": {
+      "Russia": 72,
+      "Unknown": 4,
+      "Ukraine": 4,
+      "USA": 1,
+      "Poland": 1,
+      "Estonia": 1
+    },
+    "sources": {
+      "Russia": 70,
+      "Unknown": 28,
+      "Ukraine": 4,
+      "China": 2,
+      "Belarus": 1
+    }
+  },
+  "Unknown": {
+    "received_total": 379,
+    "sent_total": 1961,
+    "targets": {
+      "Germany": 95,
+      "Mexico": 22,
+      "Canada": 50,
+      "France": 84,
+      "USA": 519,
+      "Turkey": 19,
+      "Namibia": 2,
+      "Argentina": 18,
+      "New Zealand": 4,
+      "Spain": 37,
+      "Croatia": 5,
+      "United Kingdom": 61,
+      "Pakistan": 18,
+      "Australia": 27,
+      "Unknown": 230,
+      "Costa Rica": 2,
+      "Switzerland": 22,
+      "Italy": 37,
+      "Singapore": 14,
+      "Hungary": 1,
+      "Moldova": 2,
+      "United Arab Emirates": 8,
+      "Peru": 3,
+      "Slovenia": 4,
+      "Japan": 37,
+      "Portugal": 5,
+      "Cyprus": 3,
+      "Russia": 84,
+      "India": 29,
+      "Hong Kong": 8,
+      "Poland": 4,
+      "Iran": 25,
+      "Israel": 57,
+      "Cambodia": 6,
+      "Netherlands": 16,
+      "Chile": 13,
+      "Uruguay": 5,
+      "Kuwait": 4,
+      "Austria": 6,
+      "Angola": 3,
+      "Indonesia": 4,
+      "Colombia": 8,
+      "Malaysia": 7,
+      "China": 21,
+      "Venezuela": 9,
+      "New Caledonia": 3,
+      "Ukraine": 28,
+      "Belgium": 21,
+      "Philippines": 14,
+      "Greece": 3,
+      "Nepal": 2,
+      "Macau": 1,
+      "South Africa": 7,
+      "Vietnam": 8,
+      "Taiwan": 18,
+      "Denmark": 11,
+      "Dominican Republic": 2,
+      "Brazil": 12,
+      "Finland": 8,
+      "Bolivia": 1,
+      "Ecuador": 4,
+      "Puerto Rico": 4,
+      "Dominica": 1,
+      "Estonia": 9,
+      "Armenia": 3,
+      "Libya": 3,
+      "Grenada": 1,
+      "Sweden": 9,
+      "Malawi": 1,
+      "Seychelles": 4,
+      "Lithuania": 3,
+      "Romania": 5,
+      "Guinea": 1,
+      "Uganda": 3,
+      "Cuba": 1,
+      "Nicaragua": 1,
+      "Liechtenstein": 1,
+      "Cameroon": 1,
+      "Albania": 1,
+      "Jordan": 3,
+      "Czechia": 2,
+      "Lebanon": 3,
+      "Serbia": 1,
+      "Bosnia and Herzegovina": 3,
+      "Trinidad and Tobago": 1,
+      "Bahrain": 2,
+      "Bangladesh": 6,
+      "Guatemala": 2,
+      "Uzbekistan": 2,
+      "Slovakia": 4,
+      "Latvia": 2,
+      "Sri Lanka": 3,
+      "Norway": 6,
+      "Senegal": 1,
+      "Kenya": 3,
+      "Iraq": 1,
+      "Martinique": 1,
+      "Ethiopia": 1,
+      "Thailand": 7,
+      "Iceland": 2,
+      "Azerbaijan": 2,
+      "Morocco": 2,
+      "Tonga": 1,
+      "Belarus": 4,
+      "Saudi Arabia": 6,
+      "Syria": 9,
+      "Afghanistan": 4,
+      "El Salvador": 2,
+      "Georgia": 1,
+      "Bulgaria": 1,
+      "Gabon": 3,
+      "Qatar": 3,
+      "Luxembourg": 1,
+      "Montenegro": 1,
+      "Egypt": 7,
+      "Zimbabwe": 3,
+      "Paraguay": 1,
+      "Rwanda": 1,
+      "Ireland": 2,
+      "Nigeria": 3,
+      "Myanmar": 2,
+      "Turkmenistan": 1,
+      "Tunisia": 3,
+      "Honduras": 2,
+      "Nauru": 1,
+      "Eswatini": 1,
+      "Mongolia": 1,
+      "Guyana": 1,
+      "Maldives": 1,
+      "Yemen": 2
+    },
+    "sources": {
+      "China": 59,
+      "Unknown": 230,
+      "Russia": 34,
+      "Australia": 2,
+      "USA": 9,
+      "Iran": 15,
+      "Ukraine": 4,
+      "United Arab Emirates": 1,
+      "Pakistan": 1,
+      "Belarus": 1,
+      "Canada": 1,
+      "Turkey": 3,
+      "Vietnam": 2,
+      "Syria": 4,
+      "Saudi Arabia": 1,
+      "Lebanon": 2,
+      "United Kingdom": 4,
+      "Israel": 4,
+      "France": 1,
+      "Japan": 1
+    }
+  },
+  "Germany": {
+    "received_total": 125,
+    "sent_total": 6,
+    "targets": {
+      "Germany": 3,
+      "Afghanistan": 1,
+      "Turkey": 1,
+      "Congo": 1
+    },
+    "sources": {
+      "Unknown": 95,
+      "Russia": 14,
+      "Indonesia": 1,
+      "China": 6,
+      "Turkey": 1,
+      "Iran": 2,
+      "Germany": 3,
+      "United Kingdom": 2,
+      "Vietnam": 1
+    }
+  },
+  "USA": {
+    "received_total": 769,
+    "sent_total": 62,
+    "targets": {
+      "China": 10,
+      "USA": 17,
+      "Russia": 7,
+      "Spain": 1,
+      "Unknown": 9,
+      "Iran": 5,
+      "Turkey": 2,
+      "Syria": 1,
+      "Belgium": 2,
+      "Lebanon": 1,
+      "Afghanistan": 1,
+      "Netherlands": 1,
+      "Bahamas": 1,
+      "Israel": 1,
+      "France": 1,
+      "Qatar": 1,
+      "Greece": 1
+    },
+    "sources": {
+      "Unknown": 519,
+      "Russia": 74,
+      "China": 89,
+      "USA": 17,
+      "Malaysia": 1,
+      "Sudan": 4,
+      "Iran": 31,
+      "Greece": 1,
+      "Vietnam": 1,
+      "Ukraine": 1,
+      "Switzerland": 1,
+      "Turkey": 5,
+      "Israel": 1,
+      "Lebanon": 1,
+      "Saudi Arabia": 1,
+      "Pakistan": 2,
+      "Qatar": 1,
+      "Algeria": 1,
+      "India": 2,
+      "Yemen": 1,
+      "Syria": 7,
+      "Indonesia": 1,
+      "United Kingdom": 2,
+      "Bangladesh": 1,
+      "Portugal": 1,
+      "France": 1,
+      "Iraq": 1,
+      "Brazil": 1
+    }
+  },
+  "China": {
+    "received_total": 59,
+    "sent_total": 340,
+    "targets": {
+      "Chile": 1,
+      "China": 18,
+      "Unknown": 59,
+      "Japan": 19,
+      "Paraguay": 1,
+      "India": 15,
+      "Singapore": 2,
+      "Canada": 5,
+      "Thailand": 1,
+      "USA": 89,
+      "Taiwan": 22,
+      "Italy": 1,
+      "Russia": 5,
+      "Australia": 10,
+      "Hong Kong": 11,
+      "United Kingdom": 9,
+      "Belgium": 3,
+      "Germany": 6,
+      "New Zealand": 1,
+      "New Caledonia": 1,
+      "Netherlands": 2,
+      "Philippines": 7,
+      "Cambodia": 4,
+      "Guyana": 1,
+      "Mongolia": 3,
+      "Kenya": 2,
+      "Spain": 2,
+      "Poland": 1,
+      "Vietnam": 4,
+      "Serbia": 1,
+      "Ecuador": 1,
+      "Iran": 2,
+      "Ukraine": 2,
+      "Afghanistan": 3,
+      "Indonesia": 2,
+      "Laos": 1,
+      "France": 5,
+      "Myanmar": 5,
+      "Norway": 3,
+      "Turkey": 2,
+      "Malaysia": 1,
+      "Cyprus": 1,
+      "Kazakhstan": 1,
+      "Lithuania": 1,
+      "Sweden": 1,
+      "Brazil": 1,
+      "Austria": 1,
+      "Israel": 1
+    },
+    "sources": {
+      "USA": 10,
+      "China": 18,
+      "Unknown": 21,
+      "Russia": 1,
+      "India": 2,
+      "Philippines": 2,
+      "Indonesia": 1,
+      "Turkey": 1,
+      "Pakistan": 1,
+      "Vietnam": 1,
+      "Taiwan": 1
+    }
+  },
+  "Mexico": {
+    "received_total": 29,
+    "sent_total": 7,
+    "targets": {
+      "Mexico": 6,
+      "Venezuela": 1
+    },
+    "sources": {
+      "Unknown": 22,
+      "Mexico": 6,
+      "Pakistan": 1
+    }
+  },
+  "Canada": {
+    "received_total": 65,
+    "sent_total": 2,
+    "targets": {
+      "Unknown": 1,
+      "Canada": 1
+    },
+    "sources": {
+      "Unknown": 50,
+      "China": 5,
+      "India": 1,
+      "Russia": 3,
+      "Iran": 1,
+      "Saudi Arabia": 1,
+      "Ethiopia": 1,
+      "Syria": 1,
+      "Lebanon": 1,
+      "Canada": 1
+    }
+  },
+  "France": {
+    "received_total": 106,
+    "sent_total": 3,
+    "targets": {
+      "France": 1,
+      "Unknown": 1,
+      "USA": 1
+    },
+    "sources": {
+      "Unknown": 84,
+      "Russia": 9,
+      "Malaysia": 1,
+      "France": 1,
+      "Turkey": 2,
+      "Bangladesh": 1,
+      "Iran": 1,
+      "China": 5,
+      "Syria": 1,
+      "USA": 1
+    }
+  },
+  "Chile": {
+    "received_total": 18,
+    "sent_total": 4,
+    "targets": {
+      "Bolivia": 1,
+      "Chile": 3
+    },
+    "sources": {
+      "China": 1,
+      "Unknown": 13,
+      "Chile": 3,
+      "Peru": 1
+    }
+  },
+  "Turkey": {
+    "received_total": 48,
+    "sent_total": 49,
+    "targets": {
+      "Turkey": 16,
+      "France": 2,
+      "Germany": 1,
+      "Israel": 3,
+      "Netherlands": 2,
+      "USA": 5,
+      "Unknown": 3,
+      "Cyprus": 1,
+      "Egypt": 1,
+      "Greece": 2,
+      "India": 1,
+      "Denmark": 1,
+      "Austria": 2,
+      "Sweden": 2,
+      "Armenia": 2,
+      "Russia": 3,
+      "China": 1,
+      "Philippines": 1
+    },
+    "sources": {
+      "Unknown": 19,
+      "Turkey": 16,
+      "Iran": 2,
+      "China": 2,
+      "Greece": 1,
+      "USA": 2,
+      "Russia": 1,
+      "Armenia": 1,
+      "Syria": 1,
+      "Germany": 1,
+      "Qatar": 1,
+      "Sweden": 1
+    }
+  },
+  "Namibia": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 2
+    }
+  },
+  "Serbia": {
+    "received_total": 5,
+    "sent_total": 4,
+    "targets": {
+      "Serbia": 3,
+      "Albania": 1
+    },
+    "sources": {
+      "Serbia": 3,
+      "Unknown": 1,
+      "China": 1
+    }
+  },
+  "Argentina": {
+    "received_total": 20,
+    "sent_total": 2,
+    "targets": {
+      "Argentina": 2
+    },
+    "sources": {
+      "Unknown": 18,
+      "Argentina": 2
+    }
+  },
+  "New Zealand": {
+    "received_total": 7,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 4,
+      "China": 1,
+      "Russia": 2
+    }
+  },
+  "Iran": {
+    "received_total": 55,
+    "sent_total": 154,
+    "targets": {
+      "Israel": 38,
+      "United Arab Emirates": 4,
+      "Sweden": 1,
+      "Iraq": 2,
+      "Australia": 3,
+      "Algeria": 1,
+      "USA": 31,
+      "Belgium": 1,
+      "Albania": 3,
+      "Sudan": 1,
+      "Unknown": 15,
+      "Ireland": 1,
+      "Saudi Arabia": 13,
+      "Brazil": 1,
+      "Germany": 2,
+      "Iran": 14,
+      "India": 1,
+      "France": 1,
+      "Egypt": 1,
+      "United Kingdom": 5,
+      "Lebanon": 1,
+      "Canada": 1,
+      "Bahrain": 3,
+      "Pakistan": 2,
+      "Turkey": 2,
+      "Kuwait": 3,
+      "Italy": 1,
+      "Syria": 1,
+      "Austria": 1
+    },
+    "sources": {
+      "Unknown": 25,
+      "Israel": 3,
+      "Iran": 14,
+      "China": 2,
+      "Albania": 1,
+      "USA": 5,
+      "Russia": 1,
+      "Saudi Arabia": 3,
+      "Netherlands": 1
+    }
+  },
+  "Israel": {
+    "received_total": 118,
+    "sent_total": 13,
+    "targets": {
+      "Lebanon": 2,
+      "Iran": 3,
+      "USA": 1,
+      "Unknown": 4,
+      "United Arab Emirates": 1,
+      "Saudi Arabia": 1,
+      "Syria": 1
+    },
+    "sources": {
+      "Iran": 38,
+      "Unknown": 57,
+      "Turkey": 3,
+      "Jordan": 1,
+      "Russia": 2,
+      "Lebanon": 2,
+      "Malaysia": 1,
+      "Syria": 2,
+      "Bangladesh": 3,
+      "Tunisia": 1,
+      "Pakistan": 2,
+      "Saudi Arabia": 2,
+      "China": 1,
+      "Egypt": 2,
+      "USA": 1
+    }
+  },
+  "Spain": {
+    "received_total": 49,
+    "sent_total": 4,
+    "targets": {
+      "Spain": 4
+    },
+    "sources": {
+      "Unknown": 37,
+      "Russia": 5,
+      "Spain": 4,
+      "USA": 1,
+      "China": 2
+    }
+  },
+  "Denmark": {
+    "received_total": 15,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 2,
+      "Unknown": 11,
+      "Sudan": 1,
+      "Turkey": 1
+    }
+  },
+  "Croatia": {
+    "received_total": 5,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 5
+    }
+  },
+  "United Kingdom": {
+    "received_total": 105,
+    "sent_total": 15,
+    "targets": {
+      "Russia": 1,
+      "Unknown": 4,
+      "Germany": 2,
+      "United Kingdom": 3,
+      "USA": 2,
+      "Afghanistan": 1,
+      "Yemen": 1,
+      "Belgium": 1
+    },
+    "sources": {
+      "Unknown": 61,
+      "Russia": 17,
+      "China": 9,
+      "Sudan": 1,
+      "Iran": 5,
+      "Saudi Arabia": 1,
+      "Tunisia": 2,
+      "Philippines": 1,
+      "United Kingdom": 3,
+      "Bahrain": 1,
+      "Syria": 3,
+      "Pakistan": 1
+    }
+  },
+  "Pakistan": {
+    "received_total": 50,
+    "sent_total": 45,
+    "targets": {
+      "Afghanistan": 1,
+      "India": 30,
+      "Unknown": 1,
+      "Egypt": 1,
+      "Pakistan": 4,
+      "USA": 2,
+      "China": 1,
+      "Mexico": 1,
+      "Israel": 2,
+      "United Kingdom": 1,
+      "Sweden": 1
+    },
+    "sources": {
+      "Unknown": 18,
+      "India": 22,
+      "Iran": 2,
+      "Pakistan": 4,
+      "Afghanistan": 2,
+      "Bangladesh": 1,
+      "Saudi Arabia": 1
+    }
+  },
+  "Afghanistan": {
+    "received_total": 14,
+    "sent_total": 2,
+    "targets": {
+      "Pakistan": 2
+    },
+    "sources": {
+      "Pakistan": 1,
+      "Russia": 3,
+      "China": 3,
+      "Unknown": 4,
+      "Germany": 1,
+      "United Kingdom": 1,
+      "USA": 1
+    }
+  },
+  "Japan": {
+    "received_total": 58,
+    "sent_total": 1,
+    "targets": {
+      "Unknown": 1
+    },
+    "sources": {
+      "China": 19,
+      "Unknown": 37,
+      "Russia": 2
+    }
+  },
+  "Australia": {
+    "received_total": 44,
+    "sent_total": 4,
+    "targets": {
+      "Unknown": 2,
+      "Australia": 1,
+      "Russia": 1
+    },
+    "sources": {
+      "Unknown": 27,
+      "Iran": 3,
+      "China": 10,
+      "Russia": 3,
+      "Australia": 1
+    }
+  },
+  "Costa Rica": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 2
+    }
+  },
+  "Kazakhstan": {
+    "received_total": 5,
+    "sent_total": 5,
+    "targets": {
+      "Tajikistan": 1,
+      "Uzbekistan": 1,
+      "Kazakhstan": 3
+    },
+    "sources": {
+      "Russia": 1,
+      "Kazakhstan": 3,
+      "China": 1
+    }
+  },
+  "Paraguay": {
+    "received_total": 3,
+    "sent_total": 1,
+    "targets": {
+      "Paraguay": 1
+    },
+    "sources": {
+      "China": 1,
+      "Unknown": 1,
+      "Paraguay": 1
+    }
+  },
+  "Switzerland": {
+    "received_total": 33,
+    "sent_total": 1,
+    "targets": {
+      "USA": 1
+    },
+    "sources": {
+      "Unknown": 22,
+      "Russia": 10,
+      "Libya": 1
+    }
+  },
+  "Italy": {
+    "received_total": 54,
+    "sent_total": 6,
+    "targets": {
+      "Italy": 5,
+      "India": 1
+    },
+    "sources": {
+      "Unknown": 37,
+      "Italy": 5,
+      "China": 1,
+      "Russia": 10,
+      "Iran": 1
+    }
+  },
+  "Algeria": {
+    "received_total": 2,
+    "sent_total": 4,
+    "targets": {
+      "Morocco": 1,
+      "Jordan": 1,
+      "USA": 1,
+      "Algeria": 1
+    },
+    "sources": {
+      "Iran": 1,
+      "Algeria": 1
+    }
+  },
+  "Morocco": {
+    "received_total": 6,
+    "sent_total": 9,
+    "targets": {
+      "Morocco": 3,
+      "South Africa": 3,
+      "Nigeria": 2,
+      "Angola": 1
+    },
+    "sources": {
+      "Algeria": 1,
+      "Unknown": 2,
+      "Morocco": 3
+    }
+  },
+  "Singapore": {
+    "received_total": 18,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 14,
+      "China": 2,
+      "India": 1,
+      "Lebanon": 1
+    }
+  },
+  "Indonesia": {
+    "received_total": 8,
+    "sent_total": 4,
+    "targets": {
+      "Germany": 1,
+      "India": 1,
+      "China": 1,
+      "USA": 1
+    },
+    "sources": {
+      "Unknown": 4,
+      "China": 2,
+      "Bangladesh": 1,
+      "Brazil": 1
+    }
+  },
+  "Hungary": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "India": {
+    "received_total": 91,
+    "sent_total": 35,
+    "targets": {
+      "Bangladesh": 3,
+      "Singapore": 1,
+      "Maldives": 1,
+      "Canada": 1,
+      "Pakistan": 22,
+      "China": 2,
+      "India": 2,
+      "USA": 2,
+      "Sri Lanka": 1
+    },
+    "sources": {
+      "China": 15,
+      "Unknown": 29,
+      "Pakistan": 30,
+      "Russia": 3,
+      "Indonesia": 1,
+      "Iran": 1,
+      "Turkey": 1,
+      "Bangladesh": 6,
+      "India": 2,
+      "Vietnam": 1,
+      "Yemen": 1,
+      "Italy": 1
+    }
+  },
+  "Moldova": {
+    "received_total": 3,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 2,
+      "Russia": 1
+    }
+  },
+  "United Arab Emirates": {
+    "received_total": 20,
+    "sent_total": 5,
+    "targets": {
+      "Unknown": 1,
+      "United Arab Emirates": 3,
+      "Qatar": 1
+    },
+    "sources": {
+      "Unknown": 8,
+      "Iran": 4,
+      "Yemen": 2,
+      "Russia": 1,
+      "United Arab Emirates": 3,
+      "Saudi Arabia": 1,
+      "Israel": 1
+    }
+  },
+  "Peru": {
+    "received_total": 7,
+    "sent_total": 6,
+    "targets": {
+      "Peru": 4,
+      "Venezuela": 1,
+      "Chile": 1
+    },
+    "sources": {
+      "Unknown": 3,
+      "Peru": 4
+    }
+  },
+  "Slovenia": {
+    "received_total": 4,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 4
+    }
+  },
+  "Georgia": {
+    "received_total": 13,
+    "sent_total": 1,
+    "targets": {
+      "Russia": 1
+    },
+    "sources": {
+      "Russia": 12,
+      "Unknown": 1
+    }
+  },
+  "Portugal": {
+    "received_total": 7,
+    "sent_total": 2,
+    "targets": {
+      "Angola": 1,
+      "USA": 1
+    },
+    "sources": {
+      "Unknown": 5,
+      "Brazil": 1,
+      "Russia": 1
+    }
+  },
+  "Cyprus": {
+    "received_total": 5,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 3,
+      "Turkey": 1,
+      "China": 1
+    }
+  },
+  "Hong Kong": {
+    "received_total": 19,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 8,
+      "China": 11
+    }
+  },
+  "Poland": {
+    "received_total": 18,
+    "sent_total": 2,
+    "targets": {
+      "Poland": 2
+    },
+    "sources": {
+      "Unknown": 4,
+      "Russia": 10,
+      "Poland": 2,
+      "China": 1,
+      "Ukraine": 1
+    }
+  },
+  "Thailand": {
+    "received_total": 11,
+    "sent_total": 3,
+    "targets": {
+      "Thailand": 3
+    },
+    "sources": {
+      "China": 1,
+      "Unknown": 7,
+      "Thailand": 3
+    }
+  },
+  "Belgium": {
+    "received_total": 33,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 4,
+      "Unknown": 21,
+      "China": 3,
+      "Iran": 1,
+      "Syria": 1,
+      "USA": 2,
+      "United Kingdom": 1
+    }
+  },
+  "Cambodia": {
+    "received_total": 12,
+    "sent_total": 2,
+    "targets": {
+      "Cambodia": 2
+    },
+    "sources": {
+      "Unknown": 6,
+      "China": 4,
+      "Cambodia": 2
+    }
+  },
+  "Netherlands": {
+    "received_total": 30,
+    "sent_total": 5,
+    "targets": {
+      "Netherlands": 3,
+      "Russia": 1,
+      "Iran": 1
+    },
+    "sources": {
+      "Unknown": 16,
+      "Russia": 6,
+      "Turkey": 2,
+      "China": 2,
+      "Netherlands": 3,
+      "USA": 1
+    }
+  },
+  "Lebanon": {
+    "received_total": 8,
+    "sent_total": 7,
+    "targets": {
+      "Israel": 2,
+      "Singapore": 1,
+      "USA": 1,
+      "Unknown": 2,
+      "Canada": 1
+    },
+    "sources": {
+      "Israel": 2,
+      "Unknown": 3,
+      "Iran": 1,
+      "Kuwait": 1,
+      "USA": 1
+    }
+  },
+  "Uruguay": {
+    "received_total": 5,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 5
+    }
+  },
+  "Kuwait": {
+    "received_total": 7,
+    "sent_total": 1,
+    "targets": {
+      "Lebanon": 1
+    },
+    "sources": {
+      "Unknown": 4,
+      "Iran": 3
+    }
+  },
+  "Sweden": {
+    "received_total": 20,
+    "sent_total": 1,
+    "targets": {
+      "Turkey": 1
+    },
+    "sources": {
+      "Iran": 1,
+      "Russia": 3,
+      "Unknown": 9,
+      "Sudan": 2,
+      "China": 1,
+      "Turkey": 2,
+      "Syria": 1,
+      "Pakistan": 1
+    }
+  },
+  "Austria": {
+    "received_total": 15,
+    "sent_total": 3,
+    "targets": {
+      "Austria": 3
+    },
+    "sources": {
+      "Russia": 2,
+      "Unknown": 6,
+      "Turkey": 2,
+      "Austria": 3,
+      "Iran": 1,
+      "China": 1
+    }
+  },
+  "Angola": {
+    "received_total": 5,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 3,
+      "Portugal": 1,
+      "Morocco": 1
+    }
+  },
+  "Taiwan": {
+    "received_total": 43,
+    "sent_total": 2,
+    "targets": {
+      "Philippines": 1,
+      "China": 1
+    },
+    "sources": {
+      "Russia": 2,
+      "China": 22,
+      "Unknown": 18,
+      "Philippines": 1
+    }
+  },
+  "Iraq": {
+    "received_total": 3,
+    "sent_total": 1,
+    "targets": {
+      "USA": 1
+    },
+    "sources": {
+      "Iran": 2,
+      "Unknown": 1
+    }
+  },
+  "Colombia": {
+    "received_total": 10,
+    "sent_total": 3,
+    "targets": {
+      "Venezuela": 1,
+      "Colombia": 2
+    },
+    "sources": {
+      "Unknown": 8,
+      "Colombia": 2
+    }
+  },
+  "Belarus": {
+    "received_total": 10,
+    "sent_total": 8,
+    "targets": {
+      "Belarus": 5,
+      "Unknown": 1,
+      "Russia": 1,
+      "Ukraine": 1
+    },
+    "sources": {
+      "Russia": 1,
+      "Belarus": 5,
+      "Unknown": 4
+    }
+  },
+  "Malaysia": {
+    "received_total": 9,
+    "sent_total": 5,
+    "targets": {
+      "France": 1,
+      "USA": 1,
+      "Palau": 1,
+      "Israel": 1,
+      "Malaysia": 1
+    },
+    "sources": {
+      "Unknown": 7,
+      "China": 1,
+      "Malaysia": 1
+    }
+  },
+  "Mongolia": {
+    "received_total": 5,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 1,
+      "China": 3,
+      "Unknown": 1
+    }
+  },
+  "Venezuela": {
+    "received_total": 16,
+    "sent_total": 3,
+    "targets": {
+      "Venezuela": 3
+    },
+    "sources": {
+      "Unknown": 9,
+      "Mexico": 1,
+      "Venezuela": 3,
+      "Colombia": 1,
+      "Peru": 1,
+      "Brazil": 1
+    }
+  },
+  "New Caledonia": {
+    "received_total": 4,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 3,
+      "China": 1
+    }
+  },
+  "Philippines": {
+    "received_total": 31,
+    "sent_total": 12,
+    "targets": {
+      "Philippines": 8,
+      "United Kingdom": 1,
+      "China": 2,
+      "Taiwan": 1
+    },
+    "sources": {
+      "Unknown": 14,
+      "Philippines": 8,
+      "China": 7,
+      "Taiwan": 1,
+      "Turkey": 1
+    }
+  },
+  "Bangladesh": {
+    "received_total": 11,
+    "sent_total": 18,
+    "targets": {
+      "Bangladesh": 1,
+      "Senegal": 2,
+      "France": 1,
+      "India": 6,
+      "Indonesia": 1,
+      "Pakistan": 1,
+      "Sri Lanka": 1,
+      "Israel": 3,
+      "USA": 1,
+      "Myanmar": 1
+    },
+    "sources": {
+      "Bangladesh": 1,
+      "India": 3,
+      "Unknown": 6,
+      "Myanmar": 1
+    }
+  },
+  "Greece": {
+    "received_total": 6,
+    "sent_total": 2,
+    "targets": {
+      "USA": 1,
+      "Turkey": 1
+    },
+    "sources": {
+      "Unknown": 3,
+      "Turkey": 2,
+      "USA": 1
+    }
+  },
+  "Yemen": {
+    "received_total": 4,
+    "sent_total": 5,
+    "targets": {
+      "United Arab Emirates": 2,
+      "India": 1,
+      "USA": 1,
+      "Yemen": 1
+    },
+    "sources": {
+      "Yemen": 1,
+      "Unknown": 2,
+      "United Kingdom": 1
+    }
+  },
+  "Nepal": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 2
+    }
+  },
+  "Macau": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Liechtenstein": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 1,
+      "Unknown": 1
+    }
+  },
+  "South Africa": {
+    "received_total": 11,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 7,
+      "Russia": 1,
+      "Morocco": 3
+    }
+  },
+  "Vietnam": {
+    "received_total": 18,
+    "sent_total": 13,
+    "targets": {
+      "Vietnam": 6,
+      "USA": 1,
+      "Unknown": 2,
+      "Laos": 1,
+      "India": 1,
+      "Germany": 1,
+      "China": 1
+    },
+    "sources": {
+      "Unknown": 8,
+      "China": 4,
+      "Vietnam": 6
+    }
+  },
+  "Dominican Republic": {
+    "received_total": 3,
+    "sent_total": 1,
+    "targets": {
+      "Dominican Republic": 1
+    },
+    "sources": {
+      "Unknown": 2,
+      "Dominican Republic": 1
+    }
+  },
+  "Brazil": {
+    "received_total": 17,
+    "sent_total": 8,
+    "targets": {
+      "Portugal": 1,
+      "Brazil": 3,
+      "Ecuador": 1,
+      "Indonesia": 1,
+      "Venezuela": 1,
+      "USA": 1
+    },
+    "sources": {
+      "Unknown": 12,
+      "Iran": 1,
+      "Brazil": 3,
+      "China": 1
+    }
+  },
+  "Finland": {
+    "received_total": 11,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 8,
+      "Russia": 3
+    }
+  },
+  "Bolivia": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1,
+      "Chile": 1
+    }
+  },
+  "Ecuador": {
+    "received_total": 6,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 4,
+      "China": 1,
+      "Brazil": 1
+    }
+  },
+  "Puerto Rico": {
+    "received_total": 6,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 4,
+      "Russia": 2
+    }
+  },
+  "Dominica": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Estonia": {
+    "received_total": 14,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 9,
+      "Russia": 4,
+      "Ukraine": 1
+    }
+  },
+  "Armenia": {
+    "received_total": 12,
+    "sent_total": 10,
+    "targets": {
+      "Azerbaijan": 9,
+      "Turkey": 1
+    },
+    "sources": {
+      "Unknown": 3,
+      "Russia": 1,
+      "Turkey": 2,
+      "Azerbaijan": 6
+    }
+  },
+  "Palau": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Malaysia": 1
+    }
+  },
+  "Libya": {
+    "received_total": 4,
+    "sent_total": 2,
+    "targets": {
+      "Switzerland": 1,
+      "Libya": 1
+    },
+    "sources": {
+      "Unknown": 3,
+      "Libya": 1
+    }
+  },
+  "Grenada": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Luxembourg": {
+    "received_total": 3,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 2,
+      "Unknown": 1
+    }
+  },
+  "Sudan": {
+    "received_total": 1,
+    "sent_total": 8,
+    "targets": {
+      "USA": 4,
+      "United Kingdom": 1,
+      "Denmark": 1,
+      "Sweden": 2
+    },
+    "sources": {
+      "Iran": 1
+    }
+  },
+  "Malawi": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Seychelles": {
+    "received_total": 4,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 4
+    }
+  },
+  "Lithuania": {
+    "received_total": 11,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 3,
+      "Russia": 7,
+      "China": 1
+    }
+  },
+  "Romania": {
+    "received_total": 8,
+    "sent_total": 1,
+    "targets": {
+      "Romania": 1
+    },
+    "sources": {
+      "Unknown": 5,
+      "Russia": 2,
+      "Romania": 1
+    }
+  },
+  "Malta": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 1
+    }
+  },
+  "Guinea": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Uganda": {
+    "received_total": 3,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 3
+    }
+  },
+  "Cuba": {
+    "received_total": 2,
+    "sent_total": 1,
+    "targets": {
+      "Cuba": 1
+    },
+    "sources": {
+      "Unknown": 1,
+      "Cuba": 1
+    }
+  },
+  "Iceland": {
+    "received_total": 3,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 1,
+      "Unknown": 2
+    }
+  },
+  "Nicaragua": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Cameroon": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Albania": {
+    "received_total": 5,
+    "sent_total": 1,
+    "targets": {
+      "Iran": 1
+    },
+    "sources": {
+      "Unknown": 1,
+      "Iran": 3,
+      "Serbia": 1
+    }
+  },
+  "Jordan": {
+    "received_total": 4,
+    "sent_total": 2,
+    "targets": {
+      "Israel": 1,
+      "Egypt": 1
+    },
+    "sources": {
+      "Unknown": 3,
+      "Algeria": 1
+    }
+  },
+  "Czechia": {
+    "received_total": 11,
+    "sent_total": 2,
+    "targets": {
+      "Czechia": 2
+    },
+    "sources": {
+      "Unknown": 2,
+      "Russia": 7,
+      "Czechia": 2
+    }
+  },
+  "Togo": {
+    "received_total": 2,
+    "sent_total": 2,
+    "targets": {
+      "Togo": 2
+    },
+    "sources": {
+      "Togo": 2
+    }
+  },
+  "Bosnia and Herzegovina": {
+    "received_total": 3,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 3
+    }
+  },
+  "Maldives": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "India": 1,
+      "Unknown": 1
+    }
+  },
+  "Trinidad and Tobago": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Saudi Arabia": {
+    "received_total": 25,
+    "sent_total": 13,
+    "targets": {
+      "United Kingdom": 1,
+      "Unknown": 1,
+      "USA": 1,
+      "Canada": 1,
+      "Iran": 3,
+      "Saudi Arabia": 1,
+      "United Arab Emirates": 1,
+      "Syria": 1,
+      "Israel": 2,
+      "Pakistan": 1
+    },
+    "sources": {
+      "Russia": 2,
+      "Iran": 13,
+      "Unknown": 6,
+      "Saudi Arabia": 1,
+      "Syria": 2,
+      "Israel": 1
+    }
+  },
+  "Ireland": {
+    "received_total": 3,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Iran": 1,
+      "Unknown": 2
+    }
+  },
+  "Senegal": {
+    "received_total": 4,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 1,
+      "Unknown": 1,
+      "Bangladesh": 2
+    }
+  },
+  "Bahrain": {
+    "received_total": 6,
+    "sent_total": 2,
+    "targets": {
+      "Bahrain": 1,
+      "United Kingdom": 1
+    },
+    "sources": {
+      "Unknown": 2,
+      "Bahrain": 1,
+      "Iran": 3
+    }
+  },
+  "Tajikistan": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Kazakhstan": 1,
+      "Russia": 1
+    }
+  },
+  "Guatemala": {
+    "received_total": 3,
+    "sent_total": 1,
+    "targets": {
+      "Guatemala": 1
+    },
+    "sources": {
+      "Unknown": 2,
+      "Guatemala": 1
+    }
+  },
+  "Uzbekistan": {
+    "received_total": 4,
+    "sent_total": 1,
+    "targets": {
+      "Uzbekistan": 1
+    },
+    "sources": {
+      "Unknown": 2,
+      "Kazakhstan": 1,
+      "Uzbekistan": 1
+    }
+  },
+  "Guyana": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "China": 1,
+      "Unknown": 1
+    }
+  },
+  "Slovakia": {
+    "received_total": 5,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 4,
+      "Russia": 1
+    }
+  },
+  "Bermuda": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 1
+    }
+  },
+  "Kenya": {
+    "received_total": 5,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "China": 2,
+      "Unknown": 3
+    }
+  },
+  "Latvia": {
+    "received_total": 4,
+    "sent_total": 1,
+    "targets": {
+      "Latvia": 1
+    },
+    "sources": {
+      "Unknown": 2,
+      "Russia": 1,
+      "Latvia": 1
+    }
+  },
+  "Sri Lanka": {
+    "received_total": 5,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 3,
+      "India": 1,
+      "Bangladesh": 1
+    }
+  },
+  "Norway": {
+    "received_total": 11,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 6,
+      "Russia": 2,
+      "China": 3
+    }
+  },
+  "Martinique": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Ethiopia": {
+    "received_total": 1,
+    "sent_total": 1,
+    "targets": {
+      "Canada": 1
+    },
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Egypt": {
+    "received_total": 12,
+    "sent_total": 4,
+    "targets": {
+      "Egypt": 1,
+      "Syria": 1,
+      "Israel": 2
+    },
+    "sources": {
+      "Pakistan": 1,
+      "Iran": 1,
+      "Turkey": 1,
+      "Egypt": 1,
+      "Unknown": 7,
+      "Jordan": 1
+    }
+  },
+  "Azerbaijan": {
+    "received_total": 11,
+    "sent_total": 6,
+    "targets": {
+      "Armenia": 6
+    },
+    "sources": {
+      "Unknown": 2,
+      "Armenia": 9
+    }
+  },
+  "Tonga": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Bulgaria": {
+    "received_total": 5,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 4,
+      "Unknown": 1
+    }
+  },
+  "Syria": {
+    "received_total": 18,
+    "sent_total": 27,
+    "targets": {
+      "Unknown": 4,
+      "Belgium": 1,
+      "USA": 7,
+      "France": 1,
+      "Israel": 2,
+      "United Kingdom": 3,
+      "Syria": 3,
+      "Saudi Arabia": 2,
+      "Canada": 1,
+      "Sweden": 1,
+      "Turkey": 1,
+      "Qatar": 1
+    },
+    "sources": {
+      "Unknown": 9,
+      "Russia": 1,
+      "Iran": 1,
+      "Egypt": 1,
+      "Syria": 3,
+      "Saudi Arabia": 1,
+      "USA": 1,
+      "Israel": 1
+    }
+  },
+  "Laos": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "China": 1,
+      "Vietnam": 1
+    }
+  },
+  "El Salvador": {
+    "received_total": 3,
+    "sent_total": 1,
+    "targets": {
+      "El Salvador": 1
+    },
+    "sources": {
+      "Unknown": 2,
+      "El Salvador": 1
+    }
+  },
+  "Myanmar": {
+    "received_total": 10,
+    "sent_total": 3,
+    "targets": {
+      "Myanmar": 2,
+      "Bangladesh": 1
+    },
+    "sources": {
+      "China": 5,
+      "Myanmar": 2,
+      "Unknown": 2,
+      "Bangladesh": 1
+    }
+  },
+  "Gabon": {
+    "received_total": 3,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 3
+    }
+  },
+  "Qatar": {
+    "received_total": 6,
+    "sent_total": 2,
+    "targets": {
+      "USA": 1,
+      "Turkey": 1
+    },
+    "sources": {
+      "Unknown": 3,
+      "United Arab Emirates": 1,
+      "Syria": 1,
+      "USA": 1
+    }
+  },
+  "Montenegro": {
+    "received_total": 3,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Russia": 2,
+      "Unknown": 1
+    }
+  },
+  "Tunisia": {
+    "received_total": 4,
+    "sent_total": 4,
+    "targets": {
+      "United Kingdom": 2,
+      "Israel": 1,
+      "Tunisia": 1
+    },
+    "sources": {
+      "Unknown": 3,
+      "Tunisia": 1
+    }
+  },
+  "Zimbabwe": {
+    "received_total": 3,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 3
+    }
+  },
+  "Rwanda": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Nigeria": {
+    "received_total": 7,
+    "sent_total": 2,
+    "targets": {
+      "Nigeria": 2
+    },
+    "sources": {
+      "Unknown": 3,
+      "Nigeria": 2,
+      "Morocco": 2
+    }
+  },
+  "Turkmenistan": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Honduras": {
+    "received_total": 2,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 2
+    }
+  },
+  "Nauru": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Eswatini": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Unknown": 1
+    }
+  },
+  "Kyrgyzstan": {
+    "received_total": 2,
+    "sent_total": 1,
+    "targets": {
+      "Kyrgyzstan": 1
+    },
+    "sources": {
+      "Russia": 1,
+      "Kyrgyzstan": 1
+    }
+  },
+  "Panama": {
+    "received_total": 1,
+    "sent_total": 1,
+    "targets": {
+      "Panama": 1
+    },
+    "sources": {
+      "Panama": 1
+    }
+  },
+  "Bahamas": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "USA": 1
+    }
+  },
+  "Congo": {
+    "received_total": 1,
+    "sent_total": 0,
+    "targets": {},
+    "sources": {
+      "Germany": 1
+    }
+  }
+}

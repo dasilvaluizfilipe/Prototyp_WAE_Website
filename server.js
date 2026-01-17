@@ -7,20 +7,33 @@ const parser = new Parser();
 // Statische Dateien aus dem Hauptordner servieren
 app.use(express.static('.'));
 
-// API Proxy für DShield
 app.get('/api/incidents', async (req, res) => {
     try {
-        const response = await fetch('https://isc.sans.edu/api/sources/shorthostnames/100?json');
-        const data = await response.json();
-        res.json(data);
+        const response = await fetch('https://api.abuseipdb.com/api/v2/check');
+        const text = await response.text();
+        
+        // CSV zu JSON konvertieren
+        const lines = text.trim().split('\n');
+        const data = lines.map(line => {
+            const parts = line.split(',');
+            return {
+                ip: parts[0] || "Unknown",
+                country: parts[1] ,
+                count: Math.floor(Math.random() * 100) + 20 // Simulation der Intensität
+            };
+        });
+
+        res.json(data.slice(0, 50)); // Nur die ersten 50 für bessere Performance
     } catch (err) {
-        res.status(500).json({ error: 'API Error' });
+        res.status(500).json({ error: "HackerTarget API Fehler" });
     }
 });
 
 app.listen(PORT, () => {
     console.log(`Taskvault Node-Server läuft auf http://localhost:${PORT}`);
 });
+
+app.listen(PORT, () => console.log(`Server läuft auf http://localhost:${PORT}`));
 
 app.get('/api/news', async (req, res) => {
     try {

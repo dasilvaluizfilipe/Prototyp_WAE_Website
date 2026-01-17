@@ -352,8 +352,13 @@ p {
     border-radius: 4px;
     pointer-events: none; /* Verhindert, dass der Tooltip das Mouseover flackern lässt */
     z-index: 9999;        /* Ganz nach oben */
-    font-size: 14px;
-    
+    font-size: 14px;  
+}
+
+.attack-arrow {
+    filter: drop-shadow(0 0 2px rgba(255, 0, 0, 0.8));
+    stroke-linecap: round;
+    opacity: 0.9;
 }
 
 @keyframes ticker-animation {
