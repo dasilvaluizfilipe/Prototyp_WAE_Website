@@ -19,7 +19,7 @@
                 <li><a href="/about">About us</a></li>
             </ul>
             <div class="nav-right">
-        <button id="dark-mode-toggle">Mode</button>
+        <button id="dark-mode-toggle">Dark</button>
         <div class="search-container">
             <input type="text" placeholder="Suchen...">
         </div>
@@ -1083,28 +1083,5 @@
     <script type="module" src="../js/darkmode.js"></script>
     <script type="module" src="../js/cyberticker.js"></script>
 
-<script>
-    const toggleBtn = document.getElementById('dark-mode-toggle');
-const body = document.body;
-
-// Prüfen, ob beim letzten Besuch der Darkmode aktiviert wurde
-if (localStorage.getItem('dark-mode') === 'enabled') {
-    body.classList.add('dark-mode');
-    toggleBtn.textContent = 'Light Mode';
-}
-
-toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    
-    // Status in localStorage speichern und Button-Text anpassen
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('dark-mode', 'enabled');
-        toggleBtn.textContent = 'Light Mode';
-    } else {
-        localStorage.setItem('dark-mode', 'disabled');
-        toggleBtn.textContent = 'Dark Mode';
-    }
-});
-</script>
 </body>
 </html>

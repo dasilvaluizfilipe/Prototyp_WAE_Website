@@ -253,6 +253,7 @@ section {
 }
 
 #mapObject {
+    background: var(--section-bg);
     margin: 0;
     display: block;
     width: 100%;
