@@ -307,41 +307,78 @@ p {
 
 .ticker-wrap {
     width: 100%;
+    height: 50px;           /* Feste Höhe für Zentrierung */
     background: #000;
-    color: var(--accent-red);
     overflow: hidden;
-    padding: 10px 0;
-}
-
-#cyber-ticker {
-    white-space: nowrap;
-    overflow: hidden;
-    background: #000;
-    color: #d40000;
-    padding: 10px;
-    font-family: monospace;
+    position: relative;
+    display: flex;          /* Ermöglicht Zentrierung */
+    align-items: center;    /* Vertikal zentrieren */
     border-bottom: 1px solid #333;
 }
 
-.ticker {
+#cyber-ticker {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
     white-space: nowrap;
-    display: inline-block;
-    animation: ticker-animation 30s linear infinite;
+    will-change: transform;
+    background: #000;
+    color: #d40000;         /* Taskvault Rot */
+    font-family: monospace;
+    font-size: 16px;
+    padding: 0 10px;
 }
 
+/* Klasse für die einzelnen Einträge innerhalb des Tickers */
+.ticker-entry {
+    display: inline-block;
+    padding-right: 100px;   /* Abstand zwischen den Alerts */
+}
+
+.ticker {
+
+    white-space: nowrap;
+
+    display: inline-block;
+
+    animation: ticker-animation 60s linear infinite;
+
+}
+
+/* News Ticker Container */
 #news-ticker-container {
     background: rgba(0, 0, 0, 0.8);
-    color: #00ff00; /* Hacker-Grün */
+    color: #00ff00;
     padding: 10px;
     font-family: 'Courier New', monospace;
     overflow: hidden;
     white-space: nowrap;
     border-top: 2px solid #333;
+    width: 100%;
+}
+
+/* Der Inhalt, der ganz rechts startet */
+#news-ticker-content {
+    display: inline-block;
+    padding-left: 100%; /* Schiebt den Text initial komplett nach rechts */
+    animation: news-animation 60s linear infinite;
 }
 
 #news-ticker-content a {
     color: #00ff00;
     text-decoration: none;
+    margin-right: 50px; /* Abstand zwischen den News-Links */
+}
+
+/* Eigene Animation für den News-Ticker */
+@keyframes news-animation {
+    0% {
+        transform: translateX(0); /* Startet bei 100% padding-left */
+    }
+    100% {
+        transform: translateX(-100%); /* Läuft bis er links komplett verschwunden ist */
+    }
 }
 
 #tooltip {
@@ -362,10 +399,6 @@ p {
     opacity: 0.9;
 }
 
-@keyframes ticker-animation {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
 
 /* ========== FOOTER ========== */
 footer {
