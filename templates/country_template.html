@@ -15,10 +15,10 @@
     <nav>
         <div class="logo">CYBER</div>
         <ul>
-            <li><a href="./index.html">Startseite</a></li>
-            <li><a href="./htmlsheets/Karte.html">Map</a></li>
+            <li><a href="../index.html">Startseite</a></li>
+            <li><a href="../htmlsheets/Karte.html">Map</a></li>
             <li><a href="/Analyse">Analyse</a></li>
-            <li><a href="./htmlsheets/Cyberhub.html">Cyberhub</a></li>
+            <li><a href="../htmlsheets/Cyberhub.html">Cyberhub</a></li>
             <li><a href="/about us">About us</a></li>
         </ul>
         <div class="nav-right">
@@ -43,7 +43,35 @@
             <p id="country-description"></p>
         </div>
     </div> <!-- /page-wrapper -->
+    <div id="country-data"></div>
     <!-- Alles in DIESEM Container, nicht außerhalb -->
+
+    <div class="chart-area" id="chart-area">
+
+        <div class="chart-area" id="chart-area">
+
+            <h2>Visualisierungen</h2>
+
+            <div class="chart-box">
+                <h3>Angriffe pro Jahr</h3>
+                <canvas id="chartTimeline"></canvas>
+            </div>
+
+            <div class="chart-box">
+                <h3>Angriffsarten</h3>
+                <canvas id="chartTypes"></canvas>
+            </div>
+
+            <div class="chart-box">
+                <h3>Initiatoren</h3>
+                <canvas id="chartInitiators"></canvas>
+            </div>
+
+        </div>
+
+
+    </div>
+
     <div class="sidebar-map-container">
 
         <aside class="sidebar">
@@ -119,37 +147,30 @@
 
 
 
-        <div id="country-data"></div>
+        
 
 
 
     </div> <!-- /sidebar-map-container -->
 
-    <div class="chart-area" id="chart-area">
-
-        <div class="chart-area" id="chart-area">
-
-            <h2>Visualisierungen</h2>
-
-            <div class="chart-box">
-                <h3>Angriffe pro Jahr</h3>
-                <canvas id="chartTimeline"></canvas>
-            </div>
-
-            <div class="chart-box">
-                <h3>Angriffsarten</h3>
-                <canvas id="chartTypes"></canvas>
-            </div>
-
-            <div class="chart-box">
-                <h3>Initiatoren</h3>
-                <canvas id="chartInitiators"></canvas>
-            </div>
-
-        </div>
-
-
+    <footer class="Startseite_footer">
+     <div class="ticker-wrap">
+    <div class="ticker" id="cyber-ticker">
+        Cyber Security News
+        <div id="news-ticker-content">Lade Security News...</div>
     </div>
+</div>
+    <div class="Startseite_footer_nav">
+        <nav>
+            <ul>
+                <li>
+                    <a href="Impressum"> Impressum </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+
     <!-- 1. Chart.js global -->
     <script src="../js/chart.umd.js"></script>
 
@@ -159,6 +180,7 @@
     <script type="module" src="../js/country_template.js"></script>
    
     <script src="../js/darkmode.js"></script>
+    <script type="module" src="../js/news.js"></script>
 
 <script>
     const toggleBtn = document.getElementById('dark-mode-toggle');

@@ -167,7 +167,7 @@ function renderCharts(rows, header) {
 
 async function loadCountryData(countryName) {
 
-    const response = await fetch("/Prototyp_WAE_Website/data/cyber_incidents_light.csv");
+    const response = await fetch("../data/cyber_incidents_light.csv");
     const text = await response.text();
 
     const lines = text.split("\n").filter(l => l.trim().length > 0);

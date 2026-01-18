@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Weiterleiten
             window.location.href =
-                `/Prototyp_WAE_Website/templates/country_template.html?code=${encodeURIComponent(urlCode)}`;
+                `../templates/country_template.html?code=${encodeURIComponent(urlCode)}`;
         });
     });
 });
